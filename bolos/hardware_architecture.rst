@@ -1,5 +1,3 @@
-.. _bolos-hardware-architecture:
-
 Hardware architecture
 =====================
 
@@ -13,7 +11,7 @@ In BOLOS architecture, everything is done to empower application with full contr
 .. _app-centric-view:
 
 .. figure:: /images/bolos_fig01.png
-   :alt: application centric view
+   :alt: Application centric view
    
    Application centric view
 
@@ -30,16 +28,20 @@ BOLOS defines a two layer delegation model. Firstly, once it runs the applicatio
 
 Featuring these two key points, applications are in charge on the device. And it allows them to customize not only the display, but user input actions, and by extension, the way the device is enumerated on USB. If an application requires a Mass Storage emulation, or being seen as a WinUSB peripheral, it’s only a matter of event processing.
 
-.. image:: /images/bolos_fig02.png
-Figure 2: USB delegation overview
+.. figure:: /images/bolos_fig02.png
+   :alt: USB delegation overview
+
+   USB delegation overview
 
 Closer look, multiple processors, Secure Element proxy
 ------------------------------------------------------
 
 After the previous overview let’s dive into the actual hardware architecture supporting BOLOS.
 
-.. image:: /images/bolos_fig03.png
-Figure 3: detailed BOLOS architecture
+.. figure:: /images/bolos_fig03.png
+   :alt: Detailed BOLOS architecture
+
+   Detailed BOLOS architecture
 
 BOLOS is split on 2 hardware chips, one being secure, the other having JTAG enabled and acting as a proxy. 
 
@@ -59,8 +61,10 @@ The protocol works as follows:
 2. SE optionally issues a list of commands in response to the event
 3. SE issues a status indicating the event is fully processed and waits for another event
 
-.. image:: /images/bolos_fig04.png
-Figure 4: SEPROXYHAL protocol concept
+.. figure:: /images/bolos_fig04.png
+   :alt: SEPROXYHAL protocol concept
+
+   SEPROXYHAL protocol concept
 
 As a matter of fact, and due to buffer size, display requests are sent using status. Therefore, displaying multiple elements on the screen requires an asynchronous process sending display statuses, and waiting for displayed events. 
 
@@ -69,7 +73,7 @@ The SE throws an exception to applications willing to send more than one status 
 Isolated single task model
 --------------------------
 
-Due to its limited ram size, the Secure Element is designed to only support one application running at a time. However, and for internationalization/customization purpose, the BOLOS Loader task is split in two parts : the logic/security scheme and the presentation/user interaction layer. The latter is called BOLOS UX.
+Due to its limited ram size, the Secure Element is designed to only support one application running at a time. However, and for internationalization/customization purpose, the BOLOS Loader task is split in two parts: the logic/security scheme and the presentation/user interaction layer. The latter is called BOLOS UX.
 
 BOLOS UX offers quite a few display primitives that are usable by the user.
 

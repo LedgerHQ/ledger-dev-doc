@@ -3,21 +3,18 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to Ledger's documentation!
-==================================
+=====================================
+Welcome to Ledger's Documentation hub
+=====================================
 
-Contents:
+The Ledger developer documentation is available here
+
+.. note:: This documentation is in Alpha phase. Please bear with us while we are enriching it.
+
+Documentation Content
+=====================
 
 .. toctree::
    :maxdepth: 2
 
-* :ref:`bolos`
-
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
-
+   bolos/index

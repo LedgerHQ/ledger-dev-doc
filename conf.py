@@ -49,8 +49,8 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'Ledger'
-copyright = u'2016, Nicolas Bacca, Olivier Tomaz, Cédric Mesnil, Eric Larchevêque'
-author = u'Nicolas Bacca, Olivier Tomaz, Cédric Mesnil, Eric Larchevêque'
+copyright = u'2016, Ledger Team'
+author = u'Ledger Team'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the

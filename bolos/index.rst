@@ -1,6 +1,8 @@
-.. _bolos:
-
 BOLOS Documentation
 ===================
 
-* :ref:`bolos-hardware-architecture`
+.. toctree::
+   :maxdepth: 2
+
+   introduction
+   hardware_architecture
