@@ -7,14 +7,23 @@
 Welcome to Ledger's Documentation hub
 =====================================
 
-The Ledger developer documentation is available here
+.. note:: This documentation is intented for developers only and not general users.
 
-.. note:: This documentation is in Alpha phase. Please bear with us while we are enriching it.
+Ledger is producing personal security devices such as Nano S and Blue, both architected around a Secure Element and the BOLOS platform.
+
+This documentation contains all the information to build apps for these devices.
 
 Documentation Content
 =====================
 
 .. toctree::
    :maxdepth: 2
+   :caption: Ledger Nano S
 
+   nanos/setup
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Core Documentation
+   
    bolos/index
