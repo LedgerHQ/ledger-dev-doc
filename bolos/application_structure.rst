@@ -41,7 +41,7 @@ To make dealing with an asynchronous loop to request the display of User Interfa
         This macro is to be called when starting the application and prior to sending the first display status.
 
     ``UX_DISPLAY``
-        This macro takes an array of elements to be displayed and renders them. It is to be called when a new screen is to be displayed over the current one. This macro only send the first element of the given array using a ``DISPLAY_STATUS``. Therefore further command and status are prohibited until the ``DISPLAY_PROCESSED_EVENT`` is sent by the MCU."
+        This macro takes an array of elements to be displayed and renders them. It is to be called when a new screen is to be displayed over the current one. This macro only send the first element of the given array using a ``DISPLAY_STATUS``. Therefore further command and status are prohibited until the ``DISPLAY_PROCESSED_EVENT`` is sent by the MCU.
 
     ``UX_REDISPLAY``
         This macro restart drawing the current screen. It behaves like ``UX_DISPLAY`` but takes no arguments.

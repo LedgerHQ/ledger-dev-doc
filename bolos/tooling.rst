@@ -1,8 +1,6 @@
 Tooling
 =======
 
-.. note:: Section in progress.
-
 A system on its own could be the best but is useless if no tool to benefit from it.
 
     App source -> LLVM .o -> gnu ld -> hex -> python +icon -> device

@@ -22,6 +22,60 @@ We are proiving the instructions using a docker environment image. If you wish t
 .. code-block:: shell
 
     docker pull nbasim/ledger-blue-sdk
+    docker run -t -i nbasim/ledger-blue-sdk /bin/bash
+    cd home
+    git clone https://github.com/LedgerHQ/nanos-secure-sdk.git
+    apt-get update
+    apt-get install lib6-dev-i386
+
+You can now compile applications from source for your Nano S. The next step is to install the Python tools to communicate with Nano S and manage applications life cycle.
+
+It is recommended to install this package in a Virtual Environment in your native environment (not a Docker image) to avoid hidapi issues. So execute the following commands directly in your host shell:
+
+
+.. code-block:: shell
+
+    virtualenv ledger
+    source ledger/bin/activate
+    pip install ledgerblue
+
+
+First app: Hello World
+----------------------
+
+Go back to your docker VM shell:
+
+.. code-block:: shell
+
+    git clone https://github.com/LedgerHQ/blue-sample-apps.git
+    cd blue-sample-apps/blue-app-helloworld
+
+Edit ``Makefile`` to configure the app to be compiled with the Nano S UI:
+
+.. code-block:: shell
+
+    #TARGET_ID = 0x31100002 #Nano S
+    TARGET_ID = 0x31000002 #Blue
+
+Then you can compile the app:
+
+.. code-block:: shell
+
+    make BOLOS_ENV=/opt/ledger-blue/ BOLOS_SDK=/home/nanos-secure-sdk
+
+It will generate ``bin/token.hex`` which can be flashed on the Nano S using the Python tools.
+Execute this command on your host environment:
+
+.. code-block:: shell
+
+    docker cp c731409caf59:/home/blue-sample-apps/blue-app-helloworld/bin/token.hex .
+
+Replace ``c731409caf59`` by your own container ID (if you do not know it use ``docker ps -a`` to find it).
+
+
+
+
+
 
 .. _Ledger shop: https://www.ledgerwallet.com
 .. _ROPI support: http://infocenter.arm.com/help/index.jsp?topic=/com.arm.doc.dui0491i/CHDCDGGG.html
