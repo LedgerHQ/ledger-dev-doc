@@ -54,8 +54,8 @@ Edit ``Makefile`` to configure the app to be compiled with the Nano S UI:
 
 .. code-block:: shell
 
-    #TARGET_ID = 0x31100002 #Nano S
-    TARGET_ID = 0x31000002 #Blue
+    TARGET_ID = 0x31100002 #Nano S
+    #TARGET_ID = 0x31000002 #Blue
 
 Then you can compile the app:
 
@@ -72,7 +72,19 @@ Execute this command on your host environment:
 
 Replace ``c731409caf59`` by your own container ID (if you do not know it use ``docker ps -a`` to find it).
 
+You can then install the application on your Nano S:
 
+.. code-block:: shell
+
+    python -m ledgerblue.loadApp --targetId 0x31100002 --apdu --fileName token.hex --appName Hello --appFlags 0x00 --icon ""
+
+You will have to confirm twice on the device to authorize the installation. Once the app is installed, you can select it on the dashboard and launch it by pressing both buttons (to exit this app, also press both buttons).
+
+If you wish to remove the app from your device:
+
+.. code-block:: shell
+
+    python -m ledgerblue.removeApp --targetId 0x31100002 --appName Hello
 
 
 
