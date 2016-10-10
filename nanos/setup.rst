@@ -84,7 +84,7 @@ If you wish to remove the app from your device:
 
 .. code-block:: shell
 
-    python -m ledgerblue.removeApp --targetId 0x31100002 --appName Hello
+    python -m ledgerblue.deleteApp --targetId 0x31100002 --appName Hello
 
 
 
