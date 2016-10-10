@@ -26,7 +26,7 @@ We are proiving the instructions using a docker environment image. If you wish t
     cd home
     git clone https://github.com/LedgerHQ/nanos-secure-sdk.git
     apt-get update
-    apt-get install lib6-dev-i386
+    apt-get install libc6-dev-i386
 
 You can now compile applications from source for your Nano S. The next step is to install the Python tools to communicate with Nano S and manage applications life cycle.
 
