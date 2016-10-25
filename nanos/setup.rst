@@ -72,6 +72,13 @@ Execute this command on your host environment:
 
 Replace ``c731409caf59`` by your own container ID (if you do not know it use ``docker ps -a`` to find it).
 
+If you get the error "Cannot connect to the Docker daemon. Is the docker daemon running on this host?" on Mac OSX, try running the following commands in a non-docker terminal shell:
+
+.. code-block:: shell
+
+    eval "$(docker-machine env -u)"
+    eval "$(docker-machine env default)"
+
 You can then install the application on your Nano S:
 
 .. code-block:: shell
