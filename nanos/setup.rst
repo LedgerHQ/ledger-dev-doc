@@ -50,25 +50,18 @@ Go back to your docker VM shell:
     git clone https://github.com/LedgerHQ/blue-sample-apps.git
     cd blue-sample-apps/blue-app-helloworld
 
-Edit ``Makefile`` to configure the app to be compiled with the Nano S UI:
-
-.. code-block:: shell
-
-    TARGET_ID = 0x31100002 #Nano S
-    #TARGET_ID = 0x31000002 #Blue
-
 Then you can compile the app:
 
 .. code-block:: shell
 
     make BOLOS_ENV=/opt/ledger-blue/ BOLOS_SDK=/home/nanos-secure-sdk
 
-It will generate ``bin/token.hex`` which can be flashed on the Nano S using the Python tools.
+It will generate ``bin/app.hex`` which can be flashed on the Nano S using the Python tools.
 Execute this command on your host environment:
 
 .. code-block:: shell
 
-    docker cp c731409caf59:/home/blue-sample-apps/blue-app-helloworld/bin/token.hex .
+    docker cp c731409caf59:/home/blue-sample-apps/blue-app-helloworld/bin/app.hex .
 
 Replace ``c731409caf59`` by your own container ID (if you do not know it use ``docker ps -a`` to find it).
 
@@ -76,7 +69,7 @@ You can then install the application on your Nano S:
 
 .. code-block:: shell
 
-    python -m ledgerblue.loadApp --targetId 0x31100002 --apdu --fileName token.hex --appName Hello --appFlags 0x00 --icon ""
+    python -m ledgerblue.loadApp --targetId 0x31100002 --apdu --fileName app.hex --appName Hello --appFlags 0x00 --icon ""
 
 You will have to confirm twice on the device to authorize the installation. Once the app is installed, you can select it on the dashboard and launch it by pressing both buttons (to exit this app, also press both buttons).
 
