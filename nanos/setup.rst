@@ -50,13 +50,6 @@ Go back to your docker VM shell:
     git clone https://github.com/LedgerHQ/blue-sample-apps.git
     cd blue-sample-apps/blue-app-helloworld
 
-Edit ``Makefile`` to configure the app to be compiled with the Nano S UI:
-
-.. code-block:: shell
-
-    TARGET_ID = 0x31100002 #Nano S
-    #TARGET_ID = 0x31000002 #Blue
-
 Then you can compile the app:
 
 .. code-block:: shell
