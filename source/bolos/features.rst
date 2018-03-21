@@ -63,7 +63,7 @@ Anti-Tampering with Attestation
 Ledger devices are protected from interdiction attacks (being tampered with
 while en route from Ledger's warehouses to your home) due to anti-tampering
 technology built into the firmware. Using attestation, the authenticity of the
-device is verified in software every time you plug it in to one of the Ledger
+device is verified in software every time you plug it into one of the Ledger
 Chrome applications.
 
 When all Ledger devices are provisioned in the factory, they first generate a
@@ -186,7 +186,7 @@ be verified when it connects to a host computer by requesting the device's
 :term:`Issuer Certificate`, which is signed by Ledger. This is done when
 establishing a Secure Channel with the device. However, the Secure Channel is
 not only a means to verify the authenticity of a Ledger device, it also allows
-the host computer to establish an encrypted communications channel with the
+the host computer to establish an encrypted communication channel with the
 device. Only the :ref:`dashboard application <dashboard>` is able to establish a
 Secure Channel with the host computer, as doing so requires access to the
 :term:`Device` private key.
