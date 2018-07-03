@@ -50,4 +50,5 @@ low-level details about the hardware architecture of these devices.
    :caption: Additional Resources
    :maxdepth: 1
 
+   additional/publishing_an_app
    additional/external_docs

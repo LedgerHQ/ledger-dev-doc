@@ -30,6 +30,8 @@ app's hex file (this is usually just zero bytes).
    Initializers of global non-``const`` variables (including NVRAM variables)
    are ignored. As such, this data must be initialized by application code.
 
+.. _flash-memory-endurance:
+
 Flash Memory Endurance
 ----------------------
 
