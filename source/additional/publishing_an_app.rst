@@ -139,6 +139,17 @@ To move inside a menu, be it vertical or horizontal, the same technique is appli
 different glyphs. We recommend using arrows: up and down for a vertical menu, left and 
 right for a horizontal one).
 
+.. figure:: images/horizontal_menu.png
+   :align: center
+
+   Example use of arrows in an horizontal menu
+
+
+.. figure:: images/vertical_menu.png
+   :align: center
+
+   Example use of arrows in a vertical menu
+
 Once positioned on the right menu entry, the user can select the entry by pressing both 
 buttons. This potential action is not represented by glyphs.
 Same goes when going through a set of disclaimer screens: only text is displayed, and 
