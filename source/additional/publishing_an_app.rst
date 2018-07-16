@@ -201,10 +201,11 @@ provide a small guide (see `example
 that shows the basics:
 
 * How to install the app on a Ledger device
-* A link to find more information
+* An external link to find more information
 
 This is why it is required for third party teams to provide a link to a complete
-tutorial that will guide users. Along with your publication request and app code, 
+tutorial that will guide users (see `Nimiq
+<https://nimiq.com/tutorials/ledger/>`_). Along with your publication request and app code, 
 please provide information that will allow the Ledger support team to redirect 
 users to relevant support resources:
 
