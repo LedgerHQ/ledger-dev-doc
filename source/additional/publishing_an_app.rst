@@ -71,19 +71,19 @@ There are 2 mandatory icons that should be provided for Ledger to release an app
 - The Device icon, displayed on the Nano S dashboard
 - The Manager icon, displayed in the Manager application list
 
-Below are the templates for such icons, please respect their guidance.
+Below are the Illustrator templates for such icons, please respect their guidance.
 
 .. figure:: images/device_template.png
    :align: center
-   :target: https://drive.google.com/a/ledger.fr/file/d/1CuttruhaJ4ZuszyMSnifZOhb33Pi7OGQ/view?usp=sharing
+   :target: https://drive.google.com/a/ledger.fr/file/d/1FVUWDGYPvLuyiwDFgGYiwfwk7YGsxzJ0/view?usp=sharing
 
-   Device icon template
+   Device icon template (click to access Illustrator file)
 
 .. figure:: images/manager_template.png
    :align: center
-   :target: https://drive.google.com/a/ledger.fr/file/d/1sIcaQsPZJWgVEHTZrFK0WQzTbptaBGe7/view?usp=sharing
+   :target: https://drive.google.com/a/ledger.fr/file/d/1OOAZWlnLlBSpScPnF5NGJ4AfczB3D591/view?usp=sharing
 
-   Manager icon template
+   Manager icon template (click to access Illustrator file)
 
 
 Most of the time, Bolos apps expose few functionalities to the user. However, 
@@ -195,17 +195,18 @@ Third Party Applications Support
    The following only applies if you are adding support for a cryptocurrency and
    chose to build your own companion app.
 
-Ledger does not provide support for third party applications. Instead, we
-provide a small guide (see `example
+Ledger does not provide support for third party applications. 
+It is required for third party teams to host a complete tutorial that will guide 
+users. (see `Nimiq
+<https://nimiq.com/tutorials/ledger/>`_)
+Still, Ledger provides a small article (see `example
 <https://support.ledgerwallet.com/hc/en-us/articles/360005288614-Install-and-use-Nimiq>`_) on Ledger's official website
-that shows the basics:
+that only covers the basics:
 
 * How to install the app on a Ledger device
-* An external link to find more information
+* A link to find more information in the external guide
 
-This is why it is required for third party teams to provide a link to a complete
-tutorial that will guide users (see `Nimiq
-<https://nimiq.com/tutorials/ledger/>`_). Along with your publication request and app code, 
+Along with your publication request and app code, 
 please provide information that will allow the Ledger support team to redirect 
 users to relevant support resources:
 
@@ -225,4 +226,16 @@ Warranty and liability disclaimer
 The review and publication of third-party Ledger device applications (collectively “the Service”) are provided by Ledger on an “as-is” and “as-available” basis. The Service is subject to change without notice. Ledger disclaims all warranties of accuracy, non-infringement, merchantability and fitness for a particular purpose. To the extent that Ledger makes any pre-release of Ledger device applications available to third-party developers, you understand that Ledger is under no obligation to provide updates, enhancements, or corrections, or to notify you of any changes that Ledger may make, or to publicly announce or introduce the Ledger device applications at any time in the future. 
 
 To the extent not prohibited by applicable law, in no event will Ledger be liable for personal injury, or any incidental, special, indirect, consequential or punitive damages whatsoever, including, without limitation, damages resulting from delay of delivery, for loss of profits, data, business or goodwill, for business interruption, or any other commercial damages or losses, arising out of or related to this agreement or your use or inability to use the service.
+
+
+Deliverables summary
+--------------------
+
+To be posted on `Ledger's Developer Slack
+<https://www.ledger.fr/developers/>`_:
+
+* Bolos app Release Candidate source code
+* Companion app (binaries or package, for Windows/MacOS/Linux)
+* Illustrator icons (filled template)
+* Contact information (Name, Surname, Legal Entity, URL, email address, phone number)
 
