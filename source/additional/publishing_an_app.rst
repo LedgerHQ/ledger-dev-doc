@@ -238,4 +238,5 @@ To be posted on `Ledger's Developer Slack
 * Companion app (binaries or package, for Windows/MacOS/Linux)
 * Illustrator icons (filled template)
 * Contact information (Name, Surname, Legal Entity, URL, email address, phone number)
+* Link to tutorial hosted on third party website
 
