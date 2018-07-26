@@ -6,7 +6,7 @@ This document aims at explaining the procedure for a third party app to be relea
 .. figure:: images/manager.png
    :align: center
 
-   The Ledger Manager - Chrome App
+   The Ledger Manager
 
 First, let's see the typical end-to-end architecture of a BOLOS application, in
 the case of an app for a cryptocurrency:
@@ -28,10 +28,10 @@ In this example, 3 pieces of software are required:
 If you're not developing an app adding support for a cryptocurrency, then you
 can ignore the 3rd piece. Depending on your use case, the companion app might be a simple daemon or a command line tool, without a GUI.
 
-.. figure:: images/chromeapp.png
+.. figure:: images/bitcoin-live.png
    :align: center
 
-   Ledger's Bitcoin Companion App - Chrome App
+   Ledger's main companion app: the Ledger Live
 
 When these pieces are ready for deployment, they must be sent to Ledger for
 a security review. One of the things we're going to do is review the security of the BOLOS
@@ -47,16 +47,22 @@ during the review process:
 * Application stability, correct handling of errors
 * Correct usability (see `Design Guidelines`_)
 
-Review time depends on Ledger’s available resources and code complexity. The more unique and complex the code, the longer the review. Please note that forks of supported BOLOS apps will require a new review. The decision to reject or revoke an app is at Ledger’s sole discretion. We will make our best efforts to provide a rationale for such decisions. Upon fixing identified issues, app authors will be allowed to re-submit their apps.   
+Review time depends on Ledger’s available resources and code complexity. The 
+more unique and complex the code, the longer the review. Please note that forks 
+of supported BOLOS apps will require a new review. The decision to reject or 
+revoke an app is at Ledger’s sole discretion. We will make our best efforts to 
+provide a rationale for such decisions. Upon fixing identified issues, app 
+authors will be allowed to re-submit their apps.   
 Ledger is currently in the process of moving away from its own companion apps
 (Bitcoin, Ethereum, and Ripple chrome apps) as Google is going to deprecate
-Chrome apps in 2018. A new all-in-one native app will be released on the 9th of
-July, 2018. This new platform will be open to pull requests for adding support
-for new cryptocurrencies. You still have the choice to build your own companion 
-app with its own backend but this solution is more resource intensive. On the 
-other hand, it gives you more freedom on the design of the interface you want 
-users to see, and the way it will be implemented (Web app? Native app? It's up 
-to you!).
+Chrome apps in 2018. To replace them, a new all-in-one native app called *Ledger Live* 
+has been released on the 9th of July, 2018. This new platform will be open to 
+pull requests for adding support for new cryptocurrencies in the coming months, 
+*it is not available yet*. Currently, your best shot is to build your own companion 
+app with its own backend. It is less convenient for users than a full integration 
+to Ledger Live, but on the other hand, it gives you more freedom on the design 
+of the interface you want users to see, and the way it will be implemented 
+(Web app? Native app? It's up to you!).
 
 Design Guidelines 
 -----------------
@@ -71,7 +77,8 @@ There are 2 mandatory icons that should be provided for Ledger to release an app
 - The Device icon, displayed on the Nano S dashboard
 - The Manager icon, displayed in the Manager application list
 
-Below are the Illustrator templates for such icons, please respect their guidance.
+Below are the Adobe Illustrator templates for such icons, please respect their guidance.
+**Click on each image to download the corresponding .ai file, and fill them directly before sending them back.**
 
 .. figure:: images/device_template.png
    :align: center
@@ -196,9 +203,9 @@ Third Party Applications Support
    chose to build your own companion app.
 
 Ledger does not provide support for third party applications. 
-It is required for third party teams to host a complete tutorial that will guide 
-users. (see `Nimiq
-<https://nimiq.com/tutorials/ledger/>`_)
+**It is required for third party teams to provide and host a complete tutorial that will guide 
+users before the app is released on the Ledger Manager** (see `this example
+<https://nimiq.com/tutorials/ledger/>`_).
 Still, Ledger provides a small article (see `example
 <https://support.ledgerwallet.com/hc/en-us/articles/360005288614-Install-and-use-Nimiq>`_) on Ledger's official website
 that only covers the basics:
@@ -210,8 +217,8 @@ Along with your publication request and app code,
 please provide information that will allow the Ledger support team to redirect 
 users to relevant support resources:
 
-* Identity: Name, Surname, Legal Entity
-* Point of Contact: URL, email address, phone number
+* **Identity: Name, Surname, Legal Entity**
+* **Point of Contact: URL, email address, phone number**
 
 Contact
 -------
@@ -236,7 +243,7 @@ To be posted on `Ledger's Developer Slack
 
 * Bolos app Release Candidate source code
 * Companion app (binaries or package, for Windows/MacOS/Linux)
-* Illustrator icons (filled template)
+* Adobe Illustrator templates filled with your icons (see `Design Guidelines`_)
 * Contact information (Name, Surname, Legal Entity, URL, email address, phone number)
-* Link to tutorial hosted on third party website
+* Link to tutorial hosted on third party website (see `Third Party Applications Support`_)
 
