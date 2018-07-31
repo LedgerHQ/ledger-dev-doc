@@ -103,7 +103,7 @@ features are used by HD wallets and other applications.
 .. tip::
 
    If you'd like to play with BIP 39 mnemonics or BIP 32 derivation on a
-   computer, take a look at this tool: https://iancoleman.github.io/bip39/.
+   computer, take a look at this tool: https://iancoleman.io/bip39/.
 
 .. rubric:: Footnotes
 
