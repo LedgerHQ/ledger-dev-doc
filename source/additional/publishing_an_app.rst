@@ -220,6 +220,10 @@ users to relevant support resources:
 * **Identity: Name, Surname, Legal Entity**
 * **Point of Contact: URL, email address, phone number**
 
+.. note::
+
+   Name, surname and phone number are kept private and will be used only in case of emergency.
+
 Contact
 -------
 External developer teams are welcome on `Ledger's Developer Slack
