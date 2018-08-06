@@ -27,6 +27,7 @@ In this example, 3 pieces of software are required:
 
 If you're not developing an app adding support for a cryptocurrency, then you
 can ignore the 3rd piece. Depending on your use case, the companion app might be a simple daemon or a command line tool, without a GUI.
+*The companion app should always be compatible with Windows, MacOS and Linux*
 
 .. figure:: images/bitcoin-live.png
    :align: center
