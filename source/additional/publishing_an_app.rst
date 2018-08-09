@@ -206,9 +206,9 @@ Third Party Applications Support
 Ledger does not provide support for third party applications. 
 **It is required for third party teams to provide and host a complete tutorial that will guide 
 users before the app is released on the Ledger Manager** (see `this example
-<https://nimiq.com/tutorials/ledger/>`_).
+<https://particl.wiki/ledger>`_).
 Still, Ledger provides a small article (see `example
-<https://support.ledgerwallet.com/hc/en-us/articles/360005288614-Install-and-use-Nimiq>`_) on Ledger's official website
+<https://support.ledgerwallet.com/hc/en-us/articles/360007687153-Particl-PART-Windows-Linux>`_) on Ledger's official website
 that only covers the basics:
 
 * How to install the app on a Ledger device
