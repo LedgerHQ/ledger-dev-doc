@@ -45,6 +45,7 @@ low-level details about the hardware architecture of these devices.
    userspace/display_management
    userspace/memory
    userspace/troubleshooting
+   userspace/debugging
 
 .. toctree::
    :caption: Additional Resources
