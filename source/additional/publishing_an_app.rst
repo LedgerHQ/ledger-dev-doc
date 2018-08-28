@@ -79,7 +79,7 @@ There are 2 mandatory icons that should be provided for Ledger to release an app
 - The Manager icon, displayed in the Manager application list
 
 Below are the Adobe Illustrator templates for such icons, please respect their guidance.
-**Click on each image to download the corresponding .ai file, and fill them directly before sending them back.**
+**Click on each image to download the corresponding .ai file, and fill them directly before sending them back. They should correspond to the icons used to compile your app.**
 
 .. figure:: images/device_template.png
    :align: center
@@ -205,16 +205,10 @@ Third Party Applications Support
 
 Ledger does not provide support for third party applications. 
 **It is required for third party teams to provide and host a complete tutorial that will guide 
-users before the app is released on the Ledger Manager** (see `this example
-<https://particl.wiki/ledger>`_).
-Still, Ledger provides a small article (see `example
-<https://support.ledgerwallet.com/hc/en-us/articles/360007687153-Particl-PART-Windows-Linux>`_) on Ledger's official website
-that only covers the basics:
+users before the app is released on the Ledger Manager** (please follow `these guidelines
+<https://docs.google.com/document/d/1QI7DHd3HIyhKWydlmjBbB-dlUXquqAd-4f4ED_-wgAU/edit?usp=sharing>`_).
 
-* How to install the app on a Ledger device
-* A link to find more information in the external guide
-
-Along with your publication request and app code, 
+Along with your publication request, app sources and tutorial, 
 please provide information that will allow the Ledger support team to redirect 
 users to relevant support resources:
 
@@ -246,7 +240,7 @@ Deliverables summary
 To be posted on `Ledger's Developer Slack
 <https://www.ledger.fr/developers/>`_:
 
-* Bolos app Release Candidate source code
+* Bolos app Release Candidate source code (preferably a git repository)
 * Companion app (binaries or package, for Windows/MacOS/Linux)
 * Adobe Illustrator templates filled with your icons (see `Design Guidelines`_)
 * Contact information (Name, Surname, Legal Entity, URL, email address, phone number)
