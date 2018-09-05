@@ -187,6 +187,10 @@ Ledger is going to release new cryptocurrency apps for its devices on the first
 Tuesday of each month. Once an app is ready to be deployed, it is packed with
 the others and released in bulk.
 
+.. warning::
+
+   Ledger's decision to publish a third party application may not be considered as any form of partnership nor endorsement of such.
+
 From the day an external team starts working on a new app, Ledger will add it to
 its `public Trello roadmap <https://trello.com/b/5nQ1mdzt/ledger-roadmap>`_. The
 same goes for apps being built by Ledger itself. Once your coin is listed on our
@@ -194,6 +198,7 @@ Trello page, the Ledger community will start asking questions about the project.
 Feel free to answer them, as Ledger itself doesn't usually have the answers to
 questions about third party projects. This is also your space to keep the
 community up to date.
+
 
 Third Party Applications Support
 --------------------------------
