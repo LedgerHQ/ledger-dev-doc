@@ -15,11 +15,11 @@ It is possible to install a debugging firmware on the device's MCU that will ena
 
 1. First, download the `updater <https://drive.google.com/open?id=16vFH70jxsJ1D-SjyXkpnXhSk1KGe_iPD>`_ and the `debug firmware <https://drive.google.com/open?id=1CQJg6Txvuiez0re3becKiI4PEgY-Xs4v>`_ .
 
-2. Now, plug your Nano S to your computer while keeping the left button pressed. Keep it pressed until the screen displays ``BOOTLOADER``.
+2. Exit any instance of Ledger Live, Ledger Chrome App, or any other program able to communicate with a Ledger device.
 
-3. Fire a terminal and move to the directory containing the files downloaded at step 1.
+3. Now, plug your Nano S to your computer while keeping the left button pressed. Keep it pressed until the screen displays ``BOOTLOADER``.
 
-4. Exit any instance of Ledger Live, Ledger Chrome App, or any other program able to communicate with a Ledger device.
+4. Fire a terminal and move to the directory containing the files downloaded at step 1.
 
 5. Install the updater: 
 ``python -m ledgerblue.loadMCU --targetId 0x01000001 --fileName blup_0.8_misc_m1.hex --nocrc``
