@@ -3,13 +3,13 @@ Application Debug
 
 .. note::
 
-	Ledger is currently working on more solutions to improve the coding experience on its products.
-	In particular, a development board and an emulator are in the pipe, but there is not yet an estimated time of arrival for these.
+   Ledger is currently working on more solutions to improve the coding experience on its products.
+   In particular, a development board and an emulator are in the pipe, but there is not yet an estimated time of arrival for these.
 
 
 .. warning::
 
-	The :doc:`BOLOS development environment </userspace/getting_started>` is required for the following article. It applies only for the Nano S, with its latest firmware firmware (1.4.2).
+   The :doc:`BOLOS development environment </userspace/getting_started>` is required for the following article. It applies only for the Nano S, with its latest firmware firmware (1.4.2).
 
 It is possible to install a debugging firmware on the device's MCU that will enable printing text outputs from the device to a terminal. To do so, follow these steps: 
 
@@ -19,11 +19,13 @@ It is possible to install a debugging firmware on the device's MCU that will ena
 
 3. Fire a terminal and move to the directory containing the files downloaded at step 1.
 
-4. Install the updater: 
+4. Exit any instance of Ledger Live, Ledger Chrome App, or any other program able to communicate with a Ledger device.
+
+5. Install the updater: 
 ``python -m ledgerblue.loadMCU --targetId 0x01000001 --fileName blup_0.8_misc_m1.hex --nocrc``
 Wait until ``BOOTLOADER`` is displayed again on the device's screen.
 
-5. Install the debug firmware: 
+6. Install the debug firmware: 
 ``python -m ledgerblue.loadMCU --targetId 0x01000001 --fileName mcu_1.6-printf_over_bl_0.8.hex`` 
 ``--reverse --nocrc``
 
@@ -49,11 +51,11 @@ Check if ``PRINTF`` is already defined somewhere else in your Makefile, and comm
 
 .. warning::
 
-	The PRINTF macro is a debugging feature, and as such it is not intended for use in production.
-	When compiling an application for release purpose, please verify that ``PRINTF`` is disabled in your Makefile. In other words, in case of release compilation, put back the line ``DEFINES   += PRINTF\(...\)=`` and comment out the other one.
+   The PRINTF macro is a debugging feature, and as such it is not intended for use in production.
+   When compiling an application for release purpose, please verify that ``PRINTF`` is disabled in your Makefile. In other words, in case of release compilation, put back the line ``DEFINES   += PRINTF\(...\)=`` and comment out the other one.
 
 .. warning::
-	The PRINTF macro can only be used in between successive calls to ``io_exchange``. Calling it outside of it will result in unexpected behavior.
+   The PRINTF macro can only be used in between successive calls to ``io_exchange``. Calling it outside of it will result in unexpected behavior.
 
 This macro can be used in your code like a classical ``printf`` function from ``stdio.h``.
 However, it is improved with a neat feature to easily print byte arrays:
