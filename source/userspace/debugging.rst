@@ -38,6 +38,14 @@ If you can notice a small ``dbg`` block at the bottom of the screen, then it's a
 
    A Nano S with special debug firmware
 
+Uninstalling this special firmware is also very easy, first you need to download the `normal firmware <https://drive.google.com/a/ledger.fr/file/d/1N-sF60U3Sa5Cid2qtKbiRQeoDB5XTdjd/view?usp=sharing>`_, then you can repeat the installation steps 2 to 5.
+
+Finally, flash the normal firmware with this command:    
+``python -m ledgerblue.loadMCU --targetId 0x01000001 --fileName mcu_1.6_over_0.8.hex`` 
+``--reverse --nocrc``     
+
+The ``dbg`` block should now be gone.
+
 
 PRINTF macro
 ------------
