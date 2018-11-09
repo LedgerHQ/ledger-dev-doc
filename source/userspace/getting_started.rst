@@ -57,6 +57,13 @@ toolchain needs, here are the steps you should follow:
    trouble finding the right compilers, try setting ``GCCPATH`` and
    ``CLANGPATH`` explicitly.
 
+Cross compilation headers are required and provided within the gcc-multilib and g++-multilib packages.
+To install them on a debian system:
+
+.. code-block:: bash
+
+   sudo apt install gcc-multilib g++-multilib
+
 Setting up the SDK
 ------------------
 
