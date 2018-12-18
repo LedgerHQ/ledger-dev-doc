@@ -92,3 +92,55 @@ The ``PRINTF`` macro triggers messages from the MCU to the host computer through
 Unzip the file and execute this command: ``./usbtool -v 0x2c97 log``
 
 Now you can launch your app on your Nano S, and every ``PRINTF`` will end up printed on the host computer, allowing you to debug your program more easily.
+
+
+Ergonomic Ledger App Development
+--------------------------------
+
+In Ledger app development, it is necessary to enter your PIN code
+each time you install an unsigned app. In order to do testing during
+development, this means developers wind up using many painful button
+presses entering a PIN code compared to relatively few testing their
+own application code. The Ledger OS (BOLOS) supports installing a
+custom developer certificate. By installing a custom certificate once
+on your device you can avoid having to retype your PIN each time
+you adjust your app. Here are the steps for the Ledger Nano S:
+
+1. Generate a public / private keypair using the following command
+
+``python -m ledgerblue.genCAPair``
+
+Save this output in a file on your computer we will call ``keys.txt``.
+
+2. Enter recovery mode on your Ledger Nano S. Do this by unplugging
+it then holding down the right button (near the hinge, away from USB port)
+for 5 seconds before then plugging it in while still holding.
+It should then enter recovery mode.
+
+3. Load your public key onto the Ledger Nano S.
+Paste your key from ``keys.txt`` after ``--public``.
+You may need to adjust the ``--targetId`` constant to match your device.
+The following is for Ledger Nano S in June 2018. Notice that we must
+include ``--public`` and ``--name`` options.
+
+``python -m ledgerblue.setupCustomCA --targetId 0x31100004 --public 7c1..b31 --name dev``
+
+If you receive the error ``Invalid status 6985`` then please review
+`this link<https://github.com/LedgerHQ/blue-loader-python/issues/42>`_ 
+and then go back to step 2. The above command is the simplest that can work
+however some developers may wish to use the optional ``--rootPrivateKey``
+option to specify a secure channel encryption key (which can be in ``keys.txt``)
+or use the ``--name`` option for convenient labeling according to local
+convention.
+
+4. Once you have loaded your custom certificate, you can try to load an app
+you compiled yourself onto your Ledger to see if you are able to bypass
+the PIN.  To try it, set the ``SCP_PRIVKEY``
+environment variable to contain your private key in your shell or ``.bashrc``:
+
+``export SCP_PRIVKEY=yourPrivateKeyHere``
+
+and then rebuild your app.  Find this information from ``keys.txt`` in ``step 1``.
+
+For more information see `loadpp-py<https://ledger.readthedocs.io/projects/blue-loader-python/en/0.1.16/script_reference.html#loadapp-py>`_
+
