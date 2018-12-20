@@ -187,12 +187,11 @@ For more information see
 
     A side effect of installing a custom CA on your device is that it will from
     now on fail to pass the Ledger Genuine Check, which is required to install
-    applications from the Ledger Live. To become a genuine device once again,
-    you should uninstall your custom CA and all the applications installed
-    through it.
+    applications from the Ledger Live. To make it genuine again, you should
+    uninstall your custom CA and all the applications installed through it.
 
 
-Uninstall a custom CA is very quick:
+Uninstalling a custom CA is very quick:
 
 1. Enter recovery mode on your Ledger Nano S. Do this by unplugging it then
 holding down the right button (near the hinge, away from USB port) while
