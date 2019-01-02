@@ -130,8 +130,8 @@ Now you can launch your app on your Nano S, and every ``PRINTF`` will end up
 printed on the host computer, allowing you to debug your program more easily.
 
 
-Ergonomic Ledger App Development
---------------------------------
+PIN bypass
+----------
 
 In Ledger app development, it is necessary to enter your PIN code each time you
 install an unsigned app. In order to do testing during development, this means
