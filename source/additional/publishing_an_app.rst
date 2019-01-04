@@ -55,7 +55,7 @@ revoke an app is at Ledger’s sole discretion. We will make our best efforts to
 provide a rationale for such decisions. Upon fixing identified issues, app 
 authors will be allowed to re-submit their apps.   
 Ledger is currently in the process of moving away from its own companion apps
-(Bitcoin, Ethereum, and Ripple chrome apps) as Google is going to deprecate
+(Bitcoin, Ethereum, and Ripple chrome apps) as Google has deprecated
 Chrome apps in 2018. To replace them, a new all-in-one native app called *Ledger Live* 
 has been released on the 9th of July, 2018. This new platform will be open to 
 pull requests for adding support for new cryptocurrencies in the coming months, 
