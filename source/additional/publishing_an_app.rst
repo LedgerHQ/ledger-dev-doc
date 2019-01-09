@@ -54,9 +54,7 @@ of supported BOLOS apps will require a new review. The decision to reject or
 revoke an app is at Ledger’s sole discretion. We will make our best efforts to 
 provide a rationale for such decisions. Upon fixing identified issues, app 
 authors will be allowed to re-submit their apps.   
-Ledger is currently in the process of moving away from its own companion apps
-(Bitcoin, Ethereum, and Ripple chrome apps) as Google has deprecated
-Chrome apps in 2018. To replace them, a new all-in-one native app called *Ledger Live* 
+A new all-in-one native app called *Ledger Live* 
 has been released on the 9th of July, 2018. This new platform will be open to 
 pull requests for adding support for new cryptocurrencies in the coming months, 
 *it is not available yet*. Currently, your best shot is to build your own companion 
