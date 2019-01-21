@@ -103,9 +103,8 @@ Endorsement & Application Attestation
 
 As discussed in the previous subsection, the :term:`Device` private key can be
 used to prove authenticity of a Ledger device. However, direct access to the
-device private key is limited to BOLOS and the privileged :ref:`dashboard
-application <dashboard>`, so it can't be directly utilized by individual
-applications on the device (to avoid compromising the key). However,
+device private key is limited to BOLOS, so it can't be directly utilized by
+individual applications on the device (to avoid compromising the key). However,
 applications can indirectly use the Device private key for attestation purposes
 by generating attestation keypairs.
 
