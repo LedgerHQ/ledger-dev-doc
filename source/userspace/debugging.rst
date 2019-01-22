@@ -13,16 +13,16 @@ Application Debug
 
    The :doc:`BOLOS development environment </userspace/getting_started>` is
    required for the following article. It applies only for the Nano S, with its
-   latest firmware firmware (1.4.2).
+   latest firmware firmware (1.5.5).
 
 It is possible to install a debugging firmware on the device's MCU that will
 enable printing text outputs from the device to a terminal. To do so, follow
 these steps:
 
 1. First, download the `updater
-<https://drive.google.com/open?id=16vFH70jxsJ1D-SjyXkpnXhSk1KGe_iPD>`_ and the
+<https://drive.google.com/file/d/1YN0NSok81XhNQfhH476rd6XW-SlFl9KQ/view?usp=sharing>`_ and the
 `debug firmware
-<https://drive.google.com/open?id=1CQJg6Txvuiez0re3becKiI4PEgY-Xs4v>`_ .
+<https://drive.google.com/file/d/1BWl_ODA19Thrg69xgxtC6PCS-CXiCjnK/view?usp=sharing>`_ .
 
 2. Exit any instance of Ledger Live, Ledger Chrome App, or any other program
 able to communicate with a Ledger device.
@@ -35,13 +35,13 @@ step 1.
 
 5. Install the updater::
     
-    python -m ledgerblue.loadMCU --targetId 0x01000001 --fileName blup_0.8_misc_m1.hex --nocrc
+    python -m ledgerblue.loadMCU --targetId 0x01000001 --fileName blup_0.9_misc_m1.hex --nocrc
 
 Wait until ``BOOTLOADER`` is displayed again on the device's screen.
 
 6. Install the debug firmware::
 
-    python -m ledgerblue.loadMCU --targetId 0x01000001 --fileName mcu_1.6-printf_over_bl_0.8.hex --reverse --nocrc
+    python -m ledgerblue.loadMCU --targetId 0x01000001 --fileName mcu_1.7-printf_over_0.9.hex --reverse --nocrc
 
 
 If you can notice a small ``dbg`` block at the bottom of the screen, then it's
@@ -55,12 +55,12 @@ a success !
 
 Uninstalling this special firmware is also very easy, first you need to
 download the `normal firmware
-<https://drive.google.com/a/ledger.fr/file/d/1N-sF60U3Sa5Cid2qtKbiRQeoDB5XTdjd/view?usp=sharing>`_,
+<https://drive.google.com/file/d/1_nJ4oXK7GgH8zVLB668cgUDZw7ajuEGT/view?usp=sharing>`_,
 then you can repeat the installation steps 2 to 5.
 
 Finally, flash the normal firmware with this command::
     
-    python -m ledgerblue.loadMCU --targetId 0x01000001 --fileName mcu_1.6_over_0.8.hex --reverse --nocrc
+    python -m ledgerblue.loadMCU --targetId 0x01000001 --fileName mcu_1.7_over_0.9.hex --reverse --nocrc
 
 The ``dbg`` block should now be gone.
 
