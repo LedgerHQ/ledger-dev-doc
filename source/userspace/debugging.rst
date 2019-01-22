@@ -159,7 +159,7 @@ constant to match your device. Find the right targetId for your device `here
 Notice that we must include  a ``--name`` parameter containing the name of the
 custom certificate (any string will do)::
 
-    python -m ledgerblue.setupCustomCA --targetId 0x31100003 --public yourPublicKey --name dev
+    python -m ledgerblue.setupCustomCA --targetId 0x31100004 --public yourPublicKey --name dev
 
 If you receive the error ``Invalid status 6985`` then please review
 `this link
@@ -200,7 +200,7 @@ Enter your pin and continue.
 
 2. Type this command in your terminal::
 
-    foo@bar:~$ python -m ledgerblue.resetCustomCA --targetId 0x31100003
+    foo@bar:~$ python -m ledgerblue.resetCustomCA --targetId 0x31100004
 
 Find the right targetId for your device `here
 <https://gist.github.com/TamtamHero/b7651ffe6f1e485e3886bf4aba673348>`_.
