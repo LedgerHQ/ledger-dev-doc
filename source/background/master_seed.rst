@@ -72,7 +72,7 @@ seed by the device (this process is called serialization). This is done using
 the PBKDF2-HMAC-SHA512 key derivation function to convert your mnemonic seed
 **and an optional passphrase of your choosing** into a 512 bit binary seed. This
 BIP 39 passphrase can be `set on your device
-<http://support.ledgerwallet.com/knowledge_base/topics/advanced-passphrase-options>`_
+<https://support.ledger.com/hc/en-us/articles/115005214529>`_
 through the Settings menu, and it can be changed at will without resetting your
 device (in fact, you can have multiple passphrases loaded onto the device at
 once if you wish). By changing the passphrase, the resulting 512 bit binary seed
