@@ -111,14 +111,14 @@ apps updated to the latest SDK version.)
 
 .. code-block:: bash
 
-   git clone https://github.com/LedgerHQ/blue-sample-apps.git
+   git clone https://github.com/LedgerHQ/ledger-sample-apps.git
 
 Now you can let the Makefile do all the work. The ``load`` target will build the
 app if necessary and load it onto your device over USB.
 
 .. code-block:: bash
 
-   cd blue-sample-apps/blue-app-helloworld/
+   cd ledger-sample-apps/blue-app-helloworld/
    make load
 
 And you're done! After confirming the installation on your device, you should
