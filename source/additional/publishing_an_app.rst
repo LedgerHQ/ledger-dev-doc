@@ -225,7 +225,7 @@ users to relevant support resources:
 Contact
 -------
 External developer teams are welcome on `Ledger's Developer Slack
-<https://www.ledger.fr/developers/>`_. This is the place to get technical
+<https://ledger-dev.slack.com>`_. This is the place to get technical
 support, to discuss Ledger's tech stack, and more broadly to get in touch with
 us.
 
@@ -241,7 +241,7 @@ Deliverables summary
 --------------------
 
 To be posted on `Ledger's Developer Slack
-<https://www.ledger.fr/developers/>`_:
+<https://ledger-dev.slack.com>`_:
 
 * Bolos app Release Candidate source code (preferably a git repository)
 * Companion app (binaries or package, for Windows/MacOS/Linux)
