@@ -105,30 +105,28 @@ you've set ``BOLOS_SDK`` to the appropriate SDK for the device you're using. The
 Makefiles used by our apps use the contents of the SDK to determine which device
 you're using.
 
-Firstly, download the app and make sure to checkout a version of the application
-that is compatible with your SDK version. (We'll do our best to keep the sample
-apps updated to the latest SDK version.)
+Firstly, download the boilerplate app.
 
 .. code-block:: bash
 
-   git clone https://github.com/LedgerHQ/ledger-sample-apps.git
+   git clone https://github.com/LedgerHQ/ledger-app-boilerplate.git
 
 Now you can let the Makefile do all the work. The ``load`` target will build the
 app if necessary and load it onto your device over USB.
 
 .. code-block:: bash
 
-   cd ledger-sample-apps/blue-app-helloworld/
+   cd ledger-app-boilerplate/
    make load
 
 And you're done! After confirming the installation on your device, you should
-see an app named "Hello World". The app can be deleted like so:
+see an app named "Boilerplate". The app can be deleted like so:
 
 .. code-block:: bash
 
    make delete
    
-The Sia app is a very well documented app from community. If you want to study a full fledged app, this is the one you should read:
+The `Sia` app is a very well documented app from community. If you want to study a full fledged app, this is the one you should read:
 
 .. code-block:: bash
 
