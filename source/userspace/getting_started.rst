@@ -127,3 +127,9 @@ see an app named "Hello World". The app can be deleted like so:
 .. code-block:: bash
 
    make delete
+   
+The Sia app is a very well documented app from community. If you want to study a full fledged app, this is the one you should read:
+
+.. code-block:: bash
+
+   git clone https://github.com/LedgerHQ/ledger-app-sia.git
