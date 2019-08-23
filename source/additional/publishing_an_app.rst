@@ -77,6 +77,13 @@ There are 2 mandatory icons that should be provided for Ledger to release an app
 - The Manager icon, displayed in the Manager application list
 
 Below are the Adobe Illustrator templates for such icons, please respect their guidance.
+
+- The color palette for Blue icons shall contain 16 colors maximum
+
+- The icon file shall not contain any alpha channel
+
+- In order to blend well with the Blue's Dashboard bachground, the 4 rounded white corners of the blue icon shall be set to this RGB value:  #F9F9F9 (and not #FFFFFF)
+
 **Click on each image to download the corresponding .ai file, and fill them directly before sending them back. They should correspond to the icons used to compile your app.**
 
 .. figure:: images/device_template.png
