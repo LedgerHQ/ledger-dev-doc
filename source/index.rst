@@ -53,3 +53,4 @@ low-level details about the hardware architecture of these devices.
 
    additional/publishing_an_app
    additional/external_docs
+   additional/security_guidelines
