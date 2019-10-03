@@ -15,7 +15,7 @@ source_suffix = ['.rst']
 master_doc = 'index'
 
 project = u'Ledger Documentation Hub'
-copyright = u'2016 - 2017, Ledger Team'
+copyright = u'2019 - 2020, Ledger Team'
 author = u'Ledger Team'
 
 version = u'2'
