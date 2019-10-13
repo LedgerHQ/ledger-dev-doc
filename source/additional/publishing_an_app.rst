@@ -192,9 +192,7 @@ You agree to hold Ledger harmless of any claim arising out of the use of the des
 Release Roadmap
 ---------------
 
-Ledger is going to release new cryptocurrency apps for its devices on the first
-Tuesday of each month. Once an app is ready to be deployed, it is packed with
-the others and released in bulk.
+Ledger releases new cryptocurrency apps for its devices whenever reviews, tests, and resources allow it. Once an app is ready to be deployed, it is packed with the others and released in bulk.
 
 .. warning::
 
@@ -251,12 +249,17 @@ To the extent not prohibited by applicable law, in no event will Ledger be liabl
 Deliverables summary
 --------------------
 
-To be posted on `Ledger's Developer Slack
-<https://ledger-dev.slack.com>`_:
+Please apply on `Ledger's Listing Program
+<https://forms.gle/86qP6H1etn8xSwQG9>`_:
+
 
 * Bolos app Release Candidate source code (preferably a git repository)
 * Companion app (binaries or package, for Windows/MacOS/Linux)
 * Adobe Illustrator templates filled with your icons (see `Design Guidelines`_)
 * Contact information (Name, Surname, Legal Entity, URL, email address, phone number)
 * Link to tutorial hosted on third party website (see `Third Party Applications Support`_)
+
+.. note::
+
+   Ledger will review the application on a best-effort basis. Submitting an application is not a guarantee the application will be realeased.
 
