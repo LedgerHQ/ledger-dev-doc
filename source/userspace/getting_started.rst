@@ -15,7 +15,7 @@ compilers:
   <http://infocenter.arm.com/help/index.jsp?topic=/com.arm.doc.dui0491i/CHDCDGGG.html>`_
   to build the secure (ST31) applications
 * Download a prebuilt gcc from `here
-  <https://launchpad.net/gcc-arm-embedded/+milestone/5-2016-q1-update>`_
+  <https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/gnu-rm/downloads>`_
 
   
 Setting up the Toolchain
@@ -44,10 +44,10 @@ toolchain needs, here are the steps you should follow:
 1. Choose a directory for the BOLOS environment (I'll use ``~/bolos-devenv/``)
    and link the environment variable ``BOLOS_ENV`` to this directory.
 2. Download a prebuilt gcc from
-   https://launchpad.net/gcc-arm-embedded/+milestone/5-2016-q1-update and unpack
+   https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/gnu-rm/downloads and unpack
    it into ``~/bolos-devenv/``. Make sure there is a directory named ``bin``
    directly inside ``~/bolos-devenv/gcc-arm-none-eabi-5_3-2016q1/``.
-3. Download a prebuilt clang from http://releases.llvm.org/download.html#4.0.0
+3. Download a prebuilt clang from http://releases.llvm.org/download.html#7.0.0
    and unpack it into ``~/bolos-devenv/``. Rename the directory that was inside
    the archive you downloaded to ``clang-arm-fropi``, or create a link to the
    directory with that name. Make sure there is a directory named ``bin``
