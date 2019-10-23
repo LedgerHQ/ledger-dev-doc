@@ -11,10 +11,13 @@ compilers:
 
 * A standard ARM gcc to build the non-secure (STM32) firmware and link the
   secure (ST31) applications
-* A standard ARM clang above 4.0.0 with `ROPI support
+* A standard ARM clang above 7.0.0 with `ROPI support
   <http://infocenter.arm.com/help/index.jsp?topic=/com.arm.doc.dui0491i/CHDCDGGG.html>`_
   to build the secure (ST31) applications
+* Download a prebuilt gcc from `here
+  <https://launchpad.net/gcc-arm-embedded/+milestone/5-2016-q1-update>`_
 
+  
 Setting up the Toolchain
 ------------------------
 
