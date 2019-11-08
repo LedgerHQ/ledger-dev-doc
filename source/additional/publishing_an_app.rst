@@ -82,7 +82,7 @@ Below are the Adobe Illustrator templates for such icons, please respect their g
 
 - The icon file shall not contain any alpha channel
 
-- In order to blend well with the Blue's Dashboard bachground, the 4 rounded white corners of the blue icon shall be set to this RGB value:  #F9F9F9 (and not #FFFFFF)
+- In order to blend well with the Blue's Dashboard background, the 4 rounded white corners of the blue icon shall be set to this RGB value:  #F9F9F9 (and not #FFFFFF)
 
 
 - Nano X icons must be 14x14 px in size. Developers can create their Nano X icons from the 16x16 px Nano S one with the following command: ``convert nanos_app_<token>.gif -crop 14x14+1+1 +repage -negate nanox_app_<token>.gif``
