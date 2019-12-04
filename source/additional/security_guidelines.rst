@@ -154,7 +154,7 @@ apps, such as Bitcoin or Ethereum keys.
 
 .. warning::
 
-    If your application derive keys on the hardened path 44'/60' then the chainID parameter must be different from 0 or 1.
+    If your application derives keys on the hardened path 44'/60' then the chainID parameter must be different from 0 or 1.
     This is necessary to avoid replaying transaction broadcoasted on Ethereum-like chains on Ethereum.
     As a general recommendation, and to ensure a good level of privacy for the end user, we recommend to always use the correct coin  type in the derivation path as defined in slip44 (https://github.com/satoshilabs/slips/blob/master/slip-0044.md)
 
