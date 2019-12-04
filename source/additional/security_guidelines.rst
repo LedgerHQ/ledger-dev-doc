@@ -133,6 +133,7 @@ specify in your Makefile:
 
     APP_LOAD_PARAMS += --path "44'/60'"
 
+
 Derivation can also be restricted to a specific curve using the ``--curve``
 property. Supported curves are ``secp256k1``, ``prime256r1`` and ``ed25519``.
 
@@ -150,6 +151,13 @@ an attacker can do if he manages to compromise an application. If a
 vulnerability is exploited on a poorly written of backdoored application, an
 attacker should not be able to exploit it to extract private keys from other
 apps, such as Bitcoin or Ethereum keys.
+
+.. warning::
+
+    If your application derives keys on the hardened path 44'/60' then the chainID parameter must be different from 0 or 1.
+    This is necessary to avoid replaying transactions broadcoast on Ethereum-like chains on Ethereum.
+    As a general recommendation, and to ensure a good level of privacy for the end user, we recommend to always use the correct coin  type in the derivation path as defined in slip44 (https://github.com/satoshilabs/slips/blob/master/slip-0044.md)
+
 
 Signing/disclosing keys without user approval
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
