@@ -8,7 +8,7 @@ failure scenarios that you might experience while developing applications.
 Not Enough RAM
 --------------
 
-At the time of writing, the default link script provided by the SDK for the
+At the time of this writing, the default link script provided by the SDK for the
 Ledger Nano S allocates 4 KiB of RAM for applications to use. This 4 KiB has to
 be enough to store all global non-const and :doc:`non-NVRAM <memory>` variables
 as well as the call stack (which is currently set to 768 bytes by default, also
