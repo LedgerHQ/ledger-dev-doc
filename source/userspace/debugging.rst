@@ -149,7 +149,7 @@ each time you adjust your app. Here are the steps for the Ledger Nano S:
 
 2. Enter recovery mode on your Ledger Nano S. Do this by unplugging it then
 holding down the right button (near the hinge, away from USB port) while
-plugging it in again. ``recovery mode`` shoudl then appear on the screen.
+plugging it in again. ``recovery mode`` should then appear on the screen.
 Enter your pin and continue.
 
 3. Load your public key onto the Ledger Nano S. Paste the public key generated
@@ -180,7 +180,7 @@ private key generated at step 1 in your shell or ``.bashrc``::
 and then rebuild/load your app.
 
 For more information see
-`loadpp-py
+`loadApp-py
 <https://ledger.readthedocs.io/projects/blue-loader-python/en/0.1.16/script_reference.html#loadapp-py>`_
 
 .. warning::
@@ -195,7 +195,7 @@ Uninstalling a custom CA is very quick:
 
 1. Enter recovery mode on your Ledger Nano S. Do this by unplugging it then
 holding down the right button (near the hinge, away from USB port) while
-plugging it in again. ``recovery mode`` shouldl then appear on the screen.
+plugging it in again. ``recovery mode`` should then appear on the screen.
 Enter your pin and continue.
 
 2. Type this command in your terminal::
