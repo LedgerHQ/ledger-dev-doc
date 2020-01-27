@@ -99,7 +99,7 @@ and code is referenced in other ``const`` data. Here is a simple example:
        sum = 0;
        for (i = 0; i < 2; i++) {
            for (j = 0; j < 4; j++) {
-               sum += array_2d[i][j]; // Core Fault!
+               sum += array_2d[i][j]; // Segmentation Fault!
            }
        }
    }
@@ -107,7 +107,7 @@ and code is referenced in other ``const`` data. Here is a simple example:
 In the example above, when dereferencing ``array_2d``, the compiler uses a
 link-time address (in the ``0xC0D00000`` space, following the previous
 examples). This is not where the program is loaded in memory at runtime.
-Therefore, when the dereference is executed, it causes a Core Fault that
+Therefore, when the dereference is executed, it causes a segmentation fault that
 effectively stalls the SE. Luckily, the solution is pretty simple, thanks to a
 small piece of assembly provided with the SDKs which is invoked with the
 ``PIC(...)`` macro. ``PIC(...)`` uses the current load address to adjust the
