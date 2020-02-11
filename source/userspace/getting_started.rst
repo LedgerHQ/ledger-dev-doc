@@ -21,44 +21,20 @@ compilers:
 Setting up the Toolchain
 ------------------------
 
-The Makefiles used by our BOLOS applications look for the gcc and clang
-installations using the following process:
+The Makefiles used by our BOLOS applications look for gcc and clang
+installations using the ``PATH`` environment variable.
 
-1. If the ``BOLOS_ENV`` environment variable is set, then gcc is used from
-   ``$BOLOS_ENV/gcc-arm-none-eabi-5_3-2016q1/bin/`` and clang is used from
-   ``$BOLOS_ENV/clang-arm-fropi/bin/``.
-2. As a fallback, if ``BOLOS_ENV`` is not set, then gcc is used from ``GCCPATH``
-   and clang is used from ``CLANGPATH``.
-3. As a fallback, if either ``GCCPATH`` or ``CLANGPATH`` is not set, then gcc
-   and clang, respectively, are used from the PATH.
+If you don't want to install specific versions of clang and gcc directly on your system,
+simply prepend their location in your ``PATH`` environment variable.
 
-This allows you to setup both gcc and clang under the same directory and
-reference it using ``BOLOS_ENV``, or configure where each compiler is looked for
-individually. If your system already has an appropriate version of clang
-installed, you may simply leave ``BOLOS_ENV`` and ``CLANGPATH`` unset and clang
-will be used from the PATH (but make sure to set ``GCCPATH``).
+.. code-block:: bash
 
-If you're just looking for a one-size-fits-all solution to satisfy your
-toolchain needs, here are the steps you should follow:
+   # GCC
+   PATH=~/bolos-devenv/gcc-arm-none-eabi-5_3-2016q1/bin:$PATH
 
-1. Choose a directory for the BOLOS environment (I'll use ``~/bolos-devenv/``)
-   and link the environment variable ``BOLOS_ENV`` to this directory.
-2. Download a prebuilt gcc from
-   https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/gnu-rm/downloads and unpack
-   it into ``~/bolos-devenv/``. Make sure there is a directory named ``bin``
-   directly inside ``~/bolos-devenv/gcc-arm-none-eabi-5_3-2016q1/``.
-3. Download a prebuilt clang from http://releases.llvm.org/download.html#7.0.0
-   and unpack it into ``~/bolos-devenv/``. Rename the directory that was inside
-   the archive you downloaded to ``clang-arm-fropi``, or create a link to the
-   directory with that name. Make sure there is a directory named ``bin``
-   directly inside ``~/bolos-devenv/clang-arm-fropi/``.
+   # Clang
+   PATH=~/bolos-devenv/clang+llvm-7.0.0-x86_64-linux-gnu-ubuntu-16.04/bin:$PATH
 
-.. note::
-
-   Not all of the Makefiles for our applications available on GitHub may
-   recognize ``BOLOS_ENV`` in the way described above. If the Makefile is having
-   trouble finding the right compilers, try setting ``GCCPATH`` and
-   ``CLANGPATH`` explicitly.
 
 Cross compilation headers are required and provided within the gcc-multilib and g++-multilib packages.
 To install them on a debian system:
@@ -71,8 +47,7 @@ Setting up the SDK
 ------------------
 
 Now that you have your toolchain set up, you need to download / clone the SDK
-for the appropriate Ledger device you're working with. You can do this anywhere,
-it doesn't have to be in your ``BOLOS_ENV`` directory (if you even have one).
+for the appropriate Ledger device you're working with.
 Make sure you checkout the tag matching your firmware version.
 
 Ledger Nano S SDK: https://github.com/LedgerHQ/nanos-secure-sdk
