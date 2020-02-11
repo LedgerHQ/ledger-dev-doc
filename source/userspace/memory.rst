@@ -64,7 +64,7 @@ BOLOS and the SDKs to simplify the process of using flash memory efficiently.
 PIC and Model Implications
 --------------------------
 
-PIC stands for Placement Independent Code. The BOLOS toolchain produces PIC to
+PIC stands for Position-Independent Code. The BOLOS toolchain produces PIC to
 allow for the code **Link address** to be different from the code **Execution
 address**. For example, the ``main`` function is linked in the generated
 application at address ``0xC0D00000``. However, the slot used when loaded into
