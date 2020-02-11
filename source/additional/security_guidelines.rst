@@ -305,7 +305,7 @@ Use safe macro constructs
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
 C is a minefield of problems related to pointers. You can alleviate some
-of the problems with good macros. Be however beware of when they can
+of the problems with good macros. However, beware of when they can
 fail. For example, take the following code:
 
 .. code:: c
@@ -389,7 +389,7 @@ overflow in (a past version) of one Ledger app.
 In general, there is only a single remedy for buffer overflows -
 **always check for available buffer space before writing to memory**.
 The best is to not rely on some specific buffer size but instead rely on
-sizeof operator. If using sizeof, be, however, very careful - if you
+sizeof operator. If using sizeof, however, be very careful - if you
 ever pass a buffer to a function, you are losing its size!
 
 .. code:: c
