@@ -20,9 +20,9 @@ enable printing text outputs from the device to a terminal. To do so, follow
 these steps:
 
 1. First, download the `updater
-<https://drive.google.com/file/d/1YN0NSok81XhNQfhH476rd6XW-SlFl9KQ/view?usp=sharing>`_ and the
+<https://drive.google.com/open?id=1pbqIDDuamfsvFuEkduCyOFq8mW0HZmeQ>`_ and the
 `debug firmware
-<https://drive.google.com/file/d/1BWl_ODA19Thrg69xgxtC6PCS-CXiCjnK/view?usp=sharing>`_ .
+<https://drive.google.com/open?id=1hTZKqlwKjx51vdqda8SRp_80Yx3lPizb>`_ .
 
 2. Exit any instance of Ledger Live, Ledger Chrome App, or any other program
 able to communicate with a Ledger device.
@@ -33,15 +33,15 @@ pressed. Keep it pressed until the screen displays ``BOOTLOADER``.
 4. Fire a terminal and move to the directory containing the files downloaded at
 step 1.
 
-5. Install the updater::
+5. Install the updater (only if you MCU firmware is not already in version 1.11, otherwise just go to step 6)::
     
-    python -m ledgerblue.loadMCU --targetId 0x01000001 --fileName blup_0.9_misc_m1.hex --nocrc
+    python -m ledgerblue.loadMCU --targetId 0x01000001 --fileName blup_0.11_misc_m1.hex --nocrc
 
 Wait until ``BOOTLOADER`` is displayed again on the device's screen.
 
 6. Install the debug firmware::
 
-    python -m ledgerblue.loadMCU --targetId 0x01000001 --fileName mcu_1.7-printf_over_0.9.hex --reverse --nocrc
+    python -m ledgerblue.loadMCU --targetId 0x01000001 --fileName mcu_1.11-printf_over_0.11.hex --reverse --nocrc
 
 
 If you can notice a small ``dbg`` block at the bottom of the screen, then it's
@@ -55,12 +55,12 @@ a success !
 
 Uninstalling this special firmware is also very easy, first you need to
 download the `normal firmware
-<https://drive.google.com/file/d/1_nJ4oXK7GgH8zVLB668cgUDZw7ajuEGT/view?usp=sharing>`_,
+<https://drive.google.com/open?id=1YfdU1dNycojdtuKU_hHctLFzJZzhDFuY>`_,
 then you can repeat the installation steps 2 to 5.
 
 Finally, flash the normal firmware with this command::
     
-    python -m ledgerblue.loadMCU --targetId 0x01000001 --fileName mcu_1.7_over_0.9.hex --reverse --nocrc
+    python -m ledgerblue.loadMCU --targetId 0x01000001 --fileName mcu_1.11_over_0.11.hex --reverse --nocrc
 
 The ``dbg`` block should now be gone.
 
