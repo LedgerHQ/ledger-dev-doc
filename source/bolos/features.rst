@@ -32,8 +32,8 @@ to the BIP 39 master seed in order to completely change the :doc:`HD tree
 until the device is disconnected, or store a passphrase on the device by
 attaching it to a PIN. When a passphrase is attached to a PIN, it is only
 activated when the user unlocks the device using the PIN corresponding to that
-passphrase. See our `Knowledge Base article on the advanced passphrase options
-<http://support.ledgerwallet.com/knowledge_base/topics/advanced-passphrase-options>`_
+passphrase. See our `Help Center article on the advanced passphrase options
+<https://support.ledger.com/hc/en-us/articles/115005214529-Advanced-passphrase-security>`_
 for more information about using passphrases.
 
 When a passphrase is activated, the binary seed derived according to BIP 39 is
@@ -92,7 +92,7 @@ great expense and time, so only an organization such as the NSA could do it.
    For more information about the benefits of Ledger's use of a Secure Element
    for verifying device authenticity, see our blog post `How to protect hardware
    wallets against tampering
-   <https://blog.ledger.co/how-to-protect-hardware-wallets-against-tampering-cad35cb72c1>`_
+   <https://www.ledger.com/how-to-protect-hardware-wallets-against-tampering/>`_
    (though keep in mind that not all of the information in this article applies
    to Ledger's latest products).
 
