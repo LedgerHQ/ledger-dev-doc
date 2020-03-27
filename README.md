@@ -10,7 +10,7 @@ https://ledger.readthedocs.io.
 ## Contributing
 
 If you notice a mistake or would like to contribute, feel free to issue a pull
-request or talk to us on the [developer Slack](http://slack.ledger.co/).
+request or talk to us on the [developer Slack](https://ledger-dev.slack.com).
 
 If you make a contribution with a pull request, don't bother bumping the version
 number yourself. We will do this at some point if your pull request is accepted.
