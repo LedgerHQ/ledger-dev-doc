@@ -137,3 +137,16 @@ being isolated due to invalid handling of SEPROXYHAL packets, to a core fault on
 the device (perhaps due to a misaligned memory access or an attempt to access
 restricted memory). If this occurrs, it is best to attempt to simplify the app
 and strip away as much code as possible until the problem can be isolated.
+
+Unaligned RAM access
+-------------------
+
+.. code-block:: c
+
+  uint16_t *ptr16 = &tmp_ctx.signing_context.buffer[processed]; 
+  PRINTF("uint16_t: %d", ptr16[0]);
+
+``ptr16[0]`` access can be stalling the app, even though ``tmp_ctx.signing_context.buffer[processed]`` (``unsigned char*``) can be accessed alright. This happens when pointer isn't word-aligned, but word is access in RAM. Workaround is copying buffer into another location which is properly aligned (e.g. using `os_memmove`).
+
+
+
