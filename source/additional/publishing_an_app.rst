@@ -258,6 +258,11 @@ Please apply on `Ledger's Listing Program
 * Adobe Illustrator templates filled with your icons (see `Design Guidelines`_)
 * Contact information (Name, Surname, Legal Entity, URL, email address, phone number)
 * Link to tutorial hosted on third party website (see `Third Party Applications Support`_)
+* Video of your application running on the Ledger device
+  * Verify public address on the Ledger device
+  * Display transaction information before allowing signature	
+  * Reject a transaction on the Ledger device
+  * Sign a transaction on the Ledger device
 
 .. note::
 
