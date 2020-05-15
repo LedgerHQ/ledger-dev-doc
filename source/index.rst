@@ -44,6 +44,7 @@ low-level details about the hardware architecture of these devices.
    userspace/application_structure
    userspace/display_management
    userspace/memory
+   userspace/alignment
    userspace/troubleshooting
    userspace/debugging
 
