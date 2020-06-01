@@ -13,7 +13,7 @@ Application Debug
 
    The :doc:`BOLOS development environment </userspace/getting_started>` is
    required for the following article. It applies only for the Nano S, with its
-   latest firmware firmware (1.5.5).
+   SE firmware either in version 1.5.5 or 1.6.0.
 
 It is possible to install a debugging firmware on the device's MCU that will
 enable printing text outputs from the device to a terminal. To do so, follow
