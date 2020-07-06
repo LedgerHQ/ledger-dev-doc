@@ -132,8 +132,9 @@ Here is an example that sums it up:
 
    Example: transaction confirmation screen
 
-On this example two informations are shown: an amount of bitcoins, and a destination 
-address. The two screens are alternating periodically until the user validates or cancel.
+On this example two pieces of information are shown: an amount of bitcoins, and a 
+destination address.
+The two screens are alternating periodically until the user validates or cancel.
 A title is present to describe each information. For the too-long-to-display destination 
 address, the automatic scrolling is used.
 
@@ -266,5 +267,5 @@ Please apply on `Ledger's Listing Program
 
 .. note::
 
-   Ledger will review the application on a best-effort basis. Submitting an application isn't a committment the application will be realeased.
+   Ledger will review the application on a best-effort basis. Submitting an application isn't a commitment the application will be released.
 

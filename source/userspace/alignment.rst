@@ -25,7 +25,7 @@ Implementing C source code with types and structures is not functionally impacte
 It might be important to be aware of this paragraph contents when it comes to writing memory-efficient structures, once the application is compiled and loaded onto a device.
 
 
-Within any application source code, the aligment of basic types will be considered as follows, at compilation time:
+Within any application source code, the alignment of basic types will be considered as follows, at compilation time:
 
     - ``char``  / ``unsigned char``  / ``int8_t``  / ``uint8_t`` : 8-bit aligned,
     - ``short`` / ``unsigned short`` / ``int16_t`` / ``uint16_t``: 16-bit aligned,
@@ -68,7 +68,7 @@ However during compilation, the structure is modified to ensure the alignment, a
         int     field_3;
         char    field_4;
         // The structure is aligned to the number of bits corresponding to the
-        // largest field's alignement, in this case, due to field_3, 32-bits.
+        // largest field's alignment, in this case, due to field_3, 32-bits.
         // For the structure to be 32-bit aligned, it needs 3 more bytes of padding.
         char    padding_2[3];
     };

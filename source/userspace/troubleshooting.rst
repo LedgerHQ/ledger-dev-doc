@@ -135,7 +135,7 @@ An application stalling when run on the device (the device's screen freezes and
 stops responding to APDU) could be caused by a number of issues from the SE
 being isolated due to invalid handling of SEPROXYHAL packets, to a core fault on
 the device (perhaps due to a misaligned memory access or an attempt to access
-restricted memory). If this occurrs, it is best to attempt to simplify the app
+restricted memory). If this occurs, it is best to attempt to simplify the app
 and strip away as much code as possible until the problem can be isolated.
 
 Unaligned RAM access
