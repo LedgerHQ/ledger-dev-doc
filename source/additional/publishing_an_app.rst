@@ -266,5 +266,5 @@ Please apply on `Ledger's Listing Program
 
 .. note::
 
-   Ledger will review the application on a best-effort basis. Submitting an application isn't a committment the application will be realeased.
+   Ledger will review the application on a best-effort basis. Submitting an application isn't a commitment the application will be released.
 
