@@ -292,7 +292,7 @@ Know your C compiler
 Ledger apps are written in C. Unlike typical embedded project, the goal
 here is to write for a single platform with a single compiler.
 
-The current supported compiled is clang, and it supports newest language
+The current supported compiler is clang, and it supports newest language
 features (up to C11). This is useful for both development and security.
 You should really learn about the new features and use them extensively
 as they might help you writing more secure code.
