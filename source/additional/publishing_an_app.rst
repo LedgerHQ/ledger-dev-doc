@@ -267,5 +267,5 @@ Please apply on `Ledger's Listing Program
 
 .. note::
 
-   Ledger will review the application on a best-effort basis. Submitting an application isn't a commitment the application will be released.
 
+   Ledger will review new applications and Pull Requests on a best-effort basis. Submitting an application or a Pull Request isn't a guarantee it will be released.

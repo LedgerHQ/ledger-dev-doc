@@ -30,7 +30,7 @@ case it sends nothing), and then receives the next command APDU.
 However, sometimes, a user confirmation to perform a security action must be
 performed before replying to an APDU (for example, when signing a message). Such
 behavior is handled by replying no data to the command in the APDU interpreter
-by using the ``IO_REPLY_ASYNCH`` flag, then following the user action calling
+by using the ``IO_ASYNCH_REPLY`` flag, then following the user action calling
 ``io_exchange`` with the ``IO_RETURN_AFTER_TX`` flag and with the amount of data
 to reply to the stalled command.
 
