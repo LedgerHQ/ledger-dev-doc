@@ -222,11 +222,10 @@ An application will be listed publicly (official Ledger support) once:
 * Customer support pages are available on Ledger Help Center
 
 
-
 .. note::
 
-Ledger releases new cryptocurrency apps for its devices whenever reviews, tests, and resources allow it. Applications are usually released on Tuesday or Wednesday.
 
+   Ledger releases new cryptocurrency apps for its devices whenever reviews, tests, and resources allow it. Applications are usually released on Tuesday or Wednesday.
 
 
 
