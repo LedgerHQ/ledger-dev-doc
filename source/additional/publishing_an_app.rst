@@ -190,22 +190,43 @@ You represent and warrant that the device app you are making available on Ledger
 
 You agree to hold Ledger harmless of any claim arising out of the use of the design and or distribution of the device app .
 
-Release Roadmap
+Release Process
 ---------------
 
-Ledger releases new cryptocurrency apps for its devices whenever reviews, tests, and resources allow it. Once an app is ready to be deployed, it is packed with the others and released in bulk.
+There are different release levels for a given application:
+
+* Public release (official Ledger support)
+* Developer mode release (experimental support)
+
+   * Developer mode with an audited application
+   * Developer mode with an unaudited application
+
 
 .. warning::
 
-   Ledger's decision to publish a third party application may not be considered as any form of partnership nor endorsement of such.
+   In any case, Ledger's decision to publish a third party application may not be considered as any form of partnership nor endorsement of such.
+   
 
-From the day an external team starts working on a new app, Ledger will add it to
-its `public Trello roadmap <https://trello.com/b/5nQ1mdzt/ledger-roadmap>`_. The
-same goes for apps being built by Ledger itself. Once your coin is listed on our
-Trello page, the Ledger community will start asking questions about the project.
-Feel free to answer them, as Ledger itself doesn't usually have the answers to
-questions about third party projects. This is also your space to keep the
-community up to date.
+As long as an application isn't audited by Ledger security team, the message Pending Ledger Review will be made visible when the application is started. 
+The user can aknowledge this warning by pressing both buttons and use the application at his own risks.
+As an unaudited application is considered experimental, such application will be visible only once the developer mode settings has been activated in Ledger Live settings. 
+
+Some applications are also visible once the developer mode setting is enabled, not because of a lack of security review, but rather because they are considered too complex to use. A reason might be a a compatible GUI is missing, or the application purpose is considered too technical for the vast majority of users.
+
+An application will be listed publicly (official Ledger support) once:
+
+* It passed the security audit
+* It's been tested and validated by at least someone from Ledger Customer Success Team
+* The application is compatible with a GUI companion app (CLI is not enough)
+* Ledger is ready to communicate officially about the release
+* Customer support pages are available
+
+
+.. note::
+
+Ledger releases new cryptocurrency apps for its devices whenever reviews, tests, and resources allow it. Applications are usually released on Tuesday or Wednesday.
+
+
 
 
 Third Party Applications Support
