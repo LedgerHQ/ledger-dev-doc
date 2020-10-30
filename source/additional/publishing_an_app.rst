@@ -197,9 +197,8 @@ There are different release levels for a given application:
 
 * Public release (official Ledger support)
 * Developer mode release (experimental support)
-
-   * Developer mode with an audited application
-   * Developer mode with an unaudited application
+ * Developer mode with an audited application
+ * Developer mode with an unaudited application
 
 
 .. warning::
@@ -218,8 +217,8 @@ An application will be listed publicly (official Ledger support) once:
 * It passed the security audit
 * It's been tested and validated by at least someone from Ledger Customer Success Team
 * The application is compatible with a GUI companion app (CLI is not enough)
-* Ledger is ready to communicate officially about the release
-* Customer support pages are available
+* Ledger is ready to communicate officially about the app release
+* Customer support pages are available on Ledger Help Center
 
 
 .. note::
