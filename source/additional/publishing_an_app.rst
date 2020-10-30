@@ -195,10 +195,10 @@ Release Process
 
 There are different release levels for a given application:
 
-* Public release (official Ledger support)
-* Developer mode release (experimental support)
- * Developer mode with an audited application
- * Developer mode with an unaudited application
+* **Public release** (official Ledger support)
+* **Developer mode release** (experimental support)
+ * Developer mode with an **audited** application
+ * Developer mode with an **unaudited** application
 
 
 .. warning::
@@ -206,18 +206,18 @@ There are different release levels for a given application:
    In any case, Ledger's decision to publish a third party application may not be considered as any form of partnership nor endorsement of such.
    
 
-As long as an application isn't audited by Ledger security team, the message Pending Ledger Review will be made visible when the application is started. 
-The user can aknowledge this warning by pressing both buttons and use the application at his own risks.
-As an unaudited application is considered experimental, such application will be visible only once the developer mode settings has been activated in Ledger Live settings. 
+As long as an application isn't audited by Ledger security team, the message ``Pending Ledger Review`` will be made visible when the application is started. 
+The user can aknowledge and skip this warning by pressing both buttons and use the application at his own risks.
+As an unaudited application is considered experimental, such application will be visible **only once the developer mode settings has been enabled** in Ledger Live settings. 
 
-Some applications are also visible once the developer mode setting is enabled, not because of a lack of security review, but rather because they are considered too complex to use. A reason might be a a compatible GUI is missing, or the application purpose is considered too technical for the vast majority of users.
+Some applications are also visible once the developer mode setting is enabled, not because of a lack of security review, but rather because they are considered too complex to use. A reason might be a the mandatory compatible GUI is missing, or the application purpose is considered too technical for the vast majority of users.
 
 An application will be listed publicly (official Ledger support) once:
 
 * It passed the security audit
 * It's been tested and validated by at least someone from Ledger Customer Success Team
 * The application is compatible with a GUI companion app (CLI is not enough)
-* Ledger is ready to communicate officially about the app release
+* Ledger is ready to communicate officially about the app release (tweet, blogpost, website page update)
 * Customer support pages are available on Ledger Help Center
 
 
