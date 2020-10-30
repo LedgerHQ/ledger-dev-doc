@@ -197,9 +197,10 @@ There are different release levels for a given application:
 
 * **Public release** (official Ledger support)
 * **Developer mode release** (experimental support)
- * Developer mode with an **audited** application
- * Developer mode with an **unaudited** application
 
+  * Developer mode with an **audited** application
+  * Developer mode with an **unaudited** application
+	
 
 .. warning::
 
