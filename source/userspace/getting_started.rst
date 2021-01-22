@@ -6,7 +6,7 @@ Getting Started
    Only Linux is supported as a development OS. For Windows and MacOS users, a Linux VM is recommended.
 
 Developing and / or compiling BOLOS applications requires the SDK matching the
-appropriate device (the Nano S SDK or the Blue SDK) as well as the following two
+appropriate device (the Nano S, X SDK or the Blue SDK) as well as the following two
 compilers:
 
 * A standard ARM gcc to build the non-secure (STM32) firmware and link the
@@ -52,11 +52,14 @@ Make sure you checkout the tag matching your firmware version.
 
 Ledger Nano S SDK: https://github.com/LedgerHQ/nanos-secure-sdk
 
+Ledger Nano X SDK: https://github.com/LedgerHQ/nanox-secure-sdk
+
 Ledger Blue SDK: https://github.com/LedgerHQ/blue-secure-sdk
+
 
 Finally, link the environment variable ``BOLOS_SDK`` to the SDK you downloaded.
 When using the Makefile for our BOLOS apps, the Makefile will use the contents
-of the SDK to determine your target device ID (Ledger Nano S or Ledger Blue).
+of the SDK to determine your target device ID (Ledger Nano S, X or Ledger Blue).
 Even if you aren't building an app, loading an app with the Makefile still
 requires you to have the SDK for the appropriate device linked to by
 ``BOLOS_SDK``.
