@@ -47,6 +47,7 @@ low-level details about the hardware architecture of these devices.
    userspace/alignment
    userspace/troubleshooting
    userspace/debugging
+   userspace/speculos
 
 .. toctree::
    :caption: Additional Resources
