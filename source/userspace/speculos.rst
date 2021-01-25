@@ -36,7 +36,7 @@ Usage
 
 To run your application, simply type in::
 
-    ./speculos.py /path/to/app
+    ./speculos.py /path/to/app.elf
 
 You can then use your left / right arrows to emulate the left and right buttons of your device.
 
@@ -45,7 +45,7 @@ Debugging with GDB
 
 Speculos can also be used to debug your code with GDB::
 
-    ./speculos.py -d /path/to/app &
-    ./tools/debug.sh /path/to/app
+    ./speculos.py -d /path/to/app.elf &
+    ./tools/debug.sh /path/to/app.elf
 
 This command should start a brand new gdb instance with your app already loaded !
