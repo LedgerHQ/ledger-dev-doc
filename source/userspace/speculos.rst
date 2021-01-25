@@ -8,11 +8,15 @@ We will go over quick guide to using speculos, but more information is available
 Setup
 -----
 
-Make sure you have the appropriate packages installed on your machine::
+1. Start by cloning the `official Speculos repo <https://github.com/LedgerHQ/speculos>`_::
+
+    git clone https://github.com/LedgerHQ/speculos
+
+2. Make sure you have the appropriate packages installed on your machine::
 
     sudo apt install qemu-user-static python3-pyqt5 python3-construct python3-jsonschema python3-mnemonic python3-pyelftools gcc-arm-linux-gnueabihf libc6-dev-armhf-cross gdb-multiarch
 
-Then build ::
+3. Build::
 
     cmake -Bbuild -H.
     make -C build/
@@ -43,3 +47,5 @@ Speculos can also be used to debug your code with GDB::
 
     ./speculos.py -d /path/to/app &
     ./tools/debug.sh /path/to/app
+
+This command should start a brand new gdb instance with your app already loaded !
