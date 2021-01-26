@@ -68,3 +68,44 @@ Speculos can also be used to debug your code with GDB::
     ./tools/debug.sh /path/to/app.elf
 
 This command should start a brand new gdb instance with your app already loaded !
+
+Debugging inside Visual Studio Code
+-----------------------------------
+
+Visual Studio Code users might be happy to learn that debugging through the usual VSCode interface is made possible using speculos.
+
+In your ``.vscode`` file, simply create a ``launch.json`` file containing this::
+
+    {
+        "version": "0.2.0",
+        "configurations": [
+            {
+                "type": "gdb",
+                "request": "attach",
+                "name": "Attach to gdbserver",
+                "executable": "${workspaceFolder}/bin/app.elf",
+                "target": ":1234",
+                "remote": true,
+                "cwd": "${workspaceFolder}",
+                "valuesFormatting": "parseText",
+                "gdbpath": "gdb-multiarch",
+                "autorun": [
+                    "set architecture arm",
+                    "handle SIGILL nostop pass noprint",
+                    "add-symbol-file ${workspaceFolder}/bin/app.elf 0x40000000",
+                    "b *0x40000000",
+                    "c"
+                ]
+            }
+        ]
+    }
+
+Make sure you have `Native Debug's extension <https://marketplace.visualstudio.com/items?itemName=webfreak.debug>`_ installed.
+Then, follow these steps:
+
+
+1. Set a breakpoint (click on the left-hand side of the line you want to set a breakpoint on).
+2. In a new terminal, attach speculos (run ``./speculos.py -d /path/to/app.elf``).
+3. In VSCode, press F5 to start the debugging session. You're good to go !
+
+If your device is in a loop (if you get the error ``Cannot execute this command while the selected thread is running``), then you probably need to send an APDU to the device to actually reach the breakpoint you've set. Please refer to the `Communicating with the device`_ section.
