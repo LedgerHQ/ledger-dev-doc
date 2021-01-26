@@ -40,6 +40,25 @@ To run your application, simply type in::
 
 You can then use your left / right arrows to emulate the left and right buttons of your device.
 
+Communicating with the device
+-----------------------------
+
+You can communicate with the emulated device using `APDUs <https://en.wikipedia.org/wiki/Smart_card_application_protocol_data_unit>`_. Speculos embbeds a TCP server (listening on ``127.0.0.1:999``) to forwards APDUs to the target app.
+
+In this example we will use the `ledgerctl <https://github.com/LedgerHQ/ledgerctl>`_ client that you can install with ``pip``::
+
+    pip3 install ledgerwallet
+
+If the environment variables ``LEDGER_PROXY_ADDRESS`` and ``LEDGER_PROXY_PORT`` are set, the library ill try to use the device emulated by Speculos. For instance, the following command-line sends the APDU ``e0 c4 00 00 00`` (Bitcoin-app's APDU to request the version)::
+
+    $ ./speculos.py /path/to/app.elf &  # First start the app in the background
+    $ echo 'e0c4000000' | LEDGER_PROXY_ADDRESS=127.0.0.1 LEDGER_PROXY_PORT=9999 ledgerctl send -
+    10:01:09.546:apdu: > e0c4000000
+    10:01:09.547:apdu: < 6d00
+    6d00
+
+Other clients are available (ledgerblue, btchip-python...) and you will find more information in `speculos' doc <https://github.com/LedgerHQ/speculos/blob/master/doc/usage.md#clients>`_.
+
 Debugging with GDB
 ------------------
 
