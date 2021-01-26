@@ -20,13 +20,13 @@ number yourself. We will do this at some point if your pull request is accepted.
 If you wish, you may install Sphinx and build this documentation into a
 collection of HTML files yourself.
 
-Firstly, make sure you have [pip
-installed](https://pip.pypa.io/en/stable/installing/).
+Firstly, make sure you have [pip3
+installed](https://linuxize.com/post/how-to-install-pip-on-ubuntu-18.04/).
 
 Secondly, install Sphinx and the Read the Docs theme:
 
 ```
-pip install sphinx sphinx_rtd_theme
+pip3 install sphinx sphinx_rtd_theme
 ```
 
 Finally, build:

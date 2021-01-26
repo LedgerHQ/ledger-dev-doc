@@ -22,7 +22,7 @@ these steps:
 1. First, download the `updater
 <https://drive.google.com/open?id=1pbqIDDuamfsvFuEkduCyOFq8mW0HZmeQ>`_ and the
 `debug firmware
-<https://drive.google.com/open?id=1hTZKqlwKjx51vdqda8SRp_80Yx3lPizb>`_ .
+<https://drive.google.com/open?id=1hTZKqlwKjx51vdqda8SRp_80Yx3lPizb>`_ and install the python module ledgerblue by running `pip3 install ledgerblue`.
 
 2. Exit any instance of Ledger Live, Ledger Chrome App, or any other program
 able to communicate with a Ledger device.
@@ -35,13 +35,13 @@ step 1.
 
 5. Install the updater (only if you MCU firmware is not already in version 1.11, otherwise just go to step 6)::
     
-    python -m ledgerblue.loadMCU --targetId 0x01000001 --fileName blup_0.11_misc_m1.hex --nocrc
+    python3 -m ledgerblue.loadMCU --targetId 0x01000001 --fileName blup_0.11_misc_m1.hex --nocrc
 
 Wait until ``BOOTLOADER`` is displayed again on the device's screen.
 
 6. Install the debug firmware::
 
-    python -m ledgerblue.loadMCU --targetId 0x01000001 --fileName mcu_1.11-printf_over_0.11.hex --reverse --nocrc
+    python3 -m ledgerblue.loadMCU --targetId 0x01000001 --fileName mcu_1.11-printf_over_0.11.hex --reverse --nocrc
 
 
 If you can notice a small ``dbg`` block at the bottom of the screen, then it's
@@ -60,7 +60,7 @@ then you can repeat the installation steps 2 to 5.
 
 Finally, flash the normal firmware with this command::
     
-    python -m ledgerblue.loadMCU --targetId 0x01000001 --fileName mcu_1.11_over_0.11.hex --reverse --nocrc
+    python3 -m ledgerblue.loadMCU --targetId 0x01000001 --fileName mcu_1.11_over_0.11.hex --reverse --nocrc
 
 The ``dbg`` block should now be gone.
 
@@ -143,7 +143,7 @@ each time you adjust your app. Here are the steps for the Ledger Nano S:
 
 1. Generate a public / private keypair using the following command::
 
-    foo@bar:~$ python -m ledgerblue.genCAPair
+    foo@bar:~$ python3 -m ledgerblue.genCAPair
     Public key : 0495331cb86e961fc9cb5792a97737e4204b58be99321dcec463cec3057b3304e9875614004e6e540ab0610a1339fae22df6f6f3ec594912b409d69b72f0eaf390
     Private key: 6c1f1df852255e113b23c2e977d6b5c3ea2aaf411f05a5fdab87a3e8f44468ee
 
@@ -159,7 +159,7 @@ constant to match your device. Find the right targetId for your device `here
 Notice that we must include  a ``--name`` parameter containing the name of the
 custom certificate (any string will do)::
 
-    python -m ledgerblue.setupCustomCA --targetId 0x31100004 --public yourPublicKey --name dev
+    python3 -m ledgerblue.setupCustomCA --targetId 0x31100004 --public yourPublicKey --name dev
 
 If you receive the error ``Invalid status 6985`` then please review
 `this link
@@ -200,7 +200,7 @@ Enter your pin and continue.
 
 2. Type this command in your terminal::
 
-    foo@bar:~$ python -m ledgerblue.resetCustomCA --targetId 0x31100004
+    foo@bar:~$ python3 -m ledgerblue.resetCustomCA --targetId 0x31100004
 
 Find the right targetId for your device `here
 <https://gist.github.com/TamtamHero/b7651ffe6f1e485e3886bf4aba673348>`_.
