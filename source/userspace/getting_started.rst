@@ -11,9 +11,9 @@ compilers:
 
 * A standard ARM gcc to build the non-secure (STM32) firmware and link the
   secure (ST31) applications
-* A standard ARM clang above 7.0.0 with `ROPI support
+* A standard ARM clang above 7.0.0 (but below 10.0.0) with `ROPI support
   <http://infocenter.arm.com/help/index.jsp?topic=/com.arm.doc.dui0491i/CHDCDGGG.html>`_
-  to build the secure (ST31) applications
+  to build the secure (ST31) applications. We recommend using clang 9.0.0.
 * Download a prebuilt gcc from `here
   <https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/gnu-rm/downloads>`_
 
@@ -30,10 +30,10 @@ simply prepend their location in your ``PATH`` environment variable.
 .. code-block:: bash
 
    # GCC
-   PATH=~/bolos-devenv/gcc-arm-none-eabi-5_3-2016q1/bin:$PATH
+   PATH=~/bolos-devenv/gcc-arm-none-eabi-10-2020-q4-major-x86_64-linux/bin:$PATH
 
    # Clang
-   PATH=~/bolos-devenv/clang+llvm-7.0.0-x86_64-linux-gnu-ubuntu-16.04/bin:$PATH
+   PATH=~/bolos-devenv/clang+llvm-9.0.0-x86_64-linux-gnu-ubuntu-20.04/bin:$PATH
 
 
 Cross compilation headers are required and provided within the gcc-multilib and g++-multilib packages.
