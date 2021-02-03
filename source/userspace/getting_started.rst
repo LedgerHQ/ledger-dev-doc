@@ -87,14 +87,14 @@ Firstly, download the boilerplate app.
 
 .. code-block:: bash
 
-   git clone https://github.com/LedgerHQ/ledger-app-boilerplate.git
+   git clone https://github.com/LedgerHQ/app-boilerplate.git
 
 Now you can let the Makefile do all the work. The ``load`` target will build the
 app if necessary and load it onto your device over USB.
 
 .. code-block:: bash
 
-   cd ledger-app-boilerplate/
+   cd app-boilerplate/
    make load
 
 And you're done! After confirming the installation on your device, you should
