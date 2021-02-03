@@ -10,14 +10,11 @@ appropriate device (the Nano S, X SDK or the Blue SDK) as well as the following 
 compilers:
 
 * A standard ARM gcc to build the non-secure (STM32) firmware and link the
-  secure (ST31) applications
-* A standard ARM clang above 7.0.0 with `ROPI support
+  secure (ST31) applications. We recommend using `GCC 7 <https://developer.arm.com/-/media/Files/downloads/gnu-rm/7-2017q4/gcc-arm-none-eabi-7-2017-q4-major-linux.tar.bz2?revision=375265d4-e9b5-41c8-bf23-56cbe927e156?product=GNU%20Arm%20Embedded%20Toolchain,64-bit,,Linux,7-2017-q4-major>`_.
+* A standard ARM clang above 7.0.0 (but below 10.0.0) with `ROPI support
   <http://infocenter.arm.com/help/index.jsp?topic=/com.arm.doc.dui0491i/CHDCDGGG.html>`_
-  to build the secure (ST31) applications
-* Download a prebuilt gcc from `here
-  <https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/gnu-rm/downloads>`_
+  to build the secure (ST31) applications. We recommend using `Clang 7.0.1 <https://releases.llvm.org/7.0.1/clang+llvm-7.0.1-x86_64-linux-gnu-ubuntu-18.04.tar.xz>`_.
 
-  
 Setting up the Toolchain
 ------------------------
 
@@ -30,10 +27,10 @@ simply prepend their location in your ``PATH`` environment variable.
 .. code-block:: bash
 
    # GCC
-   PATH=~/bolos-devenv/gcc-arm-none-eabi-5_3-2016q1/bin:$PATH
+   PATH=~/bolos-devenv/gcc-arm-none-eabi-7-2017-q4-major-x86_64-linux/bin:$PATH
 
    # Clang
-   PATH=~/bolos-devenv/clang+llvm-7.0.0-x86_64-linux-gnu-ubuntu-16.04/bin:$PATH
+   PATH=~/bolos-devenv/clang+llvm-7.0.1-x86_64-linux-gnu-ubuntu-18.04/bin:$PATH
 
 
 Cross compilation headers are required and provided within the gcc-multilib and g++-multilib packages.
