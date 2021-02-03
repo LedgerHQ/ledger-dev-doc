@@ -3,10 +3,12 @@ Application Debug
 
 .. note::
 
-   Ledger is currently working on more solutions to improve the coding
-   experience on its products. In particular, a development board and an
-   emulator are in the pipe, but there is not yet an estimated time of arrival
-   for these.
+   Ledger has developed its own emulator called `Speculos <https://github.com/LedgerHQ/speculos>`_ .
+   Feel free to checkout:
+
+   1. The `Speculos repo <https://github.com/LedgerHQ/speculos>`_ .
+   2. The `Nano S SDK <https://github.com/LedgerHQ/nanos-secure-sdk>`_ and the `Nano X SDK <https://github.com/LedgerHQ/nanox-secure-sdk>`_ .
+   3. The :doc:`speculos` section which gives an overview of how to use speculos.
 
 
 .. warning::
