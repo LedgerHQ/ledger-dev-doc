@@ -6,7 +6,7 @@ Application Debug
    Ledger has developed its own emulator called `Speculos <https://github.com/LedgerHQ/speculos>`_ .
    Feel free to checkout:
 
-   1. The `speculos repo <https://github.com/LedgerHQ/speculos>`_ .
+   1. The `Speculos repo <https://github.com/LedgerHQ/speculos>`_ .
    2. The `Nano S SDK <https://github.com/LedgerHQ/nanos-secure-sdk>`_ and the `Nano X SDK <https://github.com/LedgerHQ/nanox-secure-sdk>`_ .
    3. The :doc:`speculos` section which gives an overview of how to use speculos.
 
