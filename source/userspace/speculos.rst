@@ -21,7 +21,7 @@ Setup
     cmake -Bbuild -H.
     make -C build/
 
-Pleaes note that the first build can take some time because a tarball of OpenSSL is downloaded (the integrity of the downloaded tarball is checked) before being built. Further invocations of ``make`` skip this step.
+Please note that the first build can take some time because a tarball of OpenSSL is downloaded (the integrity of the downloaded tarball is checked) before being built. Further invocations of ``make`` skip this step.
 
 The following command line can be used for a debug build::
 
@@ -43,7 +43,7 @@ You can then use your left / right arrows to emulate the left and right buttons 
 Communicating with the device
 -----------------------------
 
-You can communicate with the emulated device using `APDUs <https://en.wikipedia.org/wiki/Smart_card_application_protocol_data_unit>`_. Speculos embbeds a TCP server (listening on ``127.0.0.1:999``) to forwards APDUs to the target app.
+You can communicate with the emulated device using `APDUs <https://en.wikipedia.org/wiki/Smart_card_application_protocol_data_unit>`_. Speculos embbeds a TCP server (listening on ``127.0.0.1:9999``) to forwards APDUs to the target app.
 
 In this example we will use the `ledgerctl <https://github.com/LedgerHQ/ledgerctl>`_ client that you can install with ``pip``::
 
