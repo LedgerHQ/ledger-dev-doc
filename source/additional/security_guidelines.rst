@@ -227,7 +227,11 @@ In the happy path, the previous code will correctly clean the memory
 once the private key is initialized. Note, however, that this code
 **fails to protect private key in case some system call throws (for
 example cx_ecfp_init_private_key)**. Correct code should wrap the
-clearing in ``TRY { ... } FINALLY { explicit_bzero() }``.
+clearing in ``BEGIN_TRY { TRY { ... } FINALLY { explicit_bzero() } END_TRY;``.
+
+Applications where such issues were fixed include
+`the ARK app <https://github.com/LedgerHQ/app-ark/commit/e84a4dc0c422f7ade586c831cbab56cb15c64df1>`_
+and `the Solana app <https://github.com/LedgerHQ/app-solana/pull/5/files>`_.
 
 Be Wary of Untrusted Input
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
