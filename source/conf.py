@@ -18,8 +18,8 @@ project = u'Ledger Documentation Hub'
 copyright = u'2016 - 2019, Ledger Team'
 author = u'Ledger Team'
 
-version = u'2'
-release = u'2'
+version = u'3'
+release = u'3'
 
 pygments_style = 'sphinx'
 
