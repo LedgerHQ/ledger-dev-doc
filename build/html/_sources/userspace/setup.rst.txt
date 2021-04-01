@@ -1,4 +1,4 @@
-Getting Started
+Setup
 ===============
 
 .. warning::
@@ -61,6 +61,11 @@ Ledger Blue SDK: https://github.com/LedgerHQ/blue-secure-sdk
 
 
 Finally, link the environment variable ``BOLOS_SDK`` to the SDK you downloaded.
+
+.. code-block:: bash
+
+   BOLOS_SDK='/path/to/sdk/'
+
 When using the Makefile for our BOLOS apps, the Makefile will use the contents
 of the SDK to determine your target device ID (Ledger Nano S, X or Ledger Blue).
 Even if you aren't building an app, loading an app with the Makefile still
@@ -70,48 +75,21 @@ requires you to have the SDK for the appropriate device linked to by
 Python Loader
 -------------
 
-If you intend to communicate with an actual Ledger device from a host computer
-at all, you will need the Python loader installed. For more information on
-installing and using the Python loader, see :doc:`python-loader:index`. The
-Makefiles for most of our apps interface with the Python loader directly, so if
-you only need to load / delete apps then you don't need to know how to use the
-various scripts provided by the Python loader, but you'll still need it
-installed.
+Most apps use the Python loader, a Ledger-made Python library to communicate with Ledger devices.
 
-Building and Loading Apps
--------------------------
-
-In this section, we'll walk you through compiling and loading your first BOLOS
-app onto your device. Applications that support multiple BOLOS devices are
-typically contained within a single repository, so you can use the same
-repository to build an app for different Ledger devices. Just make sure that
-you've set ``BOLOS_SDK`` to the appropriate SDK for the device you're using. The
-Makefiles used by our apps use the contents of the SDK to determine which device
-you're using.
-
-Firstly, download the boilerplate app.
+To install it, you will need to add a couple of extra dependencies:
 
 .. code-block:: bash
 
-   git clone https://github.com/LedgerHQ/app-boilerplate.git
+   sudo apt install virtualenv libudev-dev libusb-1.0-0-dev
 
-Now you can let the Makefile do all the work. The ``load`` target will build the
-app if necessary and load it onto your device over USB.
-
-.. code-block:: bash
-
-   cd app-boilerplate/
-   make load
-
-And you're done! After confirming the installation on your device, you should
-see an app named "Boilerplate". The app can be deleted like so:
+You will also need the :code:`python-dev-tools` (aka :code:`python-dev` on Python 2) package
 
 .. code-block:: bash
 
-   make delete
-   
-The `Sia` app is a very well documented app from community. If you want to study a full fledged app, this is the one you should read:
+   python3 -m pip install python-dev-tools --user --upgrade
 
-.. code-block:: bash
+If you need more information about the Python loader, feel free to check out the github repo: https://github.com/LedgerHQ/blue-loader-python .
+You should find what you're looking for in the :code:`doc` folder and :code:`README.md` .
 
-   git clone https://github.com/LedgerHQ/ledger-app-sia.git
+Now that you're setup and ready to go, you can start looking at our :doc:`Writing Apps </userspace/writing_apps>` article!
