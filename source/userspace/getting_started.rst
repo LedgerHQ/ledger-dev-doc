@@ -40,6 +40,12 @@ To install them on a debian system:
 
    sudo apt install gcc-multilib g++-multilib
 
+If you wish to load applications on your device, you will also need to add the appropriate :code:`udev` rules.
+
+.. code-block:: bash
+
+   wget -q -O - https://raw.githubusercontent.com/LedgerHQ/udev-rules/master/add_udev_rules.sh | sudo bash
+
 Setting up the SDK
 ------------------
 
