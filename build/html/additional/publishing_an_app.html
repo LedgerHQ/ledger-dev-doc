@@ -1,0 +1,500 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Publishing an Application &mdash; Ledger Documentation Hub 2 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="External Documentation" href="external_docs.html" />
+    <link rel="prev" title="Emulating devices with Speculos" href="../userspace/speculos.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Ledger Documentation Hub
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Background Information</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../background/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../background/personal_security_devices.html">Personal Security Devices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../background/master_seed.html">The Master Seed</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../background/hd_keys.html">HD Key Generation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../background/hd_use_cases.html">Applications of HD Trees</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../background/application_isolation.html">Application Isolation</a></li>
+</ul>
+<p class="caption"><span class="caption-text">BOLOS Platform</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../bolos/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bolos/overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bolos/features.html">BOLOS Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bolos/hardware_architecture.html">Hardware Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bolos/application_environment.html">Application Environment</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Userspace Development</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../userspace/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userspace/setup.html">Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userspace/writing_apps.html">Writing Apps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userspace/display_management.html">Display Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userspace/advanced_display_management.html">Advanced Display Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userspace/syscalls.html">Interaction Between BOLOS and Apps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userspace/application_structure.html">Application Structure and I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userspace/memory.html">Persistent Storage and PIC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userspace/alignment.html">Memory alignment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userspace/troubleshooting.html">Common Pitfalls and Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userspace/debugging.html">Application Debug</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userspace/speculos.html">Emulating devices with Speculos</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Additional Resources</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Publishing an Application</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#design-guidelines">Design Guidelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#design-warranty">Design Warranty</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#release-process">Release Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#third-party-applications-support">Third Party Applications Support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#contact">Contact</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#warranty-and-liability-disclaimer">Warranty and liability disclaimer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#deliverables-summary">Deliverables summary</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="external_docs.html">External Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="security_guidelines.html">Developing Secure Ledger Apps</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Ledger Documentation Hub</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Publishing an Application</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/additional/publishing_an_app.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="publishing-an-application">
+<h1>Publishing an Application<a class="headerlink" href="#publishing-an-application" title="Permalink to this headline">¶</a></h1>
+<p>The Ledger Manager is the service which centralizes the distribution of <a class="reference internal" href="../bolos/introduction.html"><span class="doc">BOLOS</span></a> applications on Ledger devices. It is the place where both Ledger’s apps and third party apps are distributed to users.
+This document aims at explaining the procedure for a third party app to be released on the Ledger Manager.</p>
+<div class="figure align-center" id="id1">
+<img alt="../_images/manager.png" src="../_images/manager.png" />
+<p class="caption"><span class="caption-text">The Ledger Manager</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
+<p>First, let’s see the typical end-to-end architecture of a BOLOS application, in
+the case of an app for a cryptocurrency:</p>
+<div class="figure align-center" id="id2">
+<img alt="../_images/app_architecture.png" src="../_images/app_architecture.png" />
+<p class="caption"><span class="caption-text">End-to-end architecture of a BOLOS application</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</div>
+<p>In this example, 3 pieces of software are required:</p>
+<ol class="arabic simple">
+<li><p>A BOLOS application, written in C, running on a Ledger device</p></li>
+<li><p>The companion app, with business logic and typically a GUI, running on a
+computer or a phone connected to the Ledger device</p></li>
+<li><p>A transaction explorer that interfaces between the front-end and the
+cryptocurrency daemon, running either locally (in the case of a full node) or
+remotely (light wallet)</p></li>
+</ol>
+<p>If you’re not developing an app adding support for a cryptocurrency, then you
+can ignore the 3rd piece. Depending on your use case, the companion app might be a simple daemon or a command line tool, without a GUI.
+<em>The companion app should always be compatible with Windows, MacOS and Linux</em></p>
+<div class="figure align-center" id="id3">
+<img alt="../_images/bitcoin-live.png" src="../_images/bitcoin-live.png" />
+<p class="caption"><span class="caption-text">Ledger’s main companion app: the Ledger Live</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+</div>
+<p>When these pieces are ready for deployment, they must be sent to Ledger for
+a security review. One of the things we’re going to do is review the security of the BOLOS
+application code, and check that it functions as intended in conjunction with
+its companion app. Here is a non-exhaustive list of what we’re looking at
+during the review process:</p>
+<ul class="simple">
+<li><p>Backdoors</p></li>
+<li><p>Buffer overflows</p></li>
+<li><p>Correct use of the device (for example, minimizing <a class="reference internal" href="../userspace/memory.html#flash-memory-endurance"><span class="std std-ref">NVRAM wearing</span></a>)</p></li>
+<li><p>Correct use of the SDK</p></li>
+<li><p>Application stability, correct handling of errors</p></li>
+<li><p>Correct usability (see <a class="reference internal" href="#design-guidelines">Design Guidelines</a>)</p></li>
+</ul>
+<p>Review time depends on Ledger’s available resources and code complexity. The
+more unique and complex the code, the longer the review. Please note that forks
+of supported BOLOS apps will require a new review. The decision to reject or
+revoke an app is at Ledger’s sole discretion. We will make our best efforts to
+provide a rationale for such decisions. Upon fixing identified issues, app
+authors will be allowed to re-submit their apps.
+A new all-in-one native app called <em>Ledger Live</em>
+has been released on the 9th of July, 2018. This new platform will be open to
+pull requests for adding support for new cryptocurrencies in the coming months,
+<em>it is not available yet</em>. Currently, your best shot is to build your own companion
+app with its own backend. It is less convenient for users than a full integration
+to Ledger Live, but on the other hand, it gives you more freedom on the design
+of the interface you want users to see, and the way it will be implemented
+(Web app? Native app? It’s up to you!).</p>
+<div class="section" id="design-guidelines">
+<h2>Design Guidelines<a class="headerlink" href="#design-guidelines" title="Permalink to this headline">¶</a></h2>
+<p>The design of your device app will be added to our website to inform that your app is
+available. In that respect, we thank you to provide us with the design in a format and
+with measurements that shall meet the criteria communicated by our team.</p>
+<p>There are 2 mandatory icons that should be provided for Ledger to release an app:</p>
+<ul class="simple">
+<li><p>The Device icon, displayed on the Nano S dashboard</p></li>
+<li><p>The Manager icon, displayed in the Manager application list</p></li>
+</ul>
+<p>Below are the Adobe Illustrator templates for such icons, please respect their guidance.</p>
+<ul class="simple">
+<li><p>The color palette for Blue icons shall contain 16 colors maximum</p></li>
+<li><p>The icon file shall not contain any alpha channel</p></li>
+<li><p>In order to blend well with the Blue’s Dashboard background, the 4 rounded white corners of the blue icon shall be set to this RGB value:  #F9F9F9 (and not #FFFFFF)</p></li>
+<li><p>Nano X icons must be 14x14 px in size. Developers can create their Nano X icons from the 16x16 px Nano S one with the following command: <code class="docutils literal notranslate"><span class="pre">convert</span> <span class="pre">nanos_app_&lt;token&gt;.gif</span> <span class="pre">-crop</span> <span class="pre">14x14+1+1</span> <span class="pre">+repage</span> <span class="pre">-negate</span> <span class="pre">nanox_app_&lt;token&gt;.gif</span></code></p></li>
+</ul>
+<p><strong>Click on each image to download the corresponding .ai file, and fill them directly before sending them back. They should correspond to the icons used to compile your app.</strong></p>
+<div class="figure align-center" id="id4">
+<a class="reference external image-reference" href="https://drive.google.com/a/ledger.fr/file/d/1FVUWDGYPvLuyiwDFgGYiwfwk7YGsxzJ0/view?usp=sharing"><img alt="../_images/device_template.png" src="../_images/device_template.png" /></a>
+<p class="caption"><span class="caption-text">Device icon template (click to access Illustrator file)</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
+</div>
+<div class="figure align-center" id="id5">
+<a class="reference external image-reference" href="https://drive.google.com/a/ledger.fr/file/d/1OOAZWlnLlBSpScPnF5NGJ4AfczB3D591/view?usp=sharing"><img alt="../_images/manager_template.png" src="../_images/manager_template.png" /></a>
+<p class="caption"><span class="caption-text">Manager icon template (click to access Illustrator file)</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
+</div>
+<p>Most of the time, Bolos apps expose few functionalities to the user. However,
+despite this simplicity, it is still challenging to build a user-friendly
+interface, because of the few inputs (only 2 buttons !) and also because of
+the screen size which offer only 128*32 pixels.
+Ledger provides some guidance to avoid third party developers to reinvent
+the wheel.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>See the <a class="reference internal" href="../userspace/display_management.html"><span class="doc">BAGL Toolkit</span></a> for more information
+on the BOLOS Application Graphics Library technical details.</p>
+</div>
+<p>Even though the screen is small, you don’t want to bloat it with plenty of tiny text
+to fit everything in a single time. Instead, multiple successives screens are the
+way to go, with a configurable time interval between each screen switch.
+Doing this allows you to split and segment the information to display.
+It is also a good practice to inform the user of what is the kind of information
+currently displayed, by giving it a title.
+In some cases, even when the information is segmented by type, there won’t be
+enough space for it to fit entirely on screen. Rather than splitting this information
+in multiple screens, it is better to use automatic scrolling display.
+Here is an example that sums it up:</p>
+<div class="figure align-center" id="id6">
+<img alt="../_images/scroll.gif" src="../_images/scroll.gif" />
+<p class="caption"><span class="caption-text">Example: transaction confirmation screen</span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
+</div>
+<p>On this example two pieces of information are shown: an amount of bitcoins, and a
+destination address.
+The two screens are alternating periodically until the user validates or cancel.
+A title is present to describe each information. For the too-long-to-display destination
+address, the automatic scrolling is used.</p>
+<p>A few graphical pointers (glyphs) help users to make a link between the right and left
+buttons and their effects.
+There are four principal functions fulfilled by pressing buttons:</p>
+<ul class="simple">
+<li><p>Making a binary choice for a question asked by the device (1 button)</p></li>
+<li><p>Moving in a menu (1 button)</p></li>
+<li><p>Selecting a menu entry (2 buttons)</p></li>
+<li><p>Proceeding with a disclaimer (2 buttons)</p></li>
+</ul>
+<p>To propose a binary choice to the user, 2 glyphs representing the 2 choices should be
+placed on each side of the screen (a cross symbol to cancel and a validation symbol to
+accept).
+You can display a question and relevant information in between the glyphs, like in the
+upper example.</p>
+<p>To move inside a menu, be it vertical or horizontal, the same technique is applied with
+different glyphs. We recommend using arrows: up and down for a vertical menu, left and
+right for a horizontal one).</p>
+<div class="figure align-center" id="id7">
+<img alt="../_images/horizontal_menu.png" src="../_images/horizontal_menu.png" />
+<p class="caption"><span class="caption-text">Example use of arrows in an horizontal menu</span><a class="headerlink" href="#id7" title="Permalink to this image">¶</a></p>
+</div>
+<div class="figure align-center" id="id8">
+<img alt="../_images/vertical_menu.png" src="../_images/vertical_menu.png" />
+<p class="caption"><span class="caption-text">Example use of arrows in a vertical menu</span><a class="headerlink" href="#id8" title="Permalink to this image">¶</a></p>
+</div>
+<p>Once positioned on the right menu entry, the user can select the entry by pressing both
+buttons. This potential action is not represented by glyphs.
+Same goes when going through a set of disclaimer screens: only text is displayed, and
+the user goes to the next part by pressing both buttons.
+This is a consistent behavior across the device, so you can assume that users are used
+to it. It should feel obvious when the user has to press two buttons to go through
+something in your app.</p>
+<p>Ledger does not impose the icons nor the interface for third party applications, however user
+friendliness and guidelines compliance is something being reviewed during the integration process.
+Therefore, a very poor design might be a cause of delay in your release roadmap if the
+outcome of the review is negative because of it. Don’t neglect it !</p>
+</div>
+<div class="section" id="design-warranty">
+<h2>Design Warranty<a class="headerlink" href="#design-warranty" title="Permalink to this headline">¶</a></h2>
+<p>The design of your device app shall free from any encumbrances and shall not infringe upon any third party intellectual property right, in particular trademark and design rights. You grant Ledger the right to use such design for free with the right to reproduce and exploit the design for the duration of its display on Ledger website.</p>
+<p>You represent and warrant that the device app you are making available on Ledger Live is in compliance with all relevant laws and regulations.</p>
+<p>You agree to hold Ledger harmless of any claim arising out of the use of the design and or distribution of the device app .</p>
+</div>
+<div class="section" id="release-process">
+<h2>Release Process<a class="headerlink" href="#release-process" title="Permalink to this headline">¶</a></h2>
+<p>There are different release levels for a given application:</p>
+<ul class="simple">
+<li><p><strong>Public release</strong> (official Ledger support)</p></li>
+<li><p><strong>Developer mode release</strong> (experimental support)</p>
+<ul>
+<li><p>Developer mode with an <strong>audited</strong> application</p></li>
+<li><p>Developer mode with an <strong>unaudited</strong> application</p></li>
+</ul>
+</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>In any case, Ledger’s decision to publish a third party application may not be considered as any form of partnership nor endorsement of such.</p>
+</div>
+<p>As long as an application isn’t audited by Ledger security team, the message <code class="docutils literal notranslate"><span class="pre">Pending</span> <span class="pre">Ledger</span> <span class="pre">Review</span></code> will be made visible when the application is started.
+The user can aknowledge and skip this warning by pressing both buttons and use the application at his own risks.
+As an unaudited application is considered experimental, such application will be visible <strong>only once the developer mode settings has been enabled</strong> in Ledger Live settings.</p>
+<p>Some applications are also visible once the developer mode setting is enabled, not because of a lack of security review, but rather because they are considered too complex to use. A reason might be a the mandatory compatible GUI is missing, or the application purpose is considered too technical for the vast majority of users.</p>
+<p>An application will be listed publicly (official Ledger support) once:</p>
+<ul class="simple">
+<li><p>It passed the security audit</p></li>
+<li><p>It’s been tested and validated by at least someone from Ledger Customer Success Team</p></li>
+<li><p>The application is compatible with a GUI companion app (CLI is not enough)</p></li>
+<li><p>Ledger is ready to communicate officially about the app release (tweet, blogpost, website page update)</p></li>
+<li><p>Customer support pages are available on Ledger Help Center</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Ledger releases new cryptocurrency apps for its devices whenever reviews, tests, and resources allow it. Applications are usually released on Tuesday or Wednesday.</p>
+</div>
+</div>
+<div class="section" id="third-party-applications-support">
+<h2>Third Party Applications Support<a class="headerlink" href="#third-party-applications-support" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The following only applies if you are adding support for a cryptocurrency and
+chose to build your own companion app.</p>
+</div>
+<p>Ledger does not provide support for third party applications.
+<strong>It is required for third party teams to provide and host a complete tutorial that will guide
+users before the app is released on the Ledger Manager</strong> (please follow <a class="reference external" href="https://docs.google.com/document/d/1QI7DHd3HIyhKWydlmjBbB-dlUXquqAd-4f4ED_-wgAU/edit?usp=sharing">these guidelines</a>).</p>
+<p>Along with your publication request, app sources and tutorial,
+please provide information that will allow the Ledger support team to redirect
+users to relevant support resources:</p>
+<ul class="simple">
+<li><p><strong>Identity: Name, Surname, Legal Entity</strong></p></li>
+<li><p><strong>Point of Contact: URL, email address, phone number</strong></p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Name, surname and phone number are kept private and will be used only in case of emergency.</p>
+</div>
+</div>
+<div class="section" id="contact">
+<h2>Contact<a class="headerlink" href="#contact" title="Permalink to this headline">¶</a></h2>
+<p>External developer teams are welcome on <a class="reference external" href="https://ledger-dev.slack.com">Ledger’s Developer Slack</a>. This is the place to get technical
+support, to discuss Ledger’s tech stack, and more broadly to get in touch with
+us.</p>
+</div>
+<div class="section" id="warranty-and-liability-disclaimer">
+<h2>Warranty and liability disclaimer<a class="headerlink" href="#warranty-and-liability-disclaimer" title="Permalink to this headline">¶</a></h2>
+<p>The review and publication of third-party Ledger device applications (collectively “the Service”) are provided by Ledger on an “as-is” and “as-available” basis. The Service is subject to change without notice. Ledger disclaims all warranties of accuracy, non-infringement, merchantability and fitness for a particular purpose. To the extent that Ledger makes any pre-release of Ledger device applications available to third-party developers, you understand that Ledger is under no obligation to provide updates, enhancements, or corrections, or to notify you of any changes that Ledger may make, or to publicly announce or introduce the Ledger device applications at any time in the future.</p>
+<p>To the extent not prohibited by applicable law, in no event will Ledger be liable for personal injury, or any incidental, special, indirect, consequential or punitive damages whatsoever, including, without limitation, damages resulting from delay of delivery, for loss of profits, data, business or goodwill, for business interruption, or any other commercial damages or losses, arising out of or related to this agreement or your use or inability to use the service.</p>
+</div>
+<div class="section" id="deliverables-summary">
+<h2>Deliverables summary<a class="headerlink" href="#deliverables-summary" title="Permalink to this headline">¶</a></h2>
+<p>Please apply on <a class="reference external" href="https://forms.gle/86qP6H1etn8xSwQG9">Ledger’s Listing Program</a>:</p>
+<ul class="simple">
+<li><p>Bolos app Release Candidate source code (preferably a git repository)</p></li>
+<li><p>Companion app (binaries or package, for Windows/MacOS/Linux)</p></li>
+<li><p>Adobe Illustrator templates filled with your icons (see <a class="reference internal" href="#design-guidelines">Design Guidelines</a>)</p></li>
+<li><p>Contact information (Name, Surname, Legal Entity, URL, email address, phone number)</p></li>
+<li><p>Link to tutorial hosted on third party website (see <a class="reference internal" href="#third-party-applications-support">Third Party Applications Support</a>)</p></li>
+<li><p>Video of your application running on the Ledger device</p>
+<ul>
+<li><p>Verify public address on the Ledger device</p></li>
+<li><p>Display transaction information before allowing signature</p></li>
+<li><p>Reject a transaction on the Ledger device</p></li>
+<li><p>Sign a transaction on the Ledger device</p></li>
+</ul>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Ledger will review new applications and Pull Requests on a best-effort basis. Submitting an application or a Pull Request isn’t a guarantee it will be released.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="external_docs.html" class="btn btn-neutral float-right" title="External Documentation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../userspace/speculos.html" class="btn btn-neutral float-left" title="Emulating devices with Speculos" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2016 - 2019, Ledger Team.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

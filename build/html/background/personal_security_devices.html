@@ -1,0 +1,291 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Personal Security Devices &mdash; Ledger Documentation Hub 2 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="The Master Seed" href="master_seed.html" />
+    <link rel="prev" title="Introduction" href="introduction.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Ledger Documentation Hub
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Background Information</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Personal Security Devices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="master_seed.html">The Master Seed</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hd_keys.html">HD Key Generation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hd_use_cases.html">Applications of HD Trees</a></li>
+<li class="toctree-l1"><a class="reference internal" href="application_isolation.html">Application Isolation</a></li>
+</ul>
+<p class="caption"><span class="caption-text">BOLOS Platform</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../bolos/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bolos/overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bolos/features.html">BOLOS Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bolos/hardware_architecture.html">Hardware Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bolos/application_environment.html">Application Environment</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Userspace Development</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../userspace/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userspace/setup.html">Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userspace/writing_apps.html">Writing Apps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userspace/display_management.html">Display Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userspace/advanced_display_management.html">Advanced Display Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userspace/syscalls.html">Interaction Between BOLOS and Apps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userspace/application_structure.html">Application Structure and I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userspace/memory.html">Persistent Storage and PIC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userspace/alignment.html">Memory alignment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userspace/troubleshooting.html">Common Pitfalls and Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userspace/debugging.html">Application Debug</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userspace/speculos.html">Emulating devices with Speculos</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Additional Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../additional/publishing_an_app.html">Publishing an Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../additional/external_docs.html">External Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../additional/security_guidelines.html">Developing Secure Ledger Apps</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Ledger Documentation Hub</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Personal Security Devices</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/background/personal_security_devices.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="personal-security-devices">
+<h1>Personal Security Devices<a class="headerlink" href="#personal-security-devices" title="Permalink to this headline">¶</a></h1>
+<p>Personal security devices are designed to isolate cryptographic secrets (like
+PGP or Bitcoin private keys) from your potentially insecure computer which has
+known vulnerabilities. Storing cryptographic secrets on a physical medium that
+cannot be infected with a virus such as writing them on a piece of paper (or
+storing them on an encrypted drive) is secure until you need to use your funds.
+The instant you need to transfer your funds, you need to load your private keys
+onto your computer to sign the transaction and as such you expose them to
+potential malware (unless you’d like to perform the cryptographic operations
+necessary to sign the transaction by hand, which is far from convenient, to say
+the least). This is where personal security devices come in - they don’t just
+store your cryptographic secrets safely, they also allow you to perform
+operations with them (like signing transactions) securely and conveniently.
+Ledger devices also generate secrets securely with a large amount of entropy
+using an AIS-31 compliant true random number generator (TRNG). As such, it is
+more secure to use the device’s internally generated secrets rather than
+importing a secret from elsewhere which could have been compromised before being
+loaded onto the device.</p>
+<p>Ledger leverages Secure Element technology to build personal security devices
+for cryptocurrencies and blockchains which provide an interface between humans
+and the blockchain world. They keep your private keys secure from hackers by
+storing them in a tamper-proof and eavesdropping-proof Secure Element.
+Additionally, the Ledger Nano S and Ledger Blue have a screen which serves as a
+trusted source of information about your assets as it is controlled by the
+device itself, not by potentially vulnerable computer software.</p>
+<p>However, personal security devices aren’t intended to be a store of data -
+they’re a root of trust. Apps for these devices tend to be lightweight apps that
+work in conjunction with a host computer. The Secure Element places a limit on
+the storage capacity of these devices, so storing data encrypted on a host
+computer is preferred over storing data directly on the device. As such, the
+device contains a set of private keys that you can use to unlock your data and
+assets, without any risk of compromising the security of your assets in the
+event that your computer becomes infected with a virus. Applications that
+process large amounts of data may not be able to store all of the data on the
+device at once. There are two effective solutions to this problem: 1) stream
+data through the device while the application processes it (for example, it may
+be encrypting / decrypting the data) or 2) derive a secret on the device
+(preferably from the master seed) and use it on the computer to process the data
+(this is how the <a class="reference external" href="https://github.com/LedgerHQ/blue-app-openpgp-card">PGP app</a>
+works).</p>
+<p>This is an important concept: personal security devices are a secure portal to
+your assets, not a bank. If your device gets lost or destroyed, your assets are
+still safe. The key to this portal is your “master seed”. That brings us to our
+next section, <a class="reference internal" href="master_seed.html"><span class="doc">The Master Seed</span></a>.</p>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="master_seed.html" class="btn btn-neutral float-right" title="The Master Seed" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="introduction.html" class="btn btn-neutral float-left" title="Introduction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2016 - 2019, Ledger Team.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,1033 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Developing Secure Ledger Apps &mdash; Ledger Documentation Hub 2 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="External Documentation" href="external_docs.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Ledger Documentation Hub
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Background Information</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../background/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../background/personal_security_devices.html">Personal Security Devices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../background/master_seed.html">The Master Seed</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../background/hd_keys.html">HD Key Generation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../background/hd_use_cases.html">Applications of HD Trees</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../background/application_isolation.html">Application Isolation</a></li>
+</ul>
+<p class="caption"><span class="caption-text">BOLOS Platform</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../bolos/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bolos/overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bolos/features.html">BOLOS Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bolos/hardware_architecture.html">Hardware Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bolos/application_environment.html">Application Environment</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Userspace Development</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../userspace/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userspace/setup.html">Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userspace/writing_apps.html">Writing Apps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userspace/display_management.html">Display Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userspace/advanced_display_management.html">Advanced Display Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userspace/syscalls.html">Interaction Between BOLOS and Apps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userspace/application_structure.html">Application Structure and I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userspace/memory.html">Persistent Storage and PIC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userspace/alignment.html">Memory alignment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userspace/troubleshooting.html">Common Pitfalls and Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userspace/debugging.html">Application Debug</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userspace/speculos.html">Emulating devices with Speculos</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Additional Resources</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="publishing_an_app.html">Publishing an Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="external_docs.html">External Documentation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Developing Secure Ledger Apps</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#development-practices">Development practices</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#code-reviews">Code reviews</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#security-audits">Security audits</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#developing-first-app">Developing First App</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#cryptography">Cryptography</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#own-crypto-primitives">Own crypto primitives</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#avoid-blindly-signing-data">Avoid blindly signing data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#restrict-apps-to-coin-specific-bip32-prefix">Restrict Apps to Coin-Specific BIP32 Prefix</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#signing-disclosing-keys-without-user-approval">Signing/disclosing keys without user approval</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#private-key-management">Private Key Management</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#be-wary-of-untrusted-input">Be Wary of Untrusted Input</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#properly-protect-data-you-wish-to-cache-on-the-host-computer">Properly protect data you wish to cache on the host computer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#do-not-allow-the-host-to-freely-manipulate-with-key-pairs">Do not allow the host to freely manipulate with key-pairs</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#c-is-your-enemy">C is your enemy</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#know-your-c-compiler">Know your C compiler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#use-safe-macro-constructs">Use safe macro constructs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#buffer-overflows-underflows">Buffer overflows/underflows</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#integer-overflows-underflows">Integer overflows/underflows</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#data-truncation">Data Truncation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#stack-overflow">Stack overflow</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#optimizations">Optimizations</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#business-logic-problems">Business logic problems</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#swallowing-errors-half-updated-states">Swallowing errors &amp; half-updated states</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#too-lenient-parsing-of-transactions">Too lenient parsing of transactions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#protect-against-instruction-change-attacks">Protect Against “Instruction Change” Attacks</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#example-two-multi-apdu-instructions">Example: Two multi-APDU instructions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#example-single-multi-apdu-instruction">Example: Single multi-APDU instruction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#example-self-attack-on-a-single-multi-apdu-instruction">Example: “Self”-attack on a single multi-APDU instruction</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#use-explicit-state-machines">Use explicit state machines</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Ledger Documentation Hub</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Developing Secure Ledger Apps</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/additional/security_guidelines.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="developing-secure-ledger-apps">
+<h1>Developing Secure Ledger Apps<a class="headerlink" href="#developing-secure-ledger-apps" title="Permalink to this headline">¶</a></h1>
+<p>Developing applications for Ledger devices (Nano S, X, Blue) is an
+intricate process. The security of the user funds relies on the fact
+that the application works in a correct and secure manner and that
+potential attackers cannot misuse it to extract private data and/or sign
+requests which are not authorized by the user. The app should guard
+against such attacks because they have a very low entry point – a
+Ledger device attached to a compromised host might be a victim of the
+attacker’s program sending invalid/non-standard requests to the device.</p>
+<p>This guide is meant to be a summary of all important aspects of Ledger
+Apps security and it shall be read by developers before developing an
+app for Ledger. The guide is divided into multiple sections, each taking
+on a different aspect of security.</p>
+<div class="section" id="development-practices">
+<h2>Development practices<a class="headerlink" href="#development-practices" title="Permalink to this headline">¶</a></h2>
+<p>Whenever writing a secure Ledger app, the following advice should not be
+taken lightly.</p>
+<div class="section" id="code-reviews">
+<h3>Code reviews<a class="headerlink" href="#code-reviews" title="Permalink to this headline">¶</a></h3>
+<p>We encourage all written code to be peer-reviewed. Importantly, the
+review should have at least:</p>
+<ol class="arabic simple">
+<li><p>One reviewer proficient in C and knowing C security weaknesses.</p></li>
+<li><p>One reviewer with “hacker’s mind” (looking at the code from the
+perspective of an attacker).</p></li>
+</ol>
+</div>
+<div class="section" id="security-audits">
+<h3>Security audits<a class="headerlink" href="#security-audits" title="Permalink to this headline">¶</a></h3>
+<p>We encourage third-party security reviews. Note, however, that solid
+review takes time and a short review might yield a false sense of
+security (especially if the reviewing party does not have an extensive
+knowledge of Ledger code specifics).</p>
+</div>
+<div class="section" id="developing-first-app">
+<h3>Developing First App<a class="headerlink" href="#developing-first-app" title="Permalink to this headline">¶</a></h3>
+<p>Apart from reading developer documentation at
+<a class="reference external" href="https://ledger.readthedocs.io/en/latest/">https://ledger.readthedocs.io/en/latest/</a> we recommend looking at Sia app
+<a class="reference external" href="https://github.com/LedgerHQ/ledger-app-sia">https://github.com/LedgerHQ/ledger-app-sia</a> which provides a nice
+starting point for an app, including lots of explanatory comments. A
+sample of security-wise overly-paranoid app is
+<a class="reference external" href="https://github.com/LedgerHQ/ledger-app-cardano">https://github.com/LedgerHQ/ledger-app-cardano</a>.</p>
+</div>
+</div>
+<div class="section" id="cryptography">
+<h2>Cryptography<a class="headerlink" href="#cryptography" title="Permalink to this headline">¶</a></h2>
+<p>This section presents general concepts about cryptography development,
+but also guidelines specific to the security model of the Ledger
+devices. It gives guidelines to:</p>
+<ul class="simple">
+<li><p>Ensure a potential vulnerability in one application will not cause
+damages to other apps.</p></li>
+<li><p>Make sure all the operations that manipulate secrets are approved by
+the user.</p></li>
+<li><p>Restrict the use of these secrets by apps.</p></li>
+</ul>
+<div class="section" id="own-crypto-primitives">
+<h3>Own crypto primitives<a class="headerlink" href="#own-crypto-primitives" title="Permalink to this headline">¶</a></h3>
+<p><strong>You should never roll your own crypto primitives</strong> (including
+encryption/derivation schemes, hashing functions, HMAC, etc.)</p>
+<p>Rationale: It is a purpose of BOLOS operating system to perform these in
+a secure manner. Importantly, writing your own crypto primitives is
+likely to open you to side-channel attacks or other problems. If your
+primitive is not supported by BOLOS (e.g., some very new cryptography),
+consult with Ledger developers the possibility of including it in the
+OS.</p>
+</div>
+<div class="section" id="avoid-blindly-signing-data">
+<h3>Avoid blindly signing data<a class="headerlink" href="#avoid-blindly-signing-data" title="Permalink to this headline">¶</a></h3>
+<p><strong>You should never allow signing of any attacker-controlled message
+unless it has been verified for structural validity. Importantly, you
+should never sign a message that might be a hash of transaction.</strong></p>
+<p>Rationale: If you allow an attacker to blindly sign a message, she can
+easily supply a hash of a valid transaction. Your signature could then
+be used to send an unauthorized transaction.</p>
+<p>If you want to sign user-supplied “personal” messages, prefix them with
+a fixed string (which shouldn’t be a valid transaction prefix). It is
+also a good practice to include message length in the text to be signed.
+Ledger-app-eth has a good example in function
+<code class="docutils literal notranslate"><span class="pre">handleSignPersonalMessage</span></code>. Note that sometimes cryptocurrencies have
+a standardized way of signing such personal messages and in that case
+you should use the approved scheme.</p>
+<p>Warning: If you allow signing untrusted hashes (while displaying a
+prompt to the user), be aware that</p>
+<ol class="arabic simple">
+<li><p>Users do not understand security and could be easily tricked. In
+fact, they will probably click through your prompt without thinking
+unless you give them explicit “Warning: this is a very unusual
+operation. Do not continue unless you know what you are doing”
+warning. They might not listen even then</p></li>
+<li><p>A compromised host might both change hash on the screen and also data
+sent to device. This opens the possibility of users signing something
+they didn’t want to.</p></li>
+</ol>
+</div>
+<div class="section" id="restrict-apps-to-coin-specific-bip32-prefix">
+<h3>Restrict Apps to Coin-Specific BIP32 Prefix<a class="headerlink" href="#restrict-apps-to-coin-specific-bip32-prefix" title="Permalink to this headline">¶</a></h3>
+<p>BIP32 paths on which the app can derive keys must be restricted in your
+application. The chosen derivation paths must not conflict with existing
+paths if the use case differs.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Ledger will not sign apps whose BIP32 prefixes have not been properly set.</p>
+</div>
+<p>Restricting the derivation path can be done by setting the <code class="docutils literal notranslate"><span class="pre">--path</span></code> property
+in the app Makefile.</p>
+<p>For example, if your application derive keys on the hardened path 44’/60’,
+specify in your Makefile:</p>
+<div class="highlight-makefile notranslate"><div class="highlight"><pre><span></span><span class="nv">APP_LOAD_PARAMS</span> <span class="o">+=</span> --path <span class="s2">&quot;44&#39;/60&#39;&quot;</span>
+</pre></div>
+</div>
+<p>Derivation can also be restricted to a specific curve using the <code class="docutils literal notranslate"><span class="pre">--curve</span></code>
+property. Supported curves are <code class="docutils literal notranslate"><span class="pre">secp256k1</span></code>, <code class="docutils literal notranslate"><span class="pre">prime256r1</span></code> and <code class="docutils literal notranslate"><span class="pre">ed25519</span></code>.</p>
+<p>Several curves and paths can be configured. For example, if your app must derive
+keys on paths 44’/535348’, 13’ and 17’, on curves Ed25519 and prime256r1, the
+Makefile should contain:</p>
+<div class="highlight-makefile notranslate"><div class="highlight"><pre><span></span><span class="nv">APP_LOAD_PARAMS</span><span class="o">=</span>--curve ed25519 --curve prime256r1 --path <span class="s2">&quot;44&#39;/535348&#39;&quot;</span> --path <span class="s2">&quot;13&#39;&quot;</span> --path <span class="s2">&quot;17&#39;&quot;</span>
+</pre></div>
+</div>
+<p>Rationale: Setting prefixes is crucial, as it limites the amount of damages
+an attacker can do if he manages to compromise an application. If a
+vulnerability is exploited on a poorly written of backdoored application, an
+attacker should not be able to exploit it to extract private keys from other
+apps, such as Bitcoin or Ethereum keys.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>If your application derives keys on the hardened path 44’/60’ then the chainID parameter must be different from 0 or 1.
+This is necessary to avoid replaying transactions broadcoast on Ethereum-like chains on Ethereum.
+As a general recommendation, and to ensure a good level of privacy for the end user, we recommend to always use the correct coin  type in the derivation path as defined in slip44 (<a class="reference external" href="https://github.com/satoshilabs/slips/blob/master/slip-0044.md">https://github.com/satoshilabs/slips/blob/master/slip-0044.md</a>)</p>
+</div>
+</div>
+<div class="section" id="signing-disclosing-keys-without-user-approval">
+<h3>Signing/disclosing keys without user approval<a class="headerlink" href="#signing-disclosing-keys-without-user-approval" title="Permalink to this headline">¶</a></h3>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>You must always require user approval for signing transactions/messages.</p>
+</div>
+<p>Rationale: If you do not require user consent for signing important
+data, an attacker can use your device as a signing black box and sign
+whatever it wants.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You might also consider approvals for extracting public keys, as
+some users might want extended privacy.</p>
+<ol class="arabic simple">
+<li><p>They might not want to reveal their <em>root/account</em> public key, only
+address keys</p></li>
+<li><p>They might not want to reveal address public key until it is required.
+(Some cryptocurrencies use addresses that are hash of public keys. It
+is therefore enough to send the address to the host).</p></li>
+</ol>
+<p>Note that there is a trade-off between privacy and usability here. If
+you want privacy, it would require a user interaction every time they
+want to use Ledger device, as opposed to only interaction while signing
+transactions. The behaviour could also be manually set in the application
+options.</p>
+</div>
+</div>
+<div class="section" id="private-key-management">
+<h3>Private Key Management<a class="headerlink" href="#private-key-management" title="Permalink to this headline">¶</a></h3>
+<p><strong>You should minimize the code that works with private (ECDSA, RSA, etc.) or
+secret (HMAC, AES, etc.) keys.</strong> Importantly, you should always <strong>clear the
+memory</strong> after you use these keys. That includes key data and key objects.</p>
+<p>Leaving parts of private or secret keys lying around in memory is not a
+security issue on its own because there is no easy way to extract the content
+of RAM on the chip. If a key is left in RAM by an app, another app will not be
+able to access it.</p>
+<p>However, if the key has not been properly erased, a security issue could lead
+to the leak of this key, even if it is not used anymore. An attacker able to
+read arbitrary memory from the app, or execute arbitrary code, will be able
+to read the content of the stack segment, hence the parts of the key which have
+not been erased.</p>
+<p>A common (and wrong) way of doing this:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">uint8_t</span> <span class="n">privateKeyData</span><span class="p">[</span><span class="mi">64</span><span class="p">];</span>
+<span class="n">cx_ecfp_private_key_t</span> <span class="n">privateKey</span><span class="p">;</span>
+
+<span class="n">os_perso_derive_node_bip32</span><span class="p">(</span>
+    <span class="n">tmpCtx</span><span class="p">.</span><span class="n">transactionContext</span><span class="p">.</span><span class="n">curve</span><span class="p">,</span> <span class="n">tmpCtx</span><span class="p">.</span><span class="n">transactionContext</span><span class="p">.</span><span class="n">bip32Path</span><span class="p">,</span>
+    <span class="n">tmpCtx</span><span class="p">.</span><span class="n">transactionContext</span><span class="p">.</span><span class="n">pathLength</span><span class="p">,</span> <span class="n">privateKeyData</span><span class="p">,</span>
+    <span class="nb">NULL</span><span class="p">);</span>
+<span class="n">cx_ecfp_init_private_key</span><span class="p">(</span><span class="n">tmpCtx</span><span class="p">.</span><span class="n">transactionContext</span><span class="p">.</span><span class="n">curve</span><span class="p">,</span> <span class="n">privateKeyData</span><span class="p">,</span>
+                         <span class="mi">32</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">privateKey</span><span class="p">);</span>
+<span class="n">explicit_bzero</span><span class="p">(</span><span class="n">privateKeyData</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">privateKeyData</span><span class="p">));</span>
+
+<span class="c1">// (later, after privateKey is not needed)</span>
+<span class="n">explicit_bzero</span><span class="p">(</span><span class="o">&amp;</span><span class="n">privateKey</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">privateKey</span><span class="p">));</span>
+</pre></div>
+</div>
+<p>In the happy path, the previous code will correctly clean the memory
+once the private key is initialized. Note, however, that this code
+<strong>fails to protect private key in case some system call throws (for
+example cx_ecfp_init_private_key)</strong>. Correct code should wrap the
+clearing in <code class="docutils literal notranslate"><span class="pre">TRY</span> <span class="pre">{</span> <span class="pre">...</span> <span class="pre">}</span> <span class="pre">FINALLY</span> <span class="pre">{</span> <span class="pre">explicit_bzero()</span> <span class="pre">}</span></code>.</p>
+</div>
+<div class="section" id="be-wary-of-untrusted-input">
+<h3>Be Wary of Untrusted Input<a class="headerlink" href="#be-wary-of-untrusted-input" title="Permalink to this headline">¶</a></h3>
+<p>Some cryptocurrencies do not have <em>explicit</em> fee encoded in the
+transaction. In such cases, the app cannot rely on fee value sent from
+the host. Instead, it should receive previous UTxOs and check their
+output amounts. Note that this usually needs to be done in a separate
+step due to memory constraints. Check with BTC/Cardano app design for
+this.</p>
+</div>
+<div class="section" id="properly-protect-data-you-wish-to-cache-on-the-host-computer">
+<h3>Properly protect data you wish to cache on the host computer<a class="headerlink" href="#properly-protect-data-you-wish-to-cache-on-the-host-computer" title="Permalink to this headline">¶</a></h3>
+<p>Sometimes your app needs to compute over more data than it can fit
+inside memory. Taking an example from the previous section, it might not
+be easy to store all UTxOs in memory of Ledger. As such, you might break
+computation into multiple steps and, for example, verify each UTxO
+separately and let the host computer to cache a “certified summary”. If
+you do this, be aware that</p>
+<ol class="arabic">
+<li><p>If the information you want the host to cache is public, you still
+need to attach a signature to it so that the host cannot send some
+other value later. This could be done with standard HMAC digest. We
+would recommend using a temporary (per session) key for this –
+having a per-session HMAC allows you to truncate the digest size
+(e.g., you don’t need to have HMAC which withstands years of
+brute-force attack. Instead, you can balance the digest size against
+some reasonable upper bound on how long the session lives (e.g., one
+month should be enough)).</p></li>
+<li><p>If the information is not public, you need to both encrypt and
+provide a signature. Notably, it is not enough to “scramble” the data
+by XORing with a random key as this would still allow the attacker to
+tamper with the values. (Or even break the scrambling if you re-use
+the same key).</p>
+<p>Instead:</p>
+<ul class="simple">
+<li><p>Encrypt the information with a sufficiently strong cipher</p></li>
+<li><p>Provide a digest to avoid tampering with the value</p></li>
+</ul>
+</li>
+</ol>
+</div>
+<div class="section" id="do-not-allow-the-host-to-freely-manipulate-with-key-pairs">
+<h3>Do not allow the host to freely manipulate with key-pairs<a class="headerlink" href="#do-not-allow-the-host-to-freely-manipulate-with-key-pairs" title="Permalink to this headline">¶</a></h3>
+<p>Some cryptocurrencies (notably Monero) need to perform an extensive
+calculation with <em>(public, private)</em> key-pair spread over multiple APDU
+exchanges. If you need to do the same, <strong>do not</strong> allow the attacker to
+step out of the protocol. Notably, allowing the attacker to freely
+perform key manipulation (e.g., group multiplications, exponentiations,
+etc.) could undermine your app security <strong>even if the private key never
+leaves the device</strong>. In general, keep an explicit protocol state machine
+during the computation. Also, consult with cryptography experts to check
+for implications if you misstep from the protocol.</p>
+</div>
+</div>
+<div class="section" id="c-is-your-enemy">
+<h2>C is your enemy<a class="headerlink" href="#c-is-your-enemy" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="know-your-c-compiler">
+<h3>Know your C compiler<a class="headerlink" href="#know-your-c-compiler" title="Permalink to this headline">¶</a></h3>
+<p>Ledger apps are written in C. Unlike typical embedded project, the goal
+here is to write for a single platform with a single compiler.</p>
+<p>The current supported compiler is clang, and it supports newest language
+features (up to C11). This is useful for both development and security.
+You should really learn about the new features and use them extensively
+as they might help you writing more secure code.</p>
+<p>A random collection of useful features: intermingled declarations and code,
+support of <code class="docutils literal notranslate"><span class="pre">_Generic</span></code>, <code class="docutils literal notranslate"><span class="pre">_Static_assert</span></code>, <code class="docutils literal notranslate"><span class="pre">__builtin_types_compatible_p</span></code>,
+<code class="docutils literal notranslate"><span class="pre">__typeof</span></code> (very useful for safer versions of macros), etc.</p>
+</div>
+<div class="section" id="use-safe-macro-constructs">
+<h3>Use safe macro constructs<a class="headerlink" href="#use-safe-macro-constructs" title="Permalink to this headline">¶</a></h3>
+<p>C is a minefield of problems related to pointers. You can alleviate some
+of the problems with good macros. However, beware of when they can
+fail. For example, take the following code:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define ARRAY_LEN(a) sizeof(a) / sizeof(a[0])</span>
+</pre></div>
+</div>
+<p>Apart from the “obvious” problem of ARRAY_LEN macro being written
+without external parenthesis, making code such as</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="kt">uint8_t</span><span class="p">)</span> <span class="n">ARRAY_LEN</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>compile to what is understood by the compiler as</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="kt">uint8_t</span><span class="p">)</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">/</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>there is an important problem with this macro. If used in the function
+like this</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="nf">fn</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">[</span><span class="mi">10</span><span class="p">])</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">len</span> <span class="o">=</span> <span class="n">ARRAY_LEN</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The result is unexpectedly len=1. The reason is that <code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">x[10]</span></code> in
+the function header is silently converted into <code class="docutils literal notranslate"><span class="pre">int*</span> <span class="pre">x</span></code> and the length
+is therefore <code class="docutils literal notranslate"><span class="pre">sizeof(ptr)</span> <span class="pre">/</span> <span class="pre">sizeof(int)</span></code> which is indeed 1 on the
+platform. You can read more about the problem and how to define a safe
+version in
+<a class="reference external" href="http://zubplot.blogspot.com/2015/01/gcc-is-wonderful-better-arraysize-macro.html">http://zubplot.blogspot.com/2015/01/gcc-is-wonderful-better-arraysize-macro.html</a>
+which explains a patch to the Linux kernel to improve safety of its
+ARRAY_SIZE macro.</p>
+<p>Note that similar problems exist, if x is a pointer, with:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">memset</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>In general, if writing macros, try to write them in a way that they will
+fail if they get a pointer instead of struct/array.</p>
+</div>
+<div class="section" id="buffer-overflows-underflows">
+<h3>Buffer overflows/underflows<a class="headerlink" href="#buffer-overflows-underflows" title="Permalink to this headline">¶</a></h3>
+<p>Buffer overflows and underflows are perhaps the biggest source of
+security vulnerabilities in C code. The following example shows a buffer
+overflow in (a past version) of one Ledger app.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define MAX_RAW_TX 200</span>
+<span class="p">...</span>
+<span class="k">struct</span> <span class="n">tmpCtx</span> <span class="p">{</span>
+    <span class="p">...</span>
+    <span class="kt">uint8_t</span> <span class="n">rawTx</span><span class="p">[</span><span class="n">MAX_RAW_TX</span><span class="p">];</span>
+<span class="p">}</span> <span class="n">transactionContext_t</span><span class="p">;</span>
+
+<span class="k">const</span> <span class="kt">uint8_t</span> <span class="n">PREFIX</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span><span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x01</span><span class="p">,</span> <span class="mh">0x02</span> <span class="p">...</span> <span class="p">}</span> <span class="c1">// coin-specific signing prefix</span>
+
+<span class="kt">void</span> <span class="n">handleSign</span><span class="p">(</span><span class="kt">uint8_t</span> <span class="n">p1</span><span class="p">,</span> <span class="kt">uint8_t</span> <span class="n">p2</span><span class="p">,</span> <span class="kt">uint8_t</span> <span class="o">*</span><span class="n">workBuffer</span><span class="p">,</span>
+                <span class="kt">uint16_t</span> <span class="n">dataLength</span><span class="p">,</span> <span class="k">volatile</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="o">*</span><span class="n">flags</span><span class="p">,</span>
+                <span class="k">volatile</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="o">*</span><span class="n">tx</span><span class="p">)</span> <span class="p">{</span>
+    <span class="p">...</span> <span class="c1">// (no dataLength validation, we can get up to 255 from APDU)</span>
+    <span class="c1">// Note: we can pass this line with dataLength &gt; 200</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">parseTx</span><span class="p">(</span><span class="n">workBuffer</span><span class="p">,</span> <span class="n">dataLength</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">txContent</span><span class="p">)</span> <span class="o">!=</span> <span class="n">USTREAM_FINISHED</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">THROW</span><span class="p">(</span><span class="mh">0x6A80</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="p">...</span>
+    <span class="n">memmove</span><span class="p">(</span><span class="n">tmpCtx</span><span class="p">.</span><span class="n">rawTx</span><span class="p">,</span> <span class="n">PREFIX</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">PREFIX</span><span class="p">));</span>
+
+    <span class="c1">// Here is the vulnerability. There should be a check of</span>
+    <span class="c1">// if (!(dataLength + sizeof(SIGN_PREFIX) &lt; MAX_RAW_TX)) THROW(...)</span>
+    <span class="n">memmove</span><span class="p">(</span><span class="n">tmpCtx</span><span class="p">.</span><span class="n">transactionContext</span><span class="p">.</span><span class="n">rawTx</span> <span class="o">+</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">SIGN_PREFIX</span><span class="p">),</span> <span class="n">workBuffer</span><span class="p">,</span> <span class="n">dataLength</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>In general, there is only a single remedy for buffer overflows -
+<strong>always check for available buffer space before writing to memory</strong>.
+The best is to not rely on some specific buffer size but instead rely on
+sizeof operator. If using sizeof, however, be very careful - if you
+ever pass a buffer to a function, you are losing its size!</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">uint8_t</span> <span class="n">a</span><span class="p">[</span><span class="mi">100</span><span class="p">];</span>
+
+<span class="n">main</span><span class="p">()</span> <span class="p">{</span>
+ <span class="k">sizeof</span><span class="p">(</span><span class="n">a</span><span class="p">);</span> <span class="c1">// 100</span>
+ <span class="n">f</span><span class="p">(</span><span class="n">a</span><span class="p">);</span>
+ <span class="n">g</span><span class="p">(</span><span class="n">a</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="n">f</span><span class="p">(</span><span class="kt">uint8_t</span><span class="o">*</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">sizeof</span><span class="p">(</span><span class="n">x</span><span class="p">);</span> <span class="c1">// 4</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="n">g</span><span class="p">(</span><span class="kt">uint8_t</span> <span class="n">oops</span><span class="p">[</span><span class="mi">100</span><span class="p">])</span> <span class="p">{</span>
+  <span class="k">sizeof</span><span class="p">(</span><span class="n">oops</span><span class="p">);</span> <span class="c1">// 4</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>For the extra safery, consider using a SIZEOF macro defined similarly to
+<a class="reference external" href="https://github.com/LedgerHQ/ledger-app-cardano/blob/f578c903c19288495a359a2bc909b39c33ee69ca/src/utils.h#L27">https://github.com/LedgerHQ/ledger-app-cardano/blob/f578c903c19288495a359a2bc909b39c33ee69ca/src/utils.h#L27</a></p>
+<p>Be also wary of constructs like</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">memset</span><span class="p">(</span><span class="n">displayAddress</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">fullAddress</span><span class="p">));</span>
+<span class="n">memmove</span><span class="p">((</span><span class="kt">void</span> <span class="o">*</span><span class="p">)</span><span class="n">displayAddress</span><span class="p">,</span> <span class="n">tmpCtx</span><span class="p">.</span><span class="n">address</span><span class="p">,</span> <span class="mi">5</span><span class="p">);</span>
+<span class="n">memmove</span><span class="p">((</span><span class="kt">void</span> <span class="o">*</span><span class="p">)(</span><span class="n">displayAddress</span> <span class="o">+</span> <span class="mi">5</span><span class="p">),</span> <span class="s">&quot;...&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
+<span class="n">memmove</span><span class="p">((</span><span class="kt">void</span> <span class="o">*</span><span class="p">)(</span><span class="n">displayAddress</span> <span class="o">+</span> <span class="mi">8</span><span class="p">),</span> <span class="n">tmpCtx</span><span class="p">.</span><span class="n">address</span> <span class="o">+</span> <span class="n">addressLength</span> <span class="o">-</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>There are several problematic aspects of such code. Apart from
+truncating important values (see next sections), this code makes a lot
+of assumptions. For example, if addressLength &lt; 4 (maybe some previous
+function returns addressLength=0 instead of an error) we get buffer
+underflow and copy up to 4 bytes of other memory and display it to the
+user. Or a programmer decides to shorten definition of fullAddress below
+13 and we would overwrite memory after the buffer. Finally, this code
+uses explicit indexes (e.g., 5, 8=5+3). A better trick would be to have
+a safe helper macro:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define APPEND(ptr, end, from, len) \</span>
+<span class="cp">  do { \</span>
+<span class="cp">    if (ptr + len &gt;= end || len &lt; 0) THROW(); </span><span class="c1">// not enough space \</span>
+    <span class="n">memcpy</span><span class="p">(</span><span class="n">ptr</span><span class="p">,</span> <span class="n">from</span><span class="p">,</span> <span class="n">len</span><span class="p">);</span> \
+    <span class="n">ptr</span> <span class="o">+=</span> <span class="n">len</span><span class="p">;</span> \
+  <span class="p">}</span> <span class="k">while</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="kt">char</span><span class="o">*</span> <span class="n">ptr_begin</span> <span class="o">=</span> <span class="n">displayAddress</span><span class="p">;</span>
+<span class="kt">char</span><span class="o">*</span> <span class="n">ptr_end</span> <span class="o">=</span> <span class="n">displayAddress</span> <span class="o">+</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">displayAddress</span><span class="p">);</span> <span class="c1">// points behind buffer</span>
+<span class="n">APPEND</span><span class="p">(</span><span class="n">ptr_begin</span><span class="p">,</span> <span class="n">ptr_end</span><span class="p">,</span> <span class="n">tmpCtx</span><span class="p">.</span><span class="n">address</span><span class="p">,</span> <span class="mi">5</span><span class="p">);</span> <span class="c1">// we should also assert addressLength&gt;5</span>
+<span class="n">APPEND</span><span class="p">(</span><span class="n">ptr_begin</span><span class="p">,</span> <span class="n">ptr_end</span><span class="p">,</span> <span class="s">&quot;...&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span> <span class="c1">// Note, we still have explicit size here</span>
+<span class="n">APPEND</span><span class="p">(</span><span class="n">ptr_begin</span><span class="p">,</span> <span class="n">ptr_end</span><span class="p">,</span> <span class="n">tmpCtx</span><span class="p">.</span><span class="n">address</span> <span class="o">-</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">);</span> <span class="c1">// Note: another assert</span>
+</pre></div>
+</div>
+<p>Finally, you can use SPRINTF macro from
+<code class="docutils literal notranslate"><span class="pre">sdk/include/os_io_seproxyhal.h</span></code> but be aware that the definition is</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define SPRINTF(strbuf, ...) snprintf(strbuf, sizeof(strbuf), __VA_ARGS__)</span>
+</pre></div>
+</div>
+<p>so the above warning about passing pointers instead of arrays applies to
+it.</p>
+</div>
+<div class="section" id="integer-overflows-underflows">
+<h3>Integer overflows/underflows<a class="headerlink" href="#integer-overflows-underflows" title="Permalink to this headline">¶</a></h3>
+<p>Integer overflows go hand in hand with buffer overflows. In fact, they
+can cause serious buffer overflows. Consider following code where a
+numeric underflow causes buffer overflow of 64kB!</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="nf">handleSign</span><span class="p">(</span><span class="kt">uint8_t</span> <span class="n">p1</span><span class="p">,</span> <span class="kt">uint8_t</span> <span class="n">p2</span><span class="p">,</span> <span class="kt">uint8_t</span> <span class="o">*</span><span class="n">workBuffer</span><span class="p">,</span>
+                <span class="kt">uint16_t</span> <span class="n">dataLength</span><span class="p">,</span> <span class="k">volatile</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="o">*</span><span class="n">flags</span><span class="p">,</span>
+                <span class="k">volatile</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="o">*</span><span class="n">tx</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">uint32_t</span> <span class="n">i</span><span class="p">;</span>
+
+    <span class="c1">// here we don&#39;t check if dataLength &gt; 0 so we might be reading behind the buffer</span>
+    <span class="n">tmpCtx</span><span class="p">.</span><span class="n">transactionContext</span><span class="p">.</span><span class="n">pathLength</span> <span class="o">=</span> <span class="n">workBuffer</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+    <span class="k">if</span> <span class="p">((</span><span class="n">tmpCtx</span><span class="p">.</span><span class="n">transactionContext</span><span class="p">.</span><span class="n">pathLength</span> <span class="o">&lt;</span> <span class="mh">0x01</span><span class="p">)</span> <span class="o">||</span>
+        <span class="p">(</span><span class="n">tmpCtx</span><span class="p">.</span><span class="n">transactionContext</span><span class="p">.</span><span class="n">pathLength</span> <span class="o">&gt;</span> <span class="n">MAX_BIP32_PATH</span><span class="p">))</span>
+    <span class="p">{</span>
+        <span class="n">PRINTF</span><span class="p">(</span><span class="s">&quot;Invalid path</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+        <span class="n">THROW</span><span class="p">(</span><span class="mh">0x6a80</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="n">workBuffer</span><span class="o">++</span><span class="p">;</span>
+    <span class="n">dataLength</span><span class="o">--</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">tmpCtx</span><span class="p">.</span><span class="n">transactionContext</span><span class="p">.</span><span class="n">pathLength</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">tmpCtx</span><span class="p">.</span><span class="n">transactionContext</span><span class="p">.</span><span class="n">bip32Path</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span>
+            <span class="p">(</span><span class="n">workBuffer</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="mi">24</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">workBuffer</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="mi">16</span><span class="p">)</span> <span class="o">|</span>
+            <span class="p">(</span><span class="n">workBuffer</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="mi">8</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">workBuffer</span><span class="p">[</span><span class="mi">3</span><span class="p">]);</span>
+        <span class="n">workBuffer</span> <span class="o">+=</span> <span class="mi">4</span><span class="p">;</span>
+        <span class="c1">// here we again blindly assume dataLength &gt;= 4</span>
+        <span class="n">dataLength</span> <span class="o">-=</span> <span class="mi">4</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="n">initTxContext</span><span class="p">(</span><span class="o">&amp;</span><span class="n">txProcessingCtx</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">sha256</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">dataSha256</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">txContent</span><span class="p">,</span> <span class="n">N_storage</span><span class="p">.</span><span class="n">dataAllowed</span><span class="p">);</span>
+    <span class="c1">// if we sent APDU with dataLength=0 at the beginning, we would end up with dataLength ~ 64kB here</span>
+    <span class="n">txResult</span> <span class="o">=</span> <span class="n">parseTx</span><span class="p">(</span><span class="o">&amp;</span><span class="n">txProcessingCtx</span><span class="p">,</span> <span class="n">workBuffer</span><span class="p">,</span> <span class="n">dataLength</span><span class="p">);</span>
+    <span class="p">...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>As a general rule, be very careful about variables which might overflow
+or underflow. If possible, use bigger types that can accommodate the
+arithmetic operations you need to perform. For buffer sizes, prefer
+unsigned types – that way, you can easily check both overflow and
+underflow in one go, i.e.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="nf">f</span><span class="p">(</span><span class="kt">uint8_t</span><span class="o">*</span> <span class="n">buf</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">bufSize</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// size_t is unsigned</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">bufSize</span> <span class="o">&lt;</span> <span class="n">REASONABLE_SIZE</span><span class="p">)</span> <span class="n">THROW</span><span class="p">();</span> <span class="c1">// guards both against underflow and overflow!</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="data-truncation">
+<h3>Data Truncation<a class="headerlink" href="#data-truncation" title="Permalink to this headline">¶</a></h3>
+<p>Speaking of safely formatting data, be wary of truncated values.
+Importantly, make sure you do not truncate any important data when
+displaying on the Ledger screen.</p>
+<p>Example 1: Truncating tx hash from
+“f6954eb23ecd1d64c782e6d6c32fad2876003ae92986606585ae7187470d5e04” to
+“f695…5e04” might look nice for the users but this effectively reduces
+the security of hash and an attacker can now easily try to create a hash
+collision. Instead, prefer scrolling/paging of long such important
+values.</p>
+<p>Example 2: Raise errors instead of truncation</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">tmp</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span> <span class="c1">// max 10 digits, right?</span>
+
+<span class="kt">uint32_t</span> <span class="n">amount</span> <span class="o">=</span> <span class="mi">1987654321</span>
+<span class="n">SPRINTF</span><span class="p">(</span><span class="n">tmp</span><span class="p">,</span> <span class="s">&quot;%d&quot;</span><span class="p">,</span> <span class="n">amount</span><span class="p">)</span> <span class="c1">// at least we won&#39;t get buffer overflow here ...</span>
+<span class="n">display</span><span class="p">(</span><span class="n">tmp</span><span class="p">)</span> <span class="c1">// but we display an empty screen!</span>
+
+<span class="c1">// but it could be worse</span>
+<span class="c1">// with bad custom formatting function we could get</span>
+<span class="n">format_amount</span><span class="p">(</span><span class="n">tmp</span><span class="p">,</span> <span class="n">SIZEOF</span><span class="p">(</span><span class="n">tmp</span><span class="p">),</span> <span class="n">amount</span><span class="p">)</span> <span class="c1">// &quot;198765432&quot; or &quot;987654321&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="stack-overflow">
+<h3>Stack overflow<a class="headerlink" href="#stack-overflow" title="Permalink to this headline">¶</a></h3>
+<p>You application has only a limited size (about ~700B) of stack. That is
+one of the reasons why stack cookies are not supported yet on the platform.</p>
+<p>Given the memory constraints, BOLOS OS does not have memory mapping which
+would protect from stack overflow errors. As a result, it is very easy to
+consume more stack space and overwrite the end of your data.</p>
+<p>Recommendation:</p>
+<p>Enable <code class="docutils literal notranslate"><span class="pre">DEFINES</span> <span class="pre">+=</span> <span class="pre">HAVE_BOLOS_APP_STACK_CANARY</span></code> in your Makefile. This
+will help you detect stack overflows during app development. If overflow
+is detected, the app will reboot the device. Note that the overflow check
+happens only on the next I/O. This means that the protection is not instant
+and an attacker might avoid the canary check: this option is not a security
+feature, and has been added to analyze the stack usage during testing
+process.</p>
+</div>
+<div class="section" id="optimizations">
+<h3>Optimizations<a class="headerlink" href="#optimizations" title="Permalink to this headline">¶</a></h3>
+<p>Do not clear sensitive data with for-loops or other techniques. Do not
+user <code class="docutils literal notranslate"><span class="pre">memset</span></code> or <code class="docutils literal notranslate"><span class="pre">bzero</span></code> to clear sensitive data: it could be
+optimized and removed by the compiler.</p>
+<p>Recommendation: Use <code class="docutils literal notranslate"><span class="pre">explicit_bzero</span></code> which guarantees that the
+compiler will not remove the erasure. (See
+<a class="reference external" href="https://www.owasp.org/index.php/Insecure_Compiler_Optimization">https://www.owasp.org/index.php/Insecure_Compiler_Optimization</a> for an
+example of how things could go wrong.)</p>
+</div>
+</div>
+<div class="section" id="business-logic-problems">
+<h2>Business logic problems<a class="headerlink" href="#business-logic-problems" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="swallowing-errors-half-updated-states">
+<h3>Swallowing errors &amp; half-updated states<a class="headerlink" href="#swallowing-errors-half-updated-states" title="Permalink to this headline">¶</a></h3>
+<p>It goes without saying that you should check return value of functions
+for any errors. Fortunately, BOLOS throws an error if something goes
+wrong and you might want to do the same instead of relying on error
+codes.</p>
+<p>There is, however, a more indirect problem. Some BOLOS apps silently
+catch exceptions in the main event loop without erasing app memory. This
+could lead into a following insidious bug:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">uint16_t</span> <span class="n">totalSize</span><span class="p">;</span>
+<span class="kt">uint8_t</span> <span class="n">totalBuf</span><span class="p">[</span><span class="mi">1000</span><span class="p">];</span>
+
+<span class="kt">void</span> <span class="nf">signTx</span><span class="p">(</span><span class="kt">uint8_t</span> <span class="n">p1</span><span class="p">,</span> <span class="kt">uint8_t</span> <span class="n">p2</span><span class="p">,</span> <span class="kt">uint8_t</span><span class="o">*</span> <span class="n">data</span><span class="p">,</span> <span class="kt">uint16_t</span> <span class="n">dataSize</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">p1</span> <span class="o">==</span> <span class="n">P1_INIT</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">totalSize</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="kt">uint8_t</span><span class="o">*</span> <span class="n">ptr</span> <span class="o">=</span> <span class="n">totalBuf</span><span class="p">[</span><span class="n">totalSize</span><span class="p">];</span>
+  <span class="n">totalSize</span> <span class="o">+=</span> <span class="n">dataSize</span><span class="p">;</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">totalSize</span> <span class="o">&gt;</span> <span class="n">SIZEOF</span><span class="p">(</span><span class="n">totalBuf</span><span class="p">))</span> <span class="n">THROW</span><span class="p">(</span><span class="n">ERR</span><span class="p">);</span>
+  <span class="n">memcpy</span><span class="p">(</span><span class="n">ptr</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">dataSize</span><span class="p">);</span>
+
+  <span class="k">if</span> <span class="p">(</span><span class="n">p2</span> <span class="o">==</span> <span class="n">P2_CONTINUE</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">THROW</span><span class="p">(</span><span class="mh">0x9000</span><span class="p">);</span> <span class="c1">// early exit with success</span>
+  <span class="p">}</span>
+  <span class="n">do_something</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>An attacker might do</p>
+<ol class="arabic simple">
+<li><p>SignTx(INIT, 100 bytes of data) // OK</p></li>
+<li><p>SignTx(CONTINUE, 100 bytes of data) // OK</p></li>
+</ol>
+<p>…</p>
+<ol class="arabic simple" start="10">
+<li><p>SignTx(CONTINUE, 100 bytes of data) // OK</p></li>
+<li><p>SignTx(CONTINUE, 100 bytes of data) // throws</p></li>
+</ol>
+<p>…</p>
+<ol class="arabic simple" start="5">
+<li><p>SignTx(CONTINUE, 100 bytes of data) // throws</p></li>
+<li><p>SignTx(CONTINUE, 100 bytes of data) <strong>// writes to data[-64..36]</strong></p></li>
+</ol>
+<p>The problem here is that the app state is not updated in a
+“transactional” manner and attacker exploits this.</p>
+<p>Recommendations: Try to not affect global state before you throw. Many
+times you can use a scratch memory to assemble result and only then do
+<code class="docutils literal notranslate"><span class="pre">memmove</span></code> to write the result. Even better, wipe memory/reboot device
+on exceptions to destroy any half-updated app states.</p>
+</div>
+<div class="section" id="too-lenient-parsing-of-transactions">
+<h3>Too lenient parsing of transactions<a class="headerlink" href="#too-lenient-parsing-of-transactions" title="Permalink to this headline">¶</a></h3>
+<p>It might happen that your transaction parsing is too lenient.
+Importantly, this might cause problems if the transaction serialization
+spec is ambiguous and different clients might interpret it differently.
+For example, if a field might be repeated one parser might take the
+first value while another one a second. In general, lenient tx
+serialization spec should not happen (and if so, the cryptocurrency has
+bigger concerns than Ledger wallet).</p>
+<p>However, even if the network nodes are strict with the serialization
+checking, you should not slack off on your part. Any ambiguity in
+parsing adds an attacker a leverage point once it finds some other
+vulnerability.</p>
+<p>Recommendation: Be as strict as possible with transaction parsing.
+Accept only fields which are in normalized form. If possible, avoid
+repeated fields and accept fields only in a pre-described order.</p>
+<p>Note: you can even go further and do not parse transaction on the device
+at all. Instead, just send the data in a custom format and let both the
+app and host serialize the transaction on their own with the app
+revealing (and signing) only the serialized hash. This way you can avoid
+bugs in parsing code and be sure both the host wallet and the app agree
+perfectly on the content of the transaction.</p>
+</div>
+<div class="section" id="protect-against-instruction-change-attacks">
+<h3>Protect Against “Instruction Change” Attacks<a class="headerlink" href="#protect-against-instruction-change-attacks" title="Permalink to this headline">¶</a></h3>
+<p>Ledger applications live on a secure chip which is very limited in terms
+of its memory and communication channel. This brings in an interesting
+problem – the application might not be able to perform all its work in
+a single request. Instead, the work will need to be spread over multiple
+requests. Whenever this happens, the application needs to be protected
+against attacker mixing multiple non-related (or even related) requests.</p>
+<p>If your application contains at least one instruction which works over
+multiple APDU exchanges (e.g., having <code class="docutils literal notranslate"><span class="pre">P1_INIT/P1_CONTINUE</span></code> flag in
+the standard application “terminology”), you have to protect it from
+interference. Common attack scenarios:</p>
+<div class="section" id="example-two-multi-apdu-instructions">
+<h4>Example: Two multi-APDU instructions<a class="headerlink" href="#example-two-multi-apdu-instructions" title="Permalink to this headline">¶</a></h4>
+<p>Let’s say you have SignTx and SignMessage, both sharing the same global
+<code class="docutils literal notranslate"><span class="pre">hash</span></code> variable, both instructions working over multiple APDU
+exchanges.The attacker might now call</p>
+<ol class="arabic simple">
+<li><p>SignMessage(INIT)</p></li>
+<li><p>SignTx(INIT)</p></li>
+<li><p>SignMessage(CONTINUE) with data (no finish yet)</p></li>
+<li><p>SignTx(CONTINUE) with data (finish)</p></li>
+</ol>
+<p>At this point, the global memory might be in an inconsistent state (for
+example, the SignTx hash does contain a different hash than it should
+be). This might lead to an easy attack.</p>
+</div>
+<div class="section" id="example-single-multi-apdu-instruction">
+<h4>Example: Single multi-APDU instruction<a class="headerlink" href="#example-single-multi-apdu-instruction" title="Permalink to this headline">¶</a></h4>
+<p>Even if you have only a single instruction with multiple APDU exchanges,
+an attacker might gain some leverage. Let’s say you have roughly</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="n">pubkey_ctx</span> <span class="p">{</span>
+  <span class="kt">int</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span> <span class="n">bip32_path</span><span class="p">;</span>
+  <span class="kt">int</span> <span class="n">bip32_path_len</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">struct</span> <span class="n">sign_ctx</span> <span class="p">{</span>
+  <span class="n">hash_ctx</span> <span class="n">hash</span><span class="p">;</span>
+  <span class="c1">// some other data</span>
+<span class="p">}</span>
+
+<span class="k">union</span> <span class="p">{</span>
+  <span class="n">pubkey_ctx</span> <span class="n">pubkey</span><span class="p">;</span>
+  <span class="n">sign_ctx</span> <span class="n">signTx</span><span class="p">;</span>
+<span class="p">}</span> <span class="n">ctx</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>To overwrite the hash context with an exact chosen value.</p>
+</div>
+<div class="section" id="example-self-attack-on-a-single-multi-apdu-instruction">
+<h4>Example: “Self”-attack on a single multi-APDU instruction<a class="headerlink" href="#example-self-attack-on-a-single-multi-apdu-instruction" title="Permalink to this headline">¶</a></h4>
+<p>You don’t even need two instructions to perform a variation of the
+attack. Suppose your code goes along these lines</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="nf">signTx</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">p1</span> <span class="o">==</span> <span class="n">P1_INIT</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">initialize_half_of_my_state</span><span class="p">()</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">some_bad_input</span><span class="p">)</span> <span class="n">THROW</span><span class="p">(</span><span class="n">error</span><span class="p">)</span>
+    <span class="n">initialize_rest_of_the_state</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="c1">// do something</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Assuming that you do not reset state on exceptions, this might happen</p>
+<ol class="arabic simple">
+<li><p>signTx(INIT, valid data)</p></li>
+<li><p>signTx(CONTINUE, valid data)</p></li>
+<li><p>signTx(INIT, data which throws)</p></li>
+<li><p>signTx(CONTINUE, more data)</p></li>
+</ol>
+<p>An attacker now managed to reset half of your state (maybe tx length)
+but not the rest of it (maybe tx hash) which might allow it to attack
+your code.</p>
+<p>Obviously, there are many variations of this basic scheme and an utmost
+care needs to be taken here. The recommendation here is:</p>
+<ol class="arabic simple">
+<li><p>Do not allow mixing of instructions</p></li>
+<li><p>Within instruction, keep an explicit state machine of what is allowed
+to happen next)</p></li>
+<li><p>Clear memory on exceptions</p></li>
+</ol>
+</div>
+</div>
+<div class="section" id="use-explicit-state-machines">
+<h3>Use explicit state machines<a class="headerlink" href="#use-explicit-state-machines" title="Permalink to this headline">¶</a></h3>
+<p>Whenever a host is required to perform certain actions in a specific
+order, be sure to explicitly track the state and verify that the next
+step is consistent. Good examples of what might need to be checked</p>
+<ol class="arabic simple">
+<li><p>If host claims some number of tx inputs/outputs, make sure you
+receive exactly that amount, not more and not less</p></li>
+<li><p>If the host needs to send multiple transaction inputs and outputs and
+you have to process inputs before outputs, make sure the host cannot
+send additional input after it received an output.</p></li>
+<li><p>Check that once you finished an action (signing), the attacker cannot
+resume with additional data (which might be empty). This is
+important, because usually signing “closes” some hash contexts (or
+destroy some other data) and re-running
+<code class="docutils literal notranslate"><span class="pre">SignTx(CONTINUE,</span> <span class="pre">empty</span> <span class="pre">data)</span></code> might, therefore, yield either crash
+or produce a signature of some different data. In general, after
+finishing a request you should wipe the context variable</p></li>
+<li><p>If you do not reset UI after sending APDU (for example, because you
+displayed an address and now you are waiting for another APDU
+containing tx amount), make sure your button handlers fire just once
+– a user might press the buttons multiple times. A general
+recommendation would be to always reset UI with APDU response.
+Additionally, you can guard your app against itself (and against bad
+SDK) with tracking whether it should be in IO/UI phase and assert on
+it in APDU/UI handlers.</p></li>
+</ol>
+<p>An (somewhat contrived) example of problematic button handlers</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="nf">handle_sign_message</span><span class="p">(...)</span> <span class="p">{</span>
+  <span class="p">...</span> <span class="c1">// validations</span>
+  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">is_last_apdu</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">cx_hash</span><span class="p">(</span><span class="n">CX_CONTINUE</span><span class="p">,</span> <span class="n">ctx</span><span class="o">-&gt;</span><span class="n">hash</span><span class="p">,</span> <span class="n">data</span><span class="p">);</span>
+  <span class="k">else</span> <span class="p">{</span>
+    <span class="n">memcpy</span><span class="p">(</span><span class="n">ctx</span><span class="o">-&gt;</span><span class="n">last_part</span><span class="p">,</span> <span class="n">data</span><span class="p">);</span>
+    <span class="n">flags</span> <span class="o">*=</span> <span class="n">IO_ASYNCH</span><span class="p">;</span>
+    <span class="n">display_tx_prompt</span><span class="p">();</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">io_seproxyhal_touch_tx_ok</span><span class="p">()</span> <span class="p">{</span>
+  <span class="c1">// for some reason we modify ctx state here</span>
+  <span class="n">cx_hash</span><span class="p">(</span><span class="n">CX_LAST</span><span class="p">,</span> <span class="n">ctx</span><span class="o">-&gt;</span><span class="n">last_part</span><span class="p">);</span>
+  <span class="n">sign</span><span class="p">(</span><span class="n">ctx</span><span class="o">-&gt;</span><span class="n">last_part</span><span class="p">);</span>
+  <span class="c1">// now do io_exchange</span>
+
+  <span class="c1">// Warning: this might throw (host might do something weird with USB)</span>
+  <span class="c1">// -&gt; user will press the button second time</span>
+  <span class="c1">// -&gt; we do another round of cx_hash -&gt; efficiently signing</span>
+  <span class="n">io_exchange</span><span class="p">(....);</span>
+  <span class="c1">// now reset UI</span>
+  <span class="n">ui_idle</span><span class="p">();</span> <span class="c1">// &lt;-- this line resets button callback</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>A fully resilient solution would be</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="nf">display_tx_prompt</span><span class="p">()</span> <span class="p">{</span>
+   <span class="n">tx_prompt_handled</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+   <span class="p">...</span>
+<span class="p">}</span>
+
+<span class="kt">unsigned</span> <span class="kt">int</span> <span class="nf">io_seproxyhal_touch_tx_ok</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n">assert</span><span class="p">(</span><span class="o">!</span><span class="n">tx_prompt_handled</span><span class="p">);</span>
+  <span class="n">tx_prompt_handled</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+  <span class="p">...</span>
+<span class="p">}</span>
+
+<span class="kt">unsigned</span> <span class="kt">int</span> <span class="nf">io_seproxyhal_touch_tx_cancel</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n">assert</span><span class="p">(</span><span class="o">!</span><span class="n">tx_prompt_handled</span><span class="p">);</span>
+  <span class="n">tx_prompt_handled</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+  <span class="p">...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>But such a solution is needed only if tx_ok or tx_cancel modify
+context/global variables before calling ui_idle(). (As a side note, if
+your__ok()/__cancel() handler both 1) do not check whether the
+memory is cleared, but 2) clear the memory inside the handler; make sure
+that memclear happens after calling ui_idle()).</p>
+<p>Note: If not guarded properly, an attacker might try a following line of
+attack:</p>
+<ol class="arabic simple">
+<li><p>Send transaction which is not what user wanted</p></li>
+<li><p>User realizes that the transaction is wrong and presses reject</p></li>
+<li><p>Attacker hogs <code class="docutils literal notranslate"><span class="pre">io_exchange</span></code> (presumably by doing some bad things to
+USB communication)</p></li>
+<li><p>User tries again a few more times, thinks that the UI is broken and
+the app hanged. The callbacks are fired again and again but
+<code class="docutils literal notranslate"><span class="pre">io_exchange</span></code> still throws</p></li>
+<li><p>At this point in time, a desperate user might click on “confirm”
+button to unblock the UI. If an attacker can guess this time, she can
+un-hog USB and receive confirm callback</p></li>
+</ol>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="external_docs.html" class="btn btn-neutral float-left" title="External Documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2016 - 2019, Ledger Team.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,360 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Applications of HD Trees &mdash; Ledger Documentation Hub 2 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Application Isolation" href="application_isolation.html" />
+    <link rel="prev" title="HD Key Generation" href="hd_keys.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Ledger Documentation Hub
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Background Information</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="personal_security_devices.html">Personal Security Devices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="master_seed.html">The Master Seed</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hd_keys.html">HD Key Generation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Applications of HD Trees</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#coin-types">Coin Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-does-my-wallet-know-which-addresses-i-ve-used">How does my wallet know which addresses I’ve used?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#summary">Summary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#going-beyond-cryptocurrencies">Going Beyond Cryptocurrencies</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="application_isolation.html">Application Isolation</a></li>
+</ul>
+<p class="caption"><span class="caption-text">BOLOS Platform</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../bolos/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bolos/overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bolos/features.html">BOLOS Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bolos/hardware_architecture.html">Hardware Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bolos/application_environment.html">Application Environment</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Userspace Development</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../userspace/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userspace/setup.html">Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userspace/writing_apps.html">Writing Apps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userspace/display_management.html">Display Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userspace/advanced_display_management.html">Advanced Display Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userspace/syscalls.html">Interaction Between BOLOS and Apps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userspace/application_structure.html">Application Structure and I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userspace/memory.html">Persistent Storage and PIC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userspace/alignment.html">Memory alignment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userspace/troubleshooting.html">Common Pitfalls and Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userspace/debugging.html">Application Debug</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userspace/speculos.html">Emulating devices with Speculos</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Additional Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../additional/publishing_an_app.html">Publishing an Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../additional/external_docs.html">External Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../additional/security_guidelines.html">Developing Secure Ledger Apps</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Ledger Documentation Hub</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Applications of HD Trees</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/background/hd_use_cases.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="applications-of-hd-trees">
+<h1>Applications of HD Trees<a class="headerlink" href="#applications-of-hd-trees" title="Permalink to this headline">¶</a></h1>
+<p>In the previous section, <a class="reference internal" href="hd_keys.html"><span class="doc">HD Key Generation</span></a>, we described how an infinite number of
+cryptographic secrets can be generated from a single master seed. In this
+section, we’ll talk about how Ledger applies this concept to develop
+applications for our <a class="reference internal" href="personal_security_devices.html"><span class="doc">personal security devices</span></a> that are lightweight and easily recoverable.</p>
+<div class="section" id="coin-types">
+<h2>Coin Types<a class="headerlink" href="#coin-types" title="Permalink to this headline">¶</a></h2>
+<p>So how are HD trees useful? Simple: developers of different cryptocurrencies got
+together and <a class="reference external" href="https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki#registered-coin-types">reserved a space on the tree</a>.
+Developers for these cryptocurrencies each specified which “location” on the
+tree they wanted users to store their private keys (called the coin’s “path”).
+This path is public information, because nobody can determine the actual value
+of your keys without knowing your master node (your mnemonic seed). The paths
+that correspond to various cryptocurrencies, and the paths used to derive
+cryptocurrency addresses and private keys, are defined by <a class="reference external" href="https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki">BIP 44</a> (which in
+turn defers coin type registration to <a class="reference external" href="https://github.com/satoshilabs/slips/blob/master/slip-0044.md">SLIP 44</a>).</p>
+<p>For each cryptocurrency, there is a node on the tree where all of the keys for
+that coin begin (from this point on, we’ll call this the “coin type root node”,
+for lack of a better term). Since this is a hierarchical deterministic tree, we
+can apply the same rules to that coin type root node as we applied to the master
+node. Just as an infinite tree of keys descended from the master node, there is
+also an infinite tree of keys descending from the coin type root node. This
+means that if you have a 24-word mnemonic seed, even if you don’t use Bitcoin,
+you have a virtually infinite<a class="footnote-reference brackets" href="#id3" id="id1">1</a> number of Bitcoin addresses. You have a
+virtually infinite number of Ethereum addresses, too.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>In the Ledger Ethereum Wallet desktop app, addresses are not derived
+according to BIP 44. Instead of using the derivation path <code class="docutils literal notranslate"><span class="pre">m</span> <span class="pre">/</span> <span class="pre">44'</span> <span class="pre">/</span> <span class="pre">60'</span> <span class="pre">/</span>
+<span class="pre">account'</span> <span class="pre">/</span> <span class="pre">change</span> <span class="pre">/</span> <span class="pre">address_index</span></code> (as defined by BIP 44 for Ethereum), the
+Ledger Ethereum Wallet desktop app uses the derivation path <code class="docutils literal notranslate"><span class="pre">m</span> <span class="pre">/</span> <span class="pre">44'</span> <span class="pre">/</span> <span class="pre">60'</span> <span class="pre">/</span>
+<span class="pre">0'</span> <span class="pre">/</span> <span class="pre">address_index</span></code>.</p>
+</div>
+</div>
+<div class="section" id="how-does-my-wallet-know-which-addresses-i-ve-used">
+<h2>How does my wallet know which addresses I’ve used?<a class="headerlink" href="#how-does-my-wallet-know-which-addresses-i-ve-used" title="Permalink to this headline">¶</a></h2>
+<p>In most BIP 44-compliant HD wallet programs (including the Ledger Bitcoin Wallet
+desktop app) your addresses are split into “accounts”. You can split your coins
+across multiple accounts in the same way you might with multiple bank accounts.
+You can have an account for savings, an account for donations, an account for
+common expenses, et cetera. Within each of these accounts, there are two
+virtually infinite “chains” of addresses: an external chain and an internal
+chain (commonly called the “change address” chain). Each of the addresses in
+these chains are given numbers (called the “address index”) starting at 0.</p>
+<p>When your wallet software starts up for the first time, it searches the
+blockchain for transactions involving address number 0 for each address chain.
+If it finds any transactions, then the address is displayed by the wallet
+software and the wallet searches for transactions involving address number 1.
+This process continues until the wallet finds an address that you haven’t used
+yet. It displays this address to you, then stops searching for more addresses in
+the chain, making the assumption that no more of them have been used yet.<a class="footnote-reference brackets" href="#id4" id="id2">2</a></p>
+<p>In this way, all of the important information about your transaction history is
+stored in the blockchain, so none of it has to be stored in the hardware wallet
+itself. If your wallet is destroyed / reset, all you need to do is input your
+24-word mnemonic seed into a new HD wallet and the wallet will search the public
+blockchain for all of the information it needs.</p>
+</div>
+<div class="section" id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+<div class="figure align-center" id="id5">
+<img alt="../_images/where_are_my_assets.png" src="../_images/where_are_my_assets.png" />
+<p class="caption"><span class="caption-text">A diagram of a hierarchical deterministic wallet; everything in the box
+labelled “hierarchical deterministic tree” is recoverable if your wallet is
+lost, destroyed, or reset because it is all derived from the master seed</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
+</div>
+<p>An HD wallet has a few very important properties, so let’s reiterate:</p>
+<ul class="simple">
+<li><p>The “tree” that makes up an HD wallet is generated using nothing more than
+your 24-word mnemonic seed. This is all you need to generate all of your
+cryptocurrency addresses, and sign transactions.</p></li>
+<li><p>No private keys need to be saved, anywhere. Even if you continue to receive
+Bitcoins to more and more of your addresses, you don’t need to save any of
+those private keys anywhere. This is because they were there all along, in the
+HD tree.</p></li>
+<li><p>The HD wallet standards used by Ledger (BIPs 32, 39, and 44) are industry
+standards. Your 24-word mnemonic seed will work with any other HD wallet that
+supports these standards, not just with Ledger wallets.</p></li>
+</ul>
+</div>
+<div class="section" id="going-beyond-cryptocurrencies">
+<h2>Going Beyond Cryptocurrencies<a class="headerlink" href="#going-beyond-cryptocurrencies" title="Permalink to this headline">¶</a></h2>
+<p>Hierarchical deterministic wallets are useful for a lot more than just securing
+assets on blockchains. You could also expand this concept and use your master
+seed to derive passwords, PGP keys, SSH keys, et cetera.</p>
+<p>For example, Ledger is currently developing a <a class="reference external" href="https://github.com/LedgerHQ/blue-app-password-manager">Password Manager app</a>. It is currently
+available for the Ledger Nano S in an early alpha form by clicking “show
+developer items” in the <a class="reference external" href="https://www.ledgerwallet.com/apps/manager">Ledger Manager</a>.</p>
+<p>The password manager app works by converting a node on the HD tree into a text
+password that looks like random gibberish. When you create a new password, you
+must enter a label for the password (for example: “Google”, “Dropbox”,
+“Twitter”, etc.). <strong>The location of a password’s node on the HD tree is encoded
+in the corresponding password’s label.</strong> When you ask the Password Manager app
+for your password, it uses the password’s label to locate a specific node on the
+HD tree, and then it converts that node into a text password. You cannot specify
+your own passwords to use, the passwords are generated for you.</p>
+<p class="rubric">Footnotes</p>
+<dl class="footnote brackets">
+<dt class="label" id="id3"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p>In this case, virtually infinite = 2<sup>63</sup> = 9 223 372 036 854 775 808.</p>
+</dd>
+<dt class="label" id="id4"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
+<dd><p>In this example, we described a wallet that operates with a <a class="reference external" href="https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki#address-gap-limit">gap limit</a>
+of 1. Different wallet software use different values, but BIP 44 currently
+recommends a gap limit of 20.</p>
+</dd>
+</dl>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="application_isolation.html" class="btn btn-neutral float-right" title="Application Isolation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="hd_keys.html" class="btn btn-neutral float-left" title="HD Key Generation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2016 - 2019, Ledger Team.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
