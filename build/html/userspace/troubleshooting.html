@@ -1,0 +1,384 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Common Pitfalls and Troubleshooting &mdash; Ledger Documentation Hub 2 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Application Debug" href="debugging.html" />
+    <link rel="prev" title="Memory alignment" href="alignment.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Ledger Documentation Hub
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Background Information</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../background/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../background/personal_security_devices.html">Personal Security Devices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../background/master_seed.html">The Master Seed</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../background/hd_keys.html">HD Key Generation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../background/hd_use_cases.html">Applications of HD Trees</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../background/application_isolation.html">Application Isolation</a></li>
+</ul>
+<p class="caption"><span class="caption-text">BOLOS Platform</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../bolos/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bolos/overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bolos/features.html">BOLOS Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bolos/hardware_architecture.html">Hardware Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bolos/application_environment.html">Application Environment</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Userspace Development</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setup.html">Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="writing_apps.html">Writing Apps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="display_management.html">Display Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advanced_display_management.html">Advanced Display Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="syscalls.html">Interaction Between BOLOS and Apps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="application_structure.html">Application Structure and I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="memory.html">Persistent Storage and PIC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="alignment.html">Memory alignment</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Common Pitfalls and Troubleshooting</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#not-enough-ram">Not Enough RAM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#stack-overflows">Stack Overflows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#error-handling">Error Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#application-stalled">Application Stalled</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#unaligned-ram-access">Unaligned RAM access</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="debugging.html">Application Debug</a></li>
+<li class="toctree-l1"><a class="reference internal" href="speculos.html">Emulating devices with Speculos</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Additional Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../additional/publishing_an_app.html">Publishing an Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../additional/external_docs.html">External Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../additional/security_guidelines.html">Developing Secure Ledger Apps</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Ledger Documentation Hub</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Common Pitfalls and Troubleshooting</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/userspace/troubleshooting.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="common-pitfalls-and-troubleshooting">
+<h1>Common Pitfalls and Troubleshooting<a class="headerlink" href="#common-pitfalls-and-troubleshooting" title="Permalink to this headline">¶</a></h1>
+<p>In this section, we’ll walk you through a lot of concepts that are hard to grasp
+when developing on the BOLOS platform, and we’ll provide some analysis of common
+failure scenarios that you might experience while developing applications.</p>
+<div class="section" id="not-enough-ram">
+<h2>Not Enough RAM<a class="headerlink" href="#not-enough-ram" title="Permalink to this headline">¶</a></h2>
+<p>At the time of this writing, the default link script provided by the SDK for the
+Ledger Nano S allocates 4 KiB of RAM for applications to use. This 4 KiB has to
+be enough to store all global non-const and <a class="reference internal" href="memory.html"><span class="doc">non-NVRAM</span></a> variables
+as well as the call stack (which is currently set to 768 bytes by default, also
+defined in the link script).</p>
+<p>This is the linker error you will experience if you declare too many global
+non-const and non-NVRAM variables to fit in RAM:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>bin/app.elf section `.bss&#39; will not fit in region `SRAM&#39;
+</pre></div>
+</div>
+<p>The only solution to this problem is, of course, using less RAM. You can
+accomplish this by making your application’s memory layout more efficient.
+Alternatively, if you’re feeling adventurous, you can attempt to modify the link
+script (<code class="docutils literal notranslate"><span class="pre">script.ld</span></code> in the SDKs) to optimize the space allocated for the call
+stack. If you choose to pursue the latter option, we recommend you read the next
+section as well.</p>
+</div>
+<div class="section" id="stack-overflows">
+<h2>Stack Overflows<a class="headerlink" href="#stack-overflows" title="Permalink to this headline">¶</a></h2>
+<p>Determining the exact amount of the call stack used by your application can be
+difficult to do without simply running your application. The technique we
+recommend for avoiding stack overflows is using a stack canary. Creating a stack
+canary involves setting a magic value at the start of the stack area (the stack
+grows towards lower addresses, so a canary at the start of this region will be
+located at the top of the stack), and then the canary is checked regularly. If
+the canary was modified, then this means there was a stack overflow.</p>
+<p>In a future version of the BOLOS SDKs, this feature will be implemented
+automatically. Until then, this is the recommended way to implement a stack
+canary:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">// This symbol is defined by the link script to be at the start of the stack</span>
+<span class="c1">// area.</span>
+<span class="k">extern</span> <span class="kt">unsigned</span> <span class="kt">long</span> <span class="n">_stack</span><span class="p">;</span>
+
+<span class="cp">#define STACK_CANARY (*((volatile uint32_t*) &amp;_stack))</span>
+
+<span class="kt">void</span> <span class="nf">init_canary</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">STACK_CANARY</span> <span class="o">=</span> <span class="mh">0xDEADBEEF</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">check_canary</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">STACK_CANARY</span> <span class="o">!=</span> <span class="mh">0xDEADBEEF</span><span class="p">)</span>
+        <span class="n">THROW</span><span class="p">(</span><span class="n">EXCEPTION_OVERFLOW</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The canary should be checked regularly. For example, you could run the check
+every time <code class="docutils literal notranslate"><span class="pre">io_event(...)</span></code> is called.</p>
+</div>
+<div class="section" id="error-handling">
+<h2>Error Handling<a class="headerlink" href="#error-handling" title="Permalink to this headline">¶</a></h2>
+<p>Error handling in C can sometimes be a bit counter-intuitive. With our error
+model, there are two common failure scenarios.</p>
+<p>Firstly, you must take care to always close a try context when jumping out of
+it. For example, in the block of code below, the <code class="docutils literal notranslate"><span class="pre">CLOSE_TRY</span></code> macro must be
+used to close the try context before returning from the function in the case
+that <code class="docutils literal notranslate"><span class="pre">i</span> <span class="pre">&gt;</span> <span class="pre">0</span></code>. However, in the <code class="docutils literal notranslate"><span class="pre">CATCH</span></code> clause, the try has already been
+closed automatically so <code class="docutils literal notranslate"><span class="pre">CLOSE_TRY</span></code> is not necessary.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">bool</span> <span class="nf">is_positive</span><span class="p">(</span><span class="kt">int8_t</span> <span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">BEGIN_TRY</span> <span class="p">{</span>
+        <span class="n">TRY</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+                <span class="n">THROW</span><span class="p">(</span><span class="n">EXCEPTION</span><span class="p">);</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">CLOSE_TRY</span><span class="p">;</span>
+                <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span> <span class="n">CATCH_OTHER</span><span class="p">(</span><span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+        <span class="p">}</span> <span class="n">FINALLY</span> <span class="p">{}</span>
+    <span class="p">}</span> <span class="n">END_TRY</span><span class="p">;</span>
+    <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Another common failure scenario is caused by the compiler making invalid
+assumptions when optimizing your code because it doesn’t understand how our
+exception model works. To avoid this problem, when modifying variables within a
+try / catch / finally context, always declare those variables <code class="docutils literal notranslate"><span class="pre">volatile</span></code>.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">uint16_t</span> <span class="nf">multiply</span><span class="p">(</span><span class="kt">uint8_t</span> <span class="n">a</span><span class="p">,</span> <span class="kt">uint8_t</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">volatile</span> <span class="kt">uint16_t</span> <span class="n">product</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">volatile</span> <span class="kt">uint8_t</span> <span class="n">multiplier</span> <span class="o">=</span> <span class="n">b</span><span class="p">;</span>
+    <span class="k">while</span> <span class="p">(</span><span class="nb">true</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">BEGIN_TRY</span> <span class="p">{</span>
+            <span class="n">TRY</span> <span class="p">{</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">multiplier</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+                    <span class="n">THROW</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+                <span class="n">multiplier</span><span class="o">--</span><span class="p">;</span>
+                <span class="n">product</span> <span class="o">+=</span> <span class="n">a</span><span class="p">;</span>
+                <span class="n">THROW</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+            <span class="p">}</span> <span class="n">CATCH_OTHER</span><span class="p">(</span><span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">e</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span>
+                    <span class="k">return</span> <span class="n">product</span><span class="p">;</span>
+            <span class="p">}</span> <span class="n">FINALLY</span> <span class="p">{}</span>
+        <span class="p">}</span> <span class="n">END_TRY</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="c1">// Suppress compiler warning</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>In the above example, <code class="docutils literal notranslate"><span class="pre">a</span></code> does not need to be declared <code class="docutils literal notranslate"><span class="pre">volatile</span></code> because it
+is never modified.</p>
+<p>On another note, you should use the error codes defined in the SDKs wherever
+possible (see <code class="docutils literal notranslate"><span class="pre">EXCEPTION</span></code>, <code class="docutils literal notranslate"><span class="pre">INVALID_PARAMETER</span></code>, etc. in <code class="docutils literal notranslate"><span class="pre">os.h</span></code>). If you
+decide to use custom error codes, never use an error code of <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p>
+</div>
+<div class="section" id="application-stalled">
+<h2>Application Stalled<a class="headerlink" href="#application-stalled" title="Permalink to this headline">¶</a></h2>
+<p>An application stalling when run on the device (the device’s screen freezes and
+stops responding to APDU) could be caused by a number of issues from the SE
+being isolated due to invalid handling of SEPROXYHAL packets, to a core fault on
+the device (perhaps due to a misaligned memory access or an attempt to access
+restricted memory). If this occurs, it is best to attempt to simplify the app
+and strip away as much code as possible until the problem can be isolated.</p>
+</div>
+<div class="section" id="unaligned-ram-access">
+<h2>Unaligned RAM access<a class="headerlink" href="#unaligned-ram-access" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">uint16_t</span> <span class="o">*</span><span class="n">ptr16</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">tmp_ctx</span><span class="p">.</span><span class="n">signing_context</span><span class="p">.</span><span class="n">buffer</span><span class="p">[</span><span class="n">processed</span><span class="p">];</span>
+<span class="n">PRINTF</span><span class="p">(</span><span class="s">&quot;uint16_t: %d&quot;</span><span class="p">,</span> <span class="n">ptr16</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">ptr16[0]</span></code> access can be stalling the app, even though <code class="docutils literal notranslate"><span class="pre">tmp_ctx.signing_context.buffer[processed]</span></code> (<code class="docutils literal notranslate"><span class="pre">unsigned</span> <span class="pre">char*</span></code>) can be accessed alright. This happens when pointer isn’t word-aligned, but word is access in RAM. Workaround is copying buffer into another location which is properly aligned (e.g. using <cite>os_memmove</cite>).</p>
+<p>Please refer to the <a class="reference internal" href="alignment.html#alignment"><span class="std std-ref">alignment</span></a> page for further information.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="debugging.html" class="btn btn-neutral float-right" title="Application Debug" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="alignment.html" class="btn btn-neutral float-left" title="Memory alignment" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2016 - 2019, Ledger Team.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
