@@ -91,6 +91,7 @@ You will also need the :code:`python-dev-tools` (aka :code:`python-dev` on Pytho
 .. code-block:: bash
 
    python3 -m pip install python-dev-tools --user --upgrade
+   python3 -m pip install ledgerblue
 
 If you need more information about the Python loader, feel free to check out the github repo: https://github.com/LedgerHQ/blue-loader-python .
 You should find what you're looking for in the :code:`doc` folder and :code:`README.md` .
