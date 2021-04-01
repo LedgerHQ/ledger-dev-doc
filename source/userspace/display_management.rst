@@ -9,10 +9,10 @@ Screens and Flows
 -----------------
 
 Displaying information on the devices is done by defining a :code:`flow`. 
-Think of a flow as a set of screens that will be displayed to the user.
-The user will be able to navigate the flow using left and right buttons.
+Think of a flow as a **set of screens that will be displayed** to the user.
+The user will be able to navigate the flow using **left** and **right** buttons.
 
-The macro :code:`UX_FLOW` lets you define a flow. It first takes the name of the flow you are defining, and then the different steps of your flow.
+The macro :code:`UX_FLOW` lets you define a flow. It first takes the **name of the flow** you are defining, and then the **different steps** of your flow.
 
 Here's an example:
 
@@ -26,16 +26,16 @@ Here's an example:
 		    &step_display_reject_step
 		    );
 
-"*But what are those steps? Where can I find them?*" you ask? Well, they're yours to declare in your app! Let's have a look at how you can declare those!
+"*But what are those steps? Where can I find them?*" you ask? Well, they're **yours to declare in your app**! Let's have a look at how you can declare those!
 
 Declaring steps
 ---------------
 
-A step is declared using one of the macros provided by the SDK. Here's a list of the **most used ones** (a more exhaustive list is available by looking at the SDK source code!):
+A step is declared using one of the **macros provided by the SDK**. Here's a list of the **most used ones** (a more exhaustive list is available by looking at the SDK source code!):
 
 * :code:`UX_STEP_NOCB` : Your bread and butter step. A step that simply **displays information on-screen**, without having any callback function (hence the :code:`NOCB` annotation!). This is used to display information to the user (display a public key, display the network name...).
 * :code:`UX_STEP_CB` : Another widely used step declaration. You need to **associate a callback function** (hence the :code:`CB` annotation!) that will be called if the **user presses both buttons simultaneously**. This is used mainly at the end of a flow, to either APPROVE or REJECT a signature for example.
-* :code:`FLOW_LOOP` : This is a special macro that that doesn't take any arguments. Put it as the last step of your :code:`UX_FLOW` declaration, and the flow will wrap around: pressing the left button on the first screen will display to the last screen, and pressing the right button on the last screen will jump right to the first screen!
+* :code:`FLOW_LOOP` : This is a special macro that that **doesn't take any arguments**. Put it as the last step of your :code:`UX_FLOW` declaration, and the flow will wrap around: pressing the left button on the first screen will display to the last screen, and pressing the right button on the last screen will jump right to the first screen!
 
 Looking back at our previous flow (the :code:`ux_display_pubkey_flow`), you can guess which steps were declared with :code:`UX_STEP_NOCB` and :code:`UX_STEP_CB`!
 
@@ -48,19 +48,19 @@ Looking back at our previous flow (the :code:`ux_display_pubkey_flow`), you can 
 	  - Note
 	* - :code:`ux_display_destination_address`
 	  - :code:`UX_STEP_NOCB`
-	  - This step will just display the destination address to the user, we're not expecting him to confirm or reject.
+	  - This step will just display the destination address to the user, **we're not expecting him to confirm or reject anything**.
 	* - :code:`ux_display_amount`
 	  - :code:`UX_STEP_NOCB`
-	  - This step will just display the amount to the user, we're not expecting him to confirm or reject.
+	  - This step will just display the amount to the user, **we're not expecting him to confirm or reject**.
 	* - :code:`ux_display_transaction_fees`
 	  - :code:`UX_STEP_NOCB`
-	  - This step will just display the transaction fees to the user, we're not expecting him to confirm or reject.
+	  - This step will just display the transaction fees to the user, **we're not expecting him to confirm or reject**.
 	* - :code:`ux_display_approve_step`
 	  - :code:`UX_STEP_CB`
-	  - This step will prompt the user to CONFIRM that he wishes to sign the transaction. If the user presses both button, the application will call the callback function associated with this step (the code to sign a transaction!).
+	  - This step will prompt the user to CONFIRM that he wishes to sign the transaction. If the user **presses both button**, the application will **call the callback function** associated with this step (the code to sign a transaction!).
 	* - :code:`ux_display_reject_step`
 	  - :code:`UX_STEP_CB`
-	  - This step will prompt the user to REJECT the signature of the transaction. If the user presses both button, the application will the callback function associated with this step (the code to reject the transaction signature).
+	  - This step will prompt the user to REJECT the signature of the transaction. If the user **presses both button**, the application will **call the callback function** associated with this step (the code to reject the transaction signature).
 
 Here's how the first step is defined:
 
@@ -75,7 +75,7 @@ Here's how the first step is defined:
 		}
 	);
 
-* The first argument is the name that we are going to give to this step.
+* The first argument is the **name** that we are going to give to this step.
 * The second are what we call a :code:`layout` option. 
 * The third argument goes hand-in-hand with the :code:`layout` option.
 
@@ -91,11 +91,11 @@ They are easy to remember once you understand that:
 * :code:`n` stands for **normal**.
 * :code:`p` stands for **picture**.
 * :code:`paging` means that if the data doesn't fit on screen, user will be able to navigate through multiple screens to see the data (e.g a public key).
-* And the number of letters used stands for the number of lines!
+* And the number of letters used stands for the **number of lines**!
 
-Note that all combinations of letters are not possible. For example :code:`paging` only exists with :code:`bnnn`. :code:`nnnn` only exists on NanoX, etc...
+Note that **all combinations of letters are not possible**. For example :code:`paging` only exists with :code:`bnnn`. :code:`nnnn` only exists on NanoX, etc...
 
-Now that you know all that, here's a table with the most commonly used layouts:
+Now that you know all that, here's a table with the **most commonly used layouts**:
 
 .. list-table:: Most commonly used layouts
 	:widths: 5 55 40
@@ -137,7 +137,7 @@ Now that you know all that, here's a table with the most commonly used layouts:
 
 And here's a table that compares how those layouts are displayed on a Nano S and on a Nano X!
 
-Notice that the Nano X can fit up to 4 lines, whereas the Nano S can only fit 2!
+Notice that the **Nano X can fit up to 4 lines**, whereas the **Nano S can only fit 2**!
 
 .. list-table:: Comparing end results on NanoS and NanoX
 	:widths: 10 40 40
@@ -158,6 +158,9 @@ Notice that the Nano X can fit up to 4 lines, whereas the Nano S can only fit 2!
 	* - :code:`bnnn_paging`
 	  - |nanos_bnnn_paging|
 	  - |nanox_bnnn_paging|
+
+
+You're now ready to go and fly on your owns wings! Flows, steps, and layouts are no mystery to you anymore! We've added a couple of examples just down below, because an example is worth 16x16 words...
 
 Examples
 ========
@@ -191,7 +194,7 @@ Signing a transaction
 Here's the example of a flow to sign a transaction. 
 We first display "Confirm address" along with a picture, then use :code:`bnnn_paging` to 
 display the address because it might not fit on a single screen.
-We then display the amount and the transactions fees, and finally added two callack steps:
+We then display the amount and the transactions fees, and finally add two callack steps:
 the first one to confirm, the second one to reject.
 
 .. code-block:: c
@@ -215,4 +218,4 @@ the first one to confirm, the second one to reject.
 Advanced display management
 ---------------------------
 
-A special :doc:`advanced display management </userspace/advanced_display_management>` section has been written where we go deeper in the inner-workings of display management.
+A special :doc:`advanced display management </userspace/advanced_display_management>` section has been written where we go deeper into the inner-workings of display management.

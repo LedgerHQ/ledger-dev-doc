@@ -37,3 +37,7 @@ see an app named "Boilerplate". The app can be deleted like so:
 
    make delete
    
+Display Management
+------------------
+
+The doc covered the art of displaying information on screen, go and check it out: :doc:`Display Management </userspace/display_management>`

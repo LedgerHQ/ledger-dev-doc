@@ -214,9 +214,9 @@
 <div class="section" id="screens-and-flows">
 <h3>Screens and Flows<a class="headerlink" href="#screens-and-flows" title="Permalink to this headline">¶</a></h3>
 <p>Displaying information on the devices is done by defining a <code class="code docutils literal notranslate"><span class="pre">flow</span></code>.
-Think of a flow as a set of screens that will be displayed to the user.
-The user will be able to navigate the flow using left and right buttons.</p>
-<p>The macro <code class="code docutils literal notranslate"><span class="pre">UX_FLOW</span></code> lets you define a flow. It first takes the name of the flow you are defining, and then the different steps of your flow.</p>
+Think of a flow as a <strong>set of screens that will be displayed</strong> to the user.
+The user will be able to navigate the flow using <strong>left</strong> and <strong>right</strong> buttons.</p>
+<p>The macro <code class="code docutils literal notranslate"><span class="pre">UX_FLOW</span></code> lets you define a flow. It first takes the <strong>name of the flow</strong> you are defining, and then the <strong>different steps</strong> of your flow.</p>
 <p>Here’s an example:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">UX_FLOW</span><span class="p">(</span><span class="n">ux_sign_transaction</span><span class="p">,</span>                <span class="c1">// Name of the flow</span>
             <span class="o">&amp;</span><span class="n">step_destination_address</span><span class="p">,</span>      <span class="c1">// Reference to the first step</span>
@@ -227,15 +227,15 @@ The user will be able to navigate the flow using left and right buttons.</p>
             <span class="p">);</span>
 </pre></div>
 </div>
-<p>“<em>But what are those steps? Where can I find them?</em>” you ask? Well, they’re yours to declare in your app! Let’s have a look at how you can declare those!</p>
+<p>“<em>But what are those steps? Where can I find them?</em>” you ask? Well, they’re <strong>yours to declare in your app</strong>! Let’s have a look at how you can declare those!</p>
 </div>
 <div class="section" id="declaring-steps">
 <h3>Declaring steps<a class="headerlink" href="#declaring-steps" title="Permalink to this headline">¶</a></h3>
-<p>A step is declared using one of the macros provided by the SDK. Here’s a list of the <strong>most used ones</strong> (a more exhaustive list is available by looking at the SDK source code!):</p>
+<p>A step is declared using one of the <strong>macros provided by the SDK</strong>. Here’s a list of the <strong>most used ones</strong> (a more exhaustive list is available by looking at the SDK source code!):</p>
 <ul class="simple">
 <li><p><code class="code docutils literal notranslate"><span class="pre">UX_STEP_NOCB</span></code> : Your bread and butter step. A step that simply <strong>displays information on-screen</strong>, without having any callback function (hence the <code class="code docutils literal notranslate"><span class="pre">NOCB</span></code> annotation!). This is used to display information to the user (display a public key, display the network name…).</p></li>
 <li><p><code class="code docutils literal notranslate"><span class="pre">UX_STEP_CB</span></code> : Another widely used step declaration. You need to <strong>associate a callback function</strong> (hence the <code class="code docutils literal notranslate"><span class="pre">CB</span></code> annotation!) that will be called if the <strong>user presses both buttons simultaneously</strong>. This is used mainly at the end of a flow, to either APPROVE or REJECT a signature for example.</p></li>
-<li><p><code class="code docutils literal notranslate"><span class="pre">FLOW_LOOP</span></code> : This is a special macro that that doesn’t take any arguments. Put it as the last step of your <code class="code docutils literal notranslate"><span class="pre">UX_FLOW</span></code> declaration, and the flow will wrap around: pressing the left button on the first screen will display to the last screen, and pressing the right button on the last screen will jump right to the first screen!</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">FLOW_LOOP</span></code> : This is a special macro that that <strong>doesn’t take any arguments</strong>. Put it as the last step of your <code class="code docutils literal notranslate"><span class="pre">UX_FLOW</span></code> declaration, and the flow will wrap around: pressing the left button on the first screen will display to the last screen, and pressing the right button on the last screen will jump right to the first screen!</p></li>
 </ul>
 <p>Looking back at our previous flow (the <code class="code docutils literal notranslate"><span class="pre">ux_display_pubkey_flow</span></code>), you can guess which steps were declared with <code class="code docutils literal notranslate"><span class="pre">UX_STEP_NOCB</span></code> and <code class="code docutils literal notranslate"><span class="pre">UX_STEP_CB</span></code>!</p>
 <table class="colwidths-given docutils align-default" id="id1">
@@ -254,23 +254,23 @@ The user will be able to navigate the flow using left and right buttons.</p>
 <tbody>
 <tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">ux_display_destination_address</span></code></p></td>
 <td><p><code class="code docutils literal notranslate"><span class="pre">UX_STEP_NOCB</span></code></p></td>
-<td><p>This step will just display the destination address to the user, we’re not expecting him to confirm or reject.</p></td>
+<td><p>This step will just display the destination address to the user, <strong>we’re not expecting him to confirm or reject anything</strong>.</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">ux_display_amount</span></code></p></td>
 <td><p><code class="code docutils literal notranslate"><span class="pre">UX_STEP_NOCB</span></code></p></td>
-<td><p>This step will just display the amount to the user, we’re not expecting him to confirm or reject.</p></td>
+<td><p>This step will just display the amount to the user, <strong>we’re not expecting him to confirm or reject</strong>.</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">ux_display_transaction_fees</span></code></p></td>
 <td><p><code class="code docutils literal notranslate"><span class="pre">UX_STEP_NOCB</span></code></p></td>
-<td><p>This step will just display the transaction fees to the user, we’re not expecting him to confirm or reject.</p></td>
+<td><p>This step will just display the transaction fees to the user, <strong>we’re not expecting him to confirm or reject</strong>.</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="code docutils literal notranslate"><span class="pre">ux_display_approve_step</span></code></p></td>
 <td><p><code class="code docutils literal notranslate"><span class="pre">UX_STEP_CB</span></code></p></td>
-<td><p>This step will prompt the user to CONFIRM that he wishes to sign the transaction. If the user presses both button, the application will call the callback function associated with this step (the code to sign a transaction!).</p></td>
+<td><p>This step will prompt the user to CONFIRM that he wishes to sign the transaction. If the user <strong>presses both button</strong>, the application will <strong>call the callback function</strong> associated with this step (the code to sign a transaction!).</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="code docutils literal notranslate"><span class="pre">ux_display_reject_step</span></code></p></td>
 <td><p><code class="code docutils literal notranslate"><span class="pre">UX_STEP_CB</span></code></p></td>
-<td><p>This step will prompt the user to REJECT the signature of the transaction. If the user presses both button, the application will the callback function associated with this step (the code to reject the transaction signature).</p></td>
+<td><p>This step will prompt the user to REJECT the signature of the transaction. If the user <strong>presses both button</strong>, the application will <strong>call the callback function</strong> associated with this step (the code to reject the transaction signature).</p></td>
 </tr>
 </tbody>
 </table>
@@ -286,7 +286,7 @@ The user will be able to navigate the flow using left and right buttons.</p>
 </pre></div>
 </div>
 <ul class="simple">
-<li><p>The first argument is the name that we are going to give to this step.</p></li>
+<li><p>The first argument is the <strong>name</strong> that we are going to give to this step.</p></li>
 <li><p>The second are what we call a <code class="code docutils literal notranslate"><span class="pre">layout</span></code> option.</p></li>
 <li><p>The third argument goes hand-in-hand with the <code class="code docutils literal notranslate"><span class="pre">layout</span></code> option.</p></li>
 </ul>
@@ -301,10 +301,10 @@ They are easy to remember once you understand that:</p>
 <li><p><code class="code docutils literal notranslate"><span class="pre">n</span></code> stands for <strong>normal</strong>.</p></li>
 <li><p><code class="code docutils literal notranslate"><span class="pre">p</span></code> stands for <strong>picture</strong>.</p></li>
 <li><p><code class="code docutils literal notranslate"><span class="pre">paging</span></code> means that if the data doesn’t fit on screen, user will be able to navigate through multiple screens to see the data (e.g a public key).</p></li>
-<li><p>And the number of letters used stands for the number of lines!</p></li>
+<li><p>And the number of letters used stands for the <strong>number of lines</strong>!</p></li>
 </ul>
-<p>Note that all combinations of letters are not possible. For example <code class="code docutils literal notranslate"><span class="pre">paging</span></code> only exists with <code class="code docutils literal notranslate"><span class="pre">bnnn</span></code>. <code class="code docutils literal notranslate"><span class="pre">nnnn</span></code> only exists on NanoX, etc…</p>
-<p>Now that you know all that, here’s a table with the most commonly used layouts:</p>
+<p>Note that <strong>all combinations of letters are not possible</strong>. For example <code class="code docutils literal notranslate"><span class="pre">paging</span></code> only exists with <code class="code docutils literal notranslate"><span class="pre">bnnn</span></code>. <code class="code docutils literal notranslate"><span class="pre">nnnn</span></code> only exists on NanoX, etc…</p>
+<p>Now that you know all that, here’s a table with the <strong>most commonly used layouts</strong>:</p>
 <table class="colwidths-given docutils align-default" id="id2">
 <caption><span class="caption-text">Most commonly used layouts</span><a class="headerlink" href="#id2" title="Permalink to this table">¶</a></caption>
 <colgroup>
@@ -338,7 +338,7 @@ They are easy to remember once you understand that:</p>
 </tbody>
 </table>
 <p>And here’s a table that compares how those layouts are displayed on a Nano S and on a Nano X!</p>
-<p>Notice that the Nano X can fit up to 4 lines, whereas the Nano S can only fit 2!</p>
+<p>Notice that the <strong>Nano X can fit up to 4 lines</strong>, whereas the <strong>Nano S can only fit 2</strong>!</p>
 <table class="colwidths-given docutils align-default" id="id3">
 <caption><span class="caption-text">Comparing end results on NanoS and NanoX</span><a class="headerlink" href="#id3" title="Permalink to this table">¶</a></caption>
 <colgroup>
@@ -371,6 +371,7 @@ They are easy to remember once you understand that:</p>
 </tr>
 </tbody>
 </table>
+<p>You’re now ready to go and fly on your owns wings! Flows, steps, and layouts are no mystery to you anymore! We’ve added a couple of examples just down below, because an example is worth 16x16 words…</p>
 </div>
 </div>
 <div class="section" id="examples">
@@ -400,7 +401,7 @@ We also added the <code class="code docutils literal notranslate"><span class="p
 <p>Here’s the example of a flow to sign a transaction.
 We first display “Confirm address” along with a picture, then use <code class="code docutils literal notranslate"><span class="pre">bnnn_paging</span></code> to
 display the address because it might not fit on a single screen.
-We then display the amount and the transactions fees, and finally added two callack steps:
+We then display the amount and the transactions fees, and finally add two callack steps:
 the first one to confirm, the second one to reject.</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">UX_STEP_NO_CB</span><span class="p">(</span><span class="n">step_review</span><span class="p">,</span> <span class="n">pn</span><span class="p">,</span> <span class="p">{</span><span class="o">&amp;</span><span class="n">C_icon_eye</span><span class="p">,</span> <span class="s">&quot;Confirm Address&quot;</span><span class="p">});</span>
 <span class="n">UX_STEP_NO_CB</span><span class="p">(</span><span class="n">step_address</span><span class="p">,</span> <span class="n">bnnn_paging</span><span class="p">,</span> <span class="p">{</span> <span class="p">.</span><span class="n">title</span> <span class="o">=</span> <span class="s">&quot;Address&quot;</span><span class="p">,</span> <span class="p">.</span><span class="n">text</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">g_destination_address</span><span class="p">});</span>
@@ -422,7 +423,7 @@ the first one to confirm, the second one to reject.</p>
 </div>
 <div class="section" id="advanced-display-management">
 <h3>Advanced display management<a class="headerlink" href="#advanced-display-management" title="Permalink to this headline">¶</a></h3>
-<p>A special <a class="reference internal" href="advanced_display_management.html"><span class="doc">advanced display management</span></a> section has been written where we go deeper in the inner-workings of display management.</p>
+<p>A special <a class="reference internal" href="advanced_display_management.html"><span class="doc">advanced display management</span></a> section has been written where we go deeper into the inner-workings of display management.</p>
 </div>
 </div>
 </div>
