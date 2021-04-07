@@ -118,9 +118,9 @@ Now that you know all that, here's a table with the **most commonly used layouts
 	  - :code:`bnnn_paging, {.title = "BoldLine", .text = "NormalLine"}`
 
 
-.. |nanos_bnnn_paging| image:: images/nanos/nanos_address.png
+.. |nanos_bnnn_paging| image:: images/nanos/nanos_address_merged.png
    :scale: 100%
-.. |nanox_bnnn_paging| image:: images/nanox/nanox_address.png
+.. |nanox_bnnn_paging| image:: images/nanox/nanox_address_merged.png
    :scale: 100%
 .. |nanos_bn| image:: images/nanos/nanos_amount.png
    :scale: 100%
@@ -158,7 +158,6 @@ Notice that the **Nano X can fit up to 4 lines**, whereas the **Nano S can only 
 	* - :code:`bnnn_paging`
 	  - |nanos_bnnn_paging|
 	  - |nanox_bnnn_paging|
-
 
 You're now ready to go and fly on your owns wings! Flows, steps, and layouts are no mystery to you anymore! We've added a couple of examples just down below, because an example is worth 16x16 words...
 
