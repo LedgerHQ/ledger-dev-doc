@@ -217,4 +217,4 @@ the first one to confirm, the second one to reject.
 Low-level display management
 ----------------------------
 
-A special :doc:`advanced display management </userspace/low_level_display_management>` section has been written where we go deeper into the inner-workings of display management.
+A special :doc:`low-level display management </userspace/low_level_display_management>` section has been written where we go deeper into the inner-workings of display management.
