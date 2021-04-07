@@ -215,7 +215,7 @@ the first one to confirm, the second one to reject.
 			&step_reject
 		);
 
-Advanced display management
----------------------------
+Low-level display management
+----------------------------
 
-A special :doc:`advanced display management </userspace/advanced_display_management>` section has been written where we go deeper into the inner-workings of display management.
+A special :doc:`advanced display management </userspace/low_level_display_management>` section has been written where we go deeper into the inner-workings of display management.

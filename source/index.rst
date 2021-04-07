@@ -42,7 +42,7 @@ low-level details about the hardware architecture of these devices.
    userspace/setup
    userspace/writing_apps
    userspace/display_management
-   userspace/advanced_display_management
+   userspace/low_level_display_management
    userspace/syscalls
    userspace/application_structure
    userspace/memory
