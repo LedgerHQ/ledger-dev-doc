@@ -35,7 +35,7 @@ A step is declared using one of the **macros provided by the SDK**. Here's a lis
 
 * :code:`UX_STEP_NOCB` : Your bread and butter step. A step that simply **displays information on-screen**, without having any callback function (hence the :code:`NOCB` annotation!). This is used to display information to the user (display a public key, display the network name...).
 * :code:`UX_STEP_CB` : Another widely used step declaration. You need to **associate a callback function** (hence the :code:`CB` annotation!) that will be called if the **user presses both buttons simultaneously**. This is used mainly at the end of a flow, to either APPROVE or REJECT a signature for example.
-* :code:`FLOW_LOOP` : This is a special macro that that **doesn't take any arguments**. Put it as the last step of your :code:`UX_FLOW` declaration, and the flow will wrap around: pressing the left button on the first screen will display to the last screen, and pressing the right button on the last screen will jump right to the first screen!
+* :code:`FLOW_LOOP` : This is a special macro that **doesn't take any arguments**. Put it as the last step of your :code:`UX_FLOW` declaration, and the flow will wrap around: pressing the left button on the first screen will display to the last screen, and pressing the right button on the last screen will jump right to the first screen!
 
 Looking back at our previous flow (the :code:`ux_display_pubkey_flow`), you can guess which steps were declared with :code:`UX_STEP_NOCB` and :code:`UX_STEP_CB`!
 
