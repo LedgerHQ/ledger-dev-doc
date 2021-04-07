@@ -136,7 +136,7 @@ This works well enough for a transaction signature. But suppose there's an updat
             &step_amount,
             &step_fee,
             &step_address,
-            &step_arbitrary_data,
+            &step_arbitrary_data, // Arbitrary data
             &step_accept,
             &step_reject
          );
@@ -235,14 +235,15 @@ Don't worry, Ledger's got your back! The fix is quite simple, so let's dive righ
 Cherry-picking explained
 ------------------------
 
-The idea is to create an array of steps that would be big enough to fit all the steps. Since steps grow linearly, this array shouldn't be too big.
-Once this array created, we simply need fill it with the steps we wish to include. The last step should be :code:`FLOW_END_STEP` for it to work properly.
+The idea is to create an array of steps that would be big enough to fit all the steps. Since steps grow linearly, this array won't be too big.
+Once this array created, we simply need to fill it with the steps we wish to include. Finally, we need to add a last step :code:`FLOW_END_STEP` for it to work properly.
 
 We can then call the :code:`ux_init_flow` and pass in our array as argument!
 
 .. code-block:: c
 
-   // The maximum number of steps we will ever need. Here it's 8: step_review, step_amount, step_fee, step_address, step_arbitrary_data, step_nonce, step_accept, step_reject.
+   // The maximum number of steps we will ever need. Here it's 8: step_review, step_amount,
+   // step_fee, step_address, step_arbitrary_data, step_nonce, step_accept, step_reject.
    #define MAX_NUM_STEPS 8
 
    // The array of steps. Notice the type used, as it's important if you wish to use ux_init_flow.
@@ -286,35 +287,19 @@ Defining steps at runtime
 Usecase
 -------
 
-Say we were designing a transaction signature flow with a fixed number of steps. The typical, static :code:`UX_FLOW` code would look like this:
-
-.. code-block:: c
-
-   UX_FLOW(static_flow,
-            &step_review,
-            &step1,
-            &step2,
-            &step3,
-            &step_accept,
-            &step_reject,
-         );
-
 In the previous section we saw that we could define a :code:`UX_FLOW` at runtime. But we did this whilst still having steps defined statically. What if we wish to define steps at runtime too? This would give us a very fine-grained control over what we wish to display, without having to declare a step everytime.
 
 We'd encounter two main issues:
 
-#. What globals are we going to need? Previously, we would have defined :code:`global.amount` to store the amount to display, :code:`global.fees` to store the fees to display, :code:`global.address` to store the address we wish to display, etc. Prior to calling the display function, we would've pre-computed all of that data, and then every :code:`step` would've simply looked at those :code:`global.` fields to display their data. But how can do that now, given that we don't know how many steps we are going to use?
+#. What globals are we going to need? Previously, we would have defined :code:`global.amount` to store the amount to display, :code:`global.fees` to store the fees to display, :code:`global.address` to store the address we wish to display, etc. Prior to calling the display function, we would've pre-computed all of that data, and then every :code:`step` would've simply looked at those :code:`global.*` fields to display their data. But how can do that now, given that we don't know how many steps we are going to use?
 #. How would we define the :code:`UX_FLOW`? We literally used to specify :code:`step1`, :code:`step2`, :code:`step3` etc... Can we create a generic step that would replace those? A :code:`step_generic` step?
-
-UX steps are declared statically (at compilation time) and not dynamically (at runtime). In some cases though, **we can't know in advance how many steps/screens we are going to need**.
-This is why this advanced section presents a **dynamically-defined flow**! Let's dive into it!
 
 Let's try and address both of these problems: the **Data Storage** (1) problem and then the **UX declaration** (2) problem.
 
 Data Storage
 ------------
 
-Here's what the code for a typical would look like.
+Here's what the code for a typical transaction would look like.
 It consists of a global struct that contains all the data we need, and a function (:code:`prepare_then_display_transaction`) that will compute all the necessary data and store it in our global, and then call the appropriate flow to display those.
 
 In the :code:`.h` file
@@ -351,9 +336,9 @@ In the :code:`.c` file:
 
 
 There's something **key to notice** here: the **shape of the functions** we're using to compute the string representation.
-They all **have the same structure**: **first argument** is where we wish to **copy it**, the **second** is a **pointer to the data it's going to use**.
+They all have the same structure: **first argument** is where we wish to **copy it**, the **second** is a **pointer to the data it's going to use**.
 
-Heureka! To print a single step, we only need three different pieces of information:
+Eureka! To print a single step, we only need three different pieces of information:
 
 #. The function that will convert our data to a string.
 #. The data we wish to convert.
@@ -370,9 +355,11 @@ In the :code:`.h` file:
 
    // Maximum size of any data
    #define MAX_DATA_SIZE MAX(MAX_FEE_LENGTH, MAX_AMOUNT_LENGTH, MAX_ADDRESS_LENGTH)
-   // Maximum number of steps we might ever need in a single flow. Adding one because we need to account for the last FLOW_STEP_END.
+   // Maximum number of steps we might ever need in a single flow.
+   // Adding one because we need to account for the last FLOW_STEP_END.
    #define MAX_STEP_COUNT 7 + 1
-   // Number of characters we can draw on the screen without overflowing. Adding one because we need to account for the null terminating character.
+   // Number of characters we can draw on the screen without overflowing.
+   // Adding one because we need to account for the null terminating character.
    #define PROMPT_WIDTH 15 + 1
 
    // A typedef that corresponds to a function pointer that will generate the appropriate string, given some data.
@@ -381,7 +368,7 @@ In the :code:`.h` file:
 
    // A struct that contains every pieces of information to display a single step.
    struct step_info_t {
-      // This will get filled by the title, in bold, displayed on-screen.
+      // This will get filled by the title.
       char title[PROMPT_WIDTH];
       // This is a pointer to the data we need to generate the string.
       void *data;
@@ -403,15 +390,15 @@ In the :code:`.h` file:
       // Other unrelated fields left out.
    };
 
-Now that we have the struct and :code:`define`s, we need to implement the business logic.
-We will need two functions: :code:`step_push` that will add a step to our :code:`step_array`. Another function  :code:`step_array_display` will display the :code:`step_array`. In the code below, an example of :code:`display_transaction` is also given, to show you how those functions should be used.
+Now that we have the struct and :code:`define` s, we need to implement the business logic.
+We will need two functions: :code:`push_step` that will add a step to our :code:`step_array`. Another function  :code:`step_array_display` will display the :code:`step_array`. In the code below, an example of :code:`display_transaction` is also given, to show you how those functions should be used.
 
 In the :code:`.c` file:
 
 .. code-block:: c
 
    // Utility function to push steps on the step array.
-   void step_push(char *title, void *data, string_generating_fn convert_fn) {
+   void push_step(char *title, void *data, string_generating_fn convert_fn) {
       if (global.curr_size) >= MAX_STEP_COUNT {
          // Don't add steps if we're already passed MAX_STEP_COUNT.
          return;
@@ -464,7 +451,8 @@ Now comes the difficult part. Finding a step that would be generic enough to fit
 .. code-block:: c
 
    // Naive definition of a UX_FLOW.
-   // Note: we are still keeping step_review, step_accept and step_reject because we know our flow will need those anyway.
+   // Note: we are still keeping step_review, step_accept and
+   // step_reject because we know our flow will need those anyway.
    UX_FLOW(ideal_dynamic_fow,
             &step_welcome,
             &step_generic, // A generic step that would fit all our needs.
@@ -499,6 +487,8 @@ The definition of :code:`step_upper_delimiter`, :code:`step_lower_delimiter` and
 
 .. code-block:: c
    
+
+   // Note we're using UX_STEP_INIT because this step won't display anything.
    UX_STEP_INIT(
       step_upper_delimiter,
       NULL,
@@ -518,6 +508,7 @@ The definition of :code:`step_upper_delimiter`, :code:`step_lower_delimiter` and
       }
    );
 
+   // Note we're using UX_STEP_INIT because this step won't display anything.
    UX_STEP_INIT(
       step_lower_delimiter,
       NULL,
@@ -573,12 +564,14 @@ And in the :code:`.c` file, we add all the business logic. The code is commented
       // Copy the title located in the step_info to the global title.
       strcpy((char *)global.title, step_info->title);
 
-      // Call the `string_generating_fn` on the data contained in the step_info, and store the string in the global.text.
+      // Call the `string_generating_fn` on the data contained in the step_info,
+      // and store the string in the global.text.
       step_info->fn(&global.text, sizeof(global.text), step_info->data);
    }
 
    // This is a special function we must call for bnnn_paging to work properly in an edgecase.
-   // It does some weird stuff with the `G_ux` global which is defined by the SDK. No need to dig deeper into the code, a simple copy paste will do.
+   // It does some weird stuff with the `G_ux` global which is defined by the SDK.
+   // No need to dig deeper into the code, a simple copy paste will do.
    void bnnn_paging_edgecase() {
        G_ux.flow_stack[G_ux.stack_count - 1].prev_index = G_ux.flow_stack[G_ux.stack_count - 1].index - 2;
        G_ux.flow_stack[G_ux.stack_count - 1].index--;
@@ -606,12 +599,14 @@ And in the :code:`.c` file, we add all the business logic. The code is commented
 
                   // Update the current_state accordingly.
                   global.current_state = STATIC_SCREEN;
-                  // Don't need to update the screen data, simply display the ux_flow_prev() which will be a static screen.
+                  // Don't need to update the screen data, simply display the ux_flow_prev() which
+                  // will be a static screen.
                   ux_flow_prev();
                } else {
                   // global.current_index is not 0 which means the user is still browsing the array.
 
-                  // Decrement `current_index` since the user has pressed the left button meaning he wants to see the previous screen.
+                  // Decrement `current_index` since the user has pressed the left button meaning
+                  // he wants to see the previous screen.
                   global.current_index--;
                   // Update the screen data.
                   set_screen_data();
