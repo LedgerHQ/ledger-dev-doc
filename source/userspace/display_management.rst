@@ -217,4 +217,4 @@ the first one to confirm, the second one to reject.
 Advanced display management
 ----------------------------
 
-A special :doc:`advanced display management </userspace/advanced_display_management>` section has been written where we detail more advanced UX_FLOW delcaration. Another :doc:`low-level display management` </userspace/low_level_display_management>` has details about the inner-workings of flows, but definitely feel free to skip it as it is in no way required to be able to write new apps!
+A special :doc:`advanced display management </userspace/advanced_display_management>` section has been written where we detail more advanced UX_FLOW delcaration. Another :doc:`low_level_display_management` </userspace/low_level_display_management>` has details about the inner-workings of flows, but definitely feel free to skip it as it is in no way required to be able to write new apps!
