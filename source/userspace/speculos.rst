@@ -3,7 +3,7 @@ Emulating devices with Speculos
 
 Ledger has developed its own Ledger Nano S / Ledger Nano X / Ledger Blue emulator, called `Speculos <https://github.com/LedgerHQ/speculos>`_. This emulator can be useful if you want to run tests, debug your app with GDB, or just try your app without having to physically plug-in your Ledger device.
 
-We will go over quick guide to using speculos, but more information is available in the `docs section of the github page <https://github.com/LedgerHQ/speculos/tree/master/doc>`_.
+We will go over a quick guide to using speculos, but more information is available in `speculos dedicated documentation <https://speculos.ledger.com/>`_ or in the `docs section of the github page <https://github.com/LedgerHQ/speculos/tree/master/doc>`_.
 
 Setup
 -----
