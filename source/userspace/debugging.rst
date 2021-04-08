@@ -13,7 +13,7 @@ Application Debug
 
 .. warning::
 
-   The :doc:`BOLOS development environment </userspace/getting_started>` is
+   The :doc:`BOLOS development environment </userspace/setup>` is
    required for the following article. It applies only for the Nano S, with its
    SE firmware either in version 1.5.5 or 1.6.0.
 

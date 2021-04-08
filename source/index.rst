@@ -39,10 +39,12 @@ low-level details about the hardware architecture of these devices.
    :maxdepth: 1
 
    userspace/introduction
-   userspace/getting_started
+   userspace/setup
+   userspace/writing_apps
+   userspace/display_management
+   userspace/low_level_display_management
    userspace/syscalls
    userspace/application_structure
-   userspace/display_management
    userspace/memory
    userspace/alignment
    userspace/troubleshooting
