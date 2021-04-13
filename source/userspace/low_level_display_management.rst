@@ -1,12 +1,10 @@
+============================
 Low-level display management
 ============================
 
 .. warning:: 
 
    This article only concerns about 1% of users who wish to get a deeper understanding / design more advanced flows. Feel free to skip it!
-
-BAGLs and BOLOSS
-================
 
 The BOLOS SDKs contain a toolkit for building GUIs called the BOLOS Application
 Graphics Library (BAGL). BAGL defines a few useful types, most notably
