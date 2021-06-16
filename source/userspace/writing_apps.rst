@@ -3,7 +3,7 @@ Writing Apps
 
 Not much documentation has been written yet (work in progress!) regarding the exact steps to follow to write apps. However, very good codebases are available for you to learn from.
 
-* The `app-boilerplate <https://github.com/LedgerHQ/ledger-app-boilerplate.git>`_ is a thoroughly documented app that was specifically designed for developers to play around with and read the code.
+* The `app-boilerplate <https://github.com/LedgerHQ/app-boilerplate.git>`_ is a thoroughly documented app that was specifically designed for developers to play around with and read the code.
 * The `app-sia <https://github.com/LedgerHQ/app-sia.git>`_ is also a thoroughly documented app written by the community. If you wish to study a fully-fledged app, this is the one for you!
 
 Cloning and Making
@@ -20,14 +20,14 @@ First, download the boilerplate app.
 
 .. code-block:: bash
 
-   git clone https://github.com/LedgerHQ/ledger-app-boilerplate.git
+   git clone https://github.com/LedgerHQ/app-boilerplate.git
 
 Now you can let the Makefile do all the work. The ``load`` target will build the
 app if necessary and load it onto your device over USB.
 
 .. code-block:: bash
 
-   cd ledger-app-boilerplate/
+   cd app-boilerplate/
    make load
 
 And you're done! After confirming the installation on your device, you should
