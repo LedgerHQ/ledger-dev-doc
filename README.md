@@ -1,4 +1,4 @@
-# Ledger Developer Documentation
+# Ledger Developer Documentation (DEPRECATED - please use https://github.com/LedgerHQ/unos)
 
 This repository contains the core documentation for developers who wish to make
 BOLOS applications, and for those who would like to gain a better understanding
